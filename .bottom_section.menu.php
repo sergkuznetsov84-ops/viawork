@@ -2,14 +2,14 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Sustainability", 
+		"Устойчивое развитие", 
 		"sustainability/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Technology", 
+		"Технологии", 
 		"technology/", 
 		Array(), 
 		Array(), 

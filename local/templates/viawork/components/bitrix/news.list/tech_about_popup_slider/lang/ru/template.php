@@ -1,4 +1,4 @@
 <?
 $MESS["CT_BNL_ELEMENT_DELETE_CONFIRM"] = "Будет удалена вся информация, связанная с этой записью. Продолжить?";
-$MESS["CT_TITLE"] = "Designed and engineered with precision, Powered by cutting-edge technology.";
+$MESS["CT_TITLE"] = "Разработано и изготовлено с высокой точностью на базе передовых технологий.";
 ?>
