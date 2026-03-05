@@ -81,7 +81,7 @@ $this->setFrameMode(true);
 				<div class="row" >
 					<div class="col-xl-10 offset-xl-1" >
 						<div class="comp-22-cta-main fadeInUp-scroll" data-delay="100" >
-							<h4>Learn more About Me Too</h4>
+							<h4>Узнать больше о программе Me Too</h4>
 							<a href="<?=$arParams["METOO_HREF"]?>" target="" class="btn btn-white btn-semibold btn-rnd-full"><span>Me Too</span> <i>
 	<svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<path d="M16.89 7.1875L10.97 13.1075C10.83 13.2475 10.64 13.3275 10.45 13.3275C10.26 13.3275 10.07 13.2575 9.93 13.1075C9.64 12.8175 9.64 12.3475 9.93 12.0575L14.59 7.3975H0V5.9175H14.58L9.92 1.2675C9.63 0.9775 9.63 0.5075 9.92 0.2175C10.21 -0.0725 10.68 -0.0725 10.97 0.2175L16.89 6.1375C17.18 6.4275 17.18 6.8975 16.89 7.1875Z" fill="#4f6d5d"></path>

@@ -27,7 +27,7 @@ $this->setFrameMode(true);
 	<p>Sorting</p>
 	<div class="switch-filter" >
 		<div class="switch-filter-inner" >
-			<a href="javascript:;" class="products active">Products</a>
+			<a href="javascript:;" class="products active">Продукция</a>
 			<a href="javascript:;" class="cases">References</a>
 		</div>
 	</div>
@@ -53,7 +53,7 @@ $this->setFrameMode(true);
 	<?//var_dump($arResult['PRODUCT_CATEGORY']);?>
 	<?$tempArray = array_keys(array_count_values($arResult['PRODUCT_CATEGORY']));?>
 	<div class="studies-btns product-btns show">
-		<button class="active" data-filter="*">All Products</button>
+		<button class="active" data-filter="*">Все продукты</button>
 		<?$arParamsTranslite = array("replace_space"=>"-","replace_other"=>"-");?>
 		<?foreach($arResult['PRODUCT_CATEGORY'] as $category){
 			if(!empty($category) && in_array($category, $tempArray)){?>
