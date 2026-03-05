@@ -93,7 +93,7 @@
 									<div class="footer-links" >
 										<div class="links-block" >
 											<div class="title" >
-												<span>Resources</span>
+												<span><?=GetMessage("FOOTER_RESOURCES")?></span>
 											</div>
 											<?$APPLICATION->IncludeComponent(
 												"bitrix:menu", 
@@ -121,13 +121,13 @@
 											
 										</div>
 										<div class="direct-links" >
-											<a href="https://login.pcon-solutions.com/catalog/NURD12">pCon Catalogue</a>
+											<a href="https://login.pcon-solutions.com/catalog/NURD12"><?=GetMessage("FOOTER_PCON")?></a>
 										</div>
 									</div>
 									<div class="footer-links" >
 										<div class="links-block" >
 											<div class="title" >
-												<span>Contact Us</span>
+												<span><?=GetMessage("FOOTER_CONTACT")?></span>
 											</div>
 											<?$APPLICATION->IncludeComponent(
 												"bitrix:menu", 
@@ -261,9 +261,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const fixedHeader = document.getElementById("headerfixed");
     let lastScroll = 0;
 
-    window.addEventListener("scroll", function() {
-							<span><?=GetMessage("FOOTER_RESOURCES")?></span>
-
+	window.addEventListener("scroll", function() {
         if (currentScroll > 100) {
             // Добавляем класс, когда скролл больше 100px
             fixedHeader.classList.add("fixed");
@@ -289,12 +287,12 @@ document.addEventListener("DOMContentLoaded", function() {
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH."/src/js"?>/a11y.min.js" id="wp-a11y-js"></script>
 <script type="text/javascript" defer="defer" src="<?=SITE_TEMPLATE_PATH."/src/js"?>/jquery.json.min.js" id="gform_json-js"></script>
 
-						<a href="https://login.pcon-solutions.com/catalog/NURD12"><?=GetMessage("FOOTER_PCON")?></a>
+                        					
 <script type="text/javascript" defer="defer" src="<?=SITE_TEMPLATE_PATH."/src/js"?>/placeholders.jquery.min.js" id="gform_placeholder-js"></script>
 <script type="text/javascript" defer="defer" src="<?=SITE_TEMPLATE_PATH."/src/js"?>/utils.min.js" id="gform_gravityforms_utils-js"></script>
 <script type="text/javascript" defer="defer" src="<?=SITE_TEMPLATE_PATH."/src/js"?>/vendor-theme.min.js" id="gform_gravityforms_theme_vendors-js"></script>
 
 
-							<span><?=GetMessage("FOOTER_CONTACT")?></span>
+					
 
 
