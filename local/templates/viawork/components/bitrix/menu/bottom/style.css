@@ -1,0 +1,14 @@
+.footer .footer-links .links-block .links {
+  display: inline-flex;
+  flex-direction: column
+}
+
+.footer .footer-links .links-block .links a {
+  color: #fff;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+  text-decoration: none;
+  transition: opacity .5s ease;
+}

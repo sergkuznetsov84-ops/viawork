@@ -1,0 +1,67 @@
+i/* mg {border:0 none;}
+
+h1, h2, h3, h4, h5, h6
+{
+	font-family: Arial, Helvetica,sans-serif; 
+	margin:1.3em 0 1em;
+	font-weight:normal;
+	line-height:1.2;
+}
+
+h1 { font-size:200%; margin:0 0 1em; }
+h2 { font-size:160%; }
+h3 { font-size:140%; }
+h4 { font-size:140%; }
+h5 { font-size:120%; }
+h6 { font-size:100%; }
+
+hr, .hr 
+{
+	border-top:1px solid;
+	display:block;
+	font-size:1px;
+	height:1px;
+	line-height:1px;
+	margin:12px 0;
+	overflow:hidden;
+	padding:0;
+}
+
+#workarea ol li, #workarea ul li { margin: 0.6em 0; }
+#workarea ul { list-style-type: disc; } */
+
+.main-product .btn-arsenic {
+    color: white;
+}
+
+.comp-99-content {
+    margin-top: 70px;
+    height: min-content;
+}
+
+#headerfixed {
+    opacity: 0;
+    transition: top 300ms linear;
+    background: #fff;
+    background-color: var(--card_bg_black);
+    display: block;
+    position: fixed;
+    top: -100px;
+    z-index: 996;
+    right: 0;
+    left: 0;
+}
+header.fixed, #headerfixed.fixed {
+    position: fixed;
+    margin: 0;
+    width: 100%;
+    top: 0;
+    z-index: 997;
+    right: 0;
+    left: 0;
+    transition: z-index 0.25s ease-in-out;
+}
+#headerfixed.fixed {
+    opacity: 1;
+    display: block;
+}

@@ -1,0 +1,39 @@
+.search-page form{
+	display: flex;
+    position: relative;
+    width: 100%;}
+.search-page form input {
+    background: #e9ebef;
+    border: none;
+    border-radius: 20px;
+    color: #acb4b7;
+    font-family: Gellix SemiBold;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    height: 39px;
+    line-height: normal;
+    outline: none !important;
+    padding: 0 46px;
+    width: 100%;
+}
+.search-page form button {
+    background: transparent;
+    border: none;
+    height: 16px;
+    left: 16px;
+    outline: none;
+    padding: 0;
+    position: absolute;
+    top: 13px;
+    width: 16px;
+}
+.search-page form button i {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.search-page form button i svg {
+    height: 100%;
+    width: 100%;
+}

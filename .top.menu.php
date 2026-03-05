@@ -1,0 +1,53 @@
+<?
+$aMenuLinks = Array(
+	Array(
+		"О нас", 
+		"company/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Продукция", 
+		"all-products/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Устойчивое развитие", 
+		"sustainability/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Технологии", 
+		"technology/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Документы", 
+		"resources/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"О компании Nurus", 
+		"company_nurus/", 
+		Array(), 
+		Array(), 
+		"" 
+	),
+	Array(
+		"Контакты", 
+		"contacts/", 
+		Array(), 
+		Array(), 
+		"" 
+	)
+);
+?>

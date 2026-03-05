@@ -1,0 +1,13 @@
+/upload/
+/bitrix/cache/
+/bitrix/managed_cache/
+/bitrix/stack_cache/
+/bitrix/backup/
+/bitrix/tmp/
+
+*.sql
+*.zip
+*.tar
+*.tar.gz
+*.log
+.env

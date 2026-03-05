@@ -1,0 +1,10 @@
+.swiper-wrapper {
+    box-sizing: content-box;
+    display: flex;
+    height: auto!important;
+    position: relative;
+    transition-property: transform;
+    transition-timing-function: var(--swiper-wrapper-transition-timing-function, initial);
+    width: 100%;
+    z-index: 1;
+}

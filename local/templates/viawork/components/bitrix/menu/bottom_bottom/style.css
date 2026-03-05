@@ -1,0 +1,10 @@
+.footer .footer-bottom .legal-links a:hover {
+    opacity: .7;
+}
+.footer .footer-bottom .legal-links a {
+    color: #fff;
+    font-size: 14px;
+    line-height: normal;
+    text-decoration: none;
+    transition: opacity .5s ease;
+}

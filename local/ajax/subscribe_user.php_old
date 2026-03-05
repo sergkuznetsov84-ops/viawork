@@ -1,0 +1,33 @@
+<?define("STATISTIC_SKIP_ACTIVITY_CHECK", "true");?>
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/main/include/prolog_before.php");?>
+
+<?
+if(\Bitrix\Main\Loader::includeModule('subscribe')){
+	$arData = $arRubricsID = array();
+	parse_str($_REQUEST['data'], $arData);
+
+	if($arData){
+		foreach($arData as $key => $value){
+			$_REQUEST[$key] = $value;
+		}	
+	}
+
+	$dbRes = CRubric::GetList(array('ID' => 'ASC'), array('LID' => SITE_ID, 'ACTIVE' => 'Y'));
+	while($arRes = $dbRes->Fetch()){
+		$arRubricsID[] = $arRes['ID'];
+	}
+	
+	$arSubscription = CSubscription::GetList(array('ID' => 'ASC'), array('ACTIVE' => 'Y', 'EMAIL' => $arData['EMAIL']))->Fetch();
+	
+	$subscr = new CSubscription;
+	
+	if($arSubscription){
+		$subscr->Update($arSubscription['ID'], array('EMAIL' => $arData['EMAIL'], 'RUB_ID' => $arRubricsID), SITE_ID);
+	}
+	else{
+		$subscr->Add(array('EMAIL' => $arData['EMAIL'], 'RUB_ID' => $arRubricsID), SITE_ID);
+	}
+	echo "Bize ulaştığınız için teşekkürler! En kısa sürede sizinle temas kuracağız.";
+}
+?>
+
