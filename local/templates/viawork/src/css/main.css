@@ -37426,3 +37426,15 @@ section.handoff-footer .handoff-footer-contain a:hover {
     font-size: 12px
   }
 }
+
+/* Russian language: prefer Montserrat (Cyrillic subset) to better match design */
+body.language-ru,
+html[lang="ru"] body {
+  font-family: 'Montserrat', 'Gellix Regular', Verdana, Geneva, sans-serif;
+}
+
+/* Ensure footer links also inherit the Cyrillic-capable font */
+.footer,
+.footer * {
+  font-family: inherit;
+}
