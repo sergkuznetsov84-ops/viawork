@@ -79,6 +79,19 @@
 							</div>
       </div>
     </div>
+  					<div class="language-list-item " >
+        <div class="language-list-item-head" >
+          <span>Russia</span>
+        </div>
+        <div class="language-list-item-body" >
+          <div class="language-list-item-body-links" >
+                  <a href="/ru/" class="">
+                    Русский (RU)
+                    <span>Russia</span>
+                  </a>
+              </div>
+        </div>
+      </div>
 						<div class="language-list-item " >
       <div class="language-list-item-head" >
         <span>Türkiye</span>

@@ -25,15 +25,19 @@ if ($page == '/technology/') {
 }
 ?>
 <!DOCTYPE html>
-
+<html lang="<?=defined('LANGUAGE_ID')?LANGUAGE_ID:'en'?>">
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?
+// Load Montserrat (includes Cyrillic) so Russian text matches the design more closely
+Asset::getInstance()->addString('<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap&subset=cyrillic" rel="stylesheet">');
+?>
 <?$APPLICATION->ShowHead();?>
 <title><?$APPLICATION->ShowTitle()?></title>
 
-<body class="home wp-singular page-template-default page page-id-671 wp-theme-nurus-backend language-en <?=$bodyClass?>"  style="" >
+<body class="home wp-singular page-template-default page page-id-671 wp-theme-nurus-backend language-<?=(defined('LANGUAGE_ID')?LANGUAGE_ID:'en')?> <?=$bodyClass?>"  style="" >
 <div id="panel"><?$APPLICATION->ShowPanel();?></div>
 	<header class="header header-home <?=$headerClass?>">
       <div class="header-top" >
