@@ -2,21 +2,21 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Downloads", 
+		"Загрузки", 
 		"resources/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"2D / CAD Data", 
+		"2D / CAD файлы", 
 		"resources/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"pCon Configurator", 
+		"pCon Конфигуратор", 
 		"resources/", 
 		Array(), 
 		Array(), 
