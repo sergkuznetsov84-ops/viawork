@@ -2,28 +2,28 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Our Story", 
+		"О компании", 
 		"company/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Case Studies", 
+		"Кейсы", 
 		"case-studies/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"News & Articles", 
+		"Новости и статьи", 
 		"blog/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Brand Assets", 
+		"Брендовые материалы", 
 		"upload/Nurus_Brand_Assets.zip", 
 		Array(), 
 		Array(), 

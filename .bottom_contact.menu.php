@@ -1,15 +1,15 @@
 <?
 $aMenuLinks = Array(
-	Array(
-		"Become a Dealer", 
-		"contacts/", 
+		Array(
+			"Стать дилером", 
+			"contacts/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
-	Array(
-		"Nurus Locations", 
-		"contacts/", 
+		Array(
+			"Точки присутствия Nurus", 
+			"contacts/", 
 		Array(), 
 		Array(), 
 		"" 

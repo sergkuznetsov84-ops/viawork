@@ -2,28 +2,28 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Cookie Policy", 
+		"Политика cookie", 
 		"cookie_settings//", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Terms & Conditions", 
+		"Условия и положения", 
 		"terms_conditions/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Privacy Policy", 
+		"Политика конфиденциальности", 
 		"privacy_policy/", 
 		Array(), 
 		Array(), 
 		"" 
 	),
 	Array(
-		"Information Security Policy", 
+		"Политика информационной безопасности", 
 		"information_security_policy/", 
 		Array(), 
 		Array(), 

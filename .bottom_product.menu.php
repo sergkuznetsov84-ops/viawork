@@ -2,7 +2,7 @@
 <?
 $aMenuLinks = Array(
 	Array(
-		"Office Chairs", 
+		"Офисные кресла", 
 		"all-products/ofisnye-kresla/", 
 		Array(), 
 		Array(), 
@@ -23,7 +23,7 @@ $aMenuLinks = Array(
 		"" 
 	),
 	Array(
-		"All Products", 
+		"Все продукты", 
 		"all-products/", 
 		Array(), 
 		Array(), 
