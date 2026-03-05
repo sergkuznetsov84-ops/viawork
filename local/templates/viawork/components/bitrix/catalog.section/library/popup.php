@@ -10,7 +10,7 @@
                 </i>
             </a>
             <div class="popup-title">
-                <h3>Please Enter Your Contact Information and <strong>Access Nurus Resources</strong></h3>
+                <h3>Введите свои контактные данные, чтобы получить доступ к материалам Nurus</h3>
             </div>
             <div class="popup-form">
                 <!-- Gravity Forms контейнер -->

@@ -161,7 +161,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
                     <?= $arResult["FORM_FOOTER"] ?>
                     
                     <?}else{?>
-                        <div id="gform_confirmation_message_3" class="gform_confirmation_message_3 gform_confirmation_message" >Thanks for contacting us! We will get in touch with you shortly.</div>
+                        <div id="gform_confirmation_message_3" class="gform_confirmation_message_3 gform_confirmation_message" >Спасибо за обращение! Мы свяжемся с вами в ближайшее время.</div>
                     
                     <?}?> 
                     
