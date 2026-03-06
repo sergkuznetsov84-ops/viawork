@@ -1,10 +1,21 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+<?
+$heroImageSrc = '';
+
+if (!empty($arResult['DETAIL_PICTURE']['SRC'])) {
+	$heroImageSrc = $arResult['DETAIL_PICTURE']['SRC'];
+} elseif (!empty($arResult['PREVIEW_PICTURE']['SRC'])) {
+	$heroImageSrc = $arResult['PREVIEW_PICTURE']['SRC'];
+} elseif (!empty($arResult['PROPERTIES']['GALLERY']['VALUE'][0])) {
+	$heroImageSrc = CFile::GetPath($arResult['PROPERTIES']['GALLERY']['VALUE'][0]);
+}
+?>
 <main class="main-product">
 	<section class="comp-1 style-2">
 		<div class="comp-1-wrapper" >
 			<div class="comp-1-media" >
 				<picture>
-					<img class="sp-no-webp" src="<?=$arResult['DETAIL_PICTURE']["SRC"]?>" alt="">
+					<img class="sp-no-webp" src="<?=$heroImageSrc?>" alt="<?=htmlspecialcharsbx($arResult['NAME'])?>">
 				</picture>				
 			</div>
 			<div class="comp-1-content" >
