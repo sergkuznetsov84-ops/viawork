@@ -1,19 +1,19 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <?
-$aMenuLinks = Array(
-	Array(
-		"Политика cookie", 
-		"cookie_settings//", 
-		Array(), 
-		Array(), 
-		"" 
-	),
-	Array(
-		"Условия и положения", 
-		"terms_conditions/", 
-		Array(), 
-		Array(), 
-		"" 
+	$aMenuLinks = Array(
+		Array(
+			"Политика использования cookie", 
+			"cookie-settings/", 
+			Array(), 
+			Array(), 
+			"" 
+		),
+		Array(
+			"Условия использования", 
+			"terms_conditions/", 
+			Array(), 
+			Array(), 
+			"" 
 	),
 	Array(
 		"Политика конфиденциальности", 

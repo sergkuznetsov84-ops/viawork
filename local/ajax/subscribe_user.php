@@ -15,7 +15,7 @@ if(\Bitrix\Main\Loader::includeModule('subscribe')){
 	else{
 		$subscr->Add(array('EMAIL' => $_REQUEST['EMAIL'], 'RUB_ID' => $_REQUEST['RUB_ID']), SITE_ID);
 	}
-	echo "Bize ulaştığınız için teşekkürler! En kısa sürede sizinle temas kuracağız.";
-}
+		echo "Спасибо за подписку. Мы свяжемся с вами в ближайшее время.";
+	}
 ?>
 

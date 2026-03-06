@@ -11,9 +11,9 @@
 			<div class="title fadeInUp-scroll visible" data-delay="300" >
 				<h2>О компании Nurus</h2>
 			</div>
-		<div class="description fadeInUp-scroll visible" data-delay="300" >
-			<p>For almost a century, we've put people at the center of work. Nurus creates thoughtful solutions for modern work life. From design to delivery, every step is shaped by strong R&amp;D, cutting-edge tech, and conscious material choices. Our goal? Not just to build furniture—but to build smarter, more sustainable tools that work with you, not against you.</p>
-		</div>
+			<div class="description fadeInUp-scroll visible" data-delay="300" >
+				<p>Почти целое столетие мы ставим человека в центр рабочего пространства. Nurus создаёт продуманные решения для современной рабочей жизни. От дизайна до поставки каждый этап опирается на сильные исследования и разработки, передовые технологии и осознанный выбор материалов. Наша цель не просто создавать мебель, а разрабатывать более умные и устойчивые решения, которые помогают вам работать эффективнее.</p>
+			</div>
 		</div>
 								
 	</div>

@@ -52,7 +52,7 @@ Asset::getInstance()->addString('<link href="https://fonts.googleapis.com/css2?f
 						<img src="<?=SITE_TEMPLATE_PATH."/src/img"?>/Nurus_Flags_US.svg" alt="">
 					</div>
 					<div class="region-text" >
-						<span>Global</span>
+						<span>Глобально</span>
 					</div>-->
 				</div>
 			</div>
@@ -124,7 +124,7 @@ Asset::getInstance()->addString('<link href="https://fonts.googleapis.com/css2?f
 							</defs>
 							</svg>
 						</i>
-						Language and Region            
+							Язык и регион
 					</a>
 				</div>
 			</div>
@@ -187,7 +187,7 @@ Asset::getInstance()->addString('<link href="https://fonts.googleapis.com/css2?f
 						<img src="<?=SITE_TEMPLATE_PATH."/src/img"?>/Nurus_Flags_US.svg" alt="">
 					</div>
 					<div class="region-text" >
-						<span>Global</span>
+						<span>Глобально</span>
 					</div>
 				</div>
 			</div>
@@ -259,7 +259,7 @@ Asset::getInstance()->addString('<link href="https://fonts.googleapis.com/css2?f
 							</defs>
 							</svg>
 						</i>
-						Language and Region            
+							Язык и регион
 					</a>
 				</div>
 			</div>

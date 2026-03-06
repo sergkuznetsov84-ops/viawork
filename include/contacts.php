@@ -6,7 +6,7 @@
           <div class="col-lg-10 offset-lg-1" bis_skin_checked="1">
             <div class="comp-103-head" bis_skin_checked="1">
               <div class="title" bis_skin_checked="1">
-                <h2>Global Nurus Sales Points</h2>
+	                <h2>Точки продаж Nurus по всему миру</h2>
               </div>
             </div>
                           <div class="comp-103-content" bis_skin_checked="1">
@@ -38,7 +38,7 @@
                                                       <div class="comp-103-acc-item" data-map-link="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.163825555145!2d32.537433412396304!3d39.96008978318553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d33acca23d4d85%3A0x481326dafcd0d246!2sNurus%20Fabrika!5e0!3m2!1str!2str!4v1724847051664!5m2!1str!2str" bis_skin_checked="1">
                               <div class="comp-103-acc-item-head" id="comp-103-acc-tab-1-head_1" data-bs-toggle="collapse" data-bs-target="#comp-103-acc-tab-1-collapse_1" aria-expanded="true" aria-controls="comp-103-acc-tab-1-collapse_1" bis_skin_checked="1">
                                 <div class="title" bis_skin_checked="1">
-                                  <h5>Ankara HQ</h5>
+	                                  <h5>Штаб-квартира в Анкаре</h5>
                                 </div>
                                 <div class="head-icon" bis_skin_checked="1">
                                   <i>
@@ -66,7 +66,7 @@
                                                       <div class="comp-103-acc-item" data-map-link="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6120.623869647582!2d32.804461!3d39.912035!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d348b2497b106d%3A0x47ca7c570966071b!2zTnVydXMgS2_DpyBLdWxlL1PDtsSfw7x0w7Z6w7w!5e0!3m2!1str!2str!4v1750066507548!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" bis_skin_checked="1">
                               <div class="comp-103-acc-item-head" id="comp-103-acc-tab-1-head_2" data-bs-toggle="collapse" data-bs-target="#comp-103-acc-tab-1-collapse_2" aria-expanded="false" aria-controls="comp-103-acc-tab-1-collapse_2" bis_skin_checked="1">
                                 <div class="title" bis_skin_checked="1">
-                                  <h5>Ankara Showroom</h5>
+	                                  <h5>Шоурум в Анкаре</h5>
                                 </div>
                                 <div class="head-icon" bis_skin_checked="1">
                                   <i>
@@ -93,7 +93,7 @@
                                                       <div class="comp-103-acc-item" data-map-link="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12030.911227345512!2d29.0155148!3d41.0749421!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab678d7800e09%3A0xafd714d5278e02c8!2sNurus%20Experience%20Hub!5e0!3m2!1str!2str!4v1724655699798!5m2!1str!2str" bis_skin_checked="1">
                               <div class="comp-103-acc-item-head" id="comp-103-acc-tab-1-head_3" data-bs-toggle="collapse" data-bs-target="#comp-103-acc-tab-1-collapse_3" aria-expanded="false" aria-controls="comp-103-acc-tab-1-collapse_3" bis_skin_checked="1">
                                 <div class="title" bis_skin_checked="1">
-                                  <h5>Istanbul Levent Experience Hub</h5>
+	                                  <h5>Центр опыта Nurus в Левенте, Стамбул</h5>
                                 </div>
                                 <div class="head-icon" bis_skin_checked="1">
                                   <i>
@@ -122,7 +122,7 @@ F: (+90) 212 270 48 28</span></p>
                                                       <div class="comp-103-acc-item" data-map-link="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6093.571461458493!2d28.960224!3d40.213829!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca115dd8813833%3A0x654d0e5b8fd8ba29!2sNurus%20Bursa!5e0!3m2!1str!2str!4v1750066589804!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" bis_skin_checked="1">
                               <div class="comp-103-acc-item-head" id="comp-103-acc-tab-1-head_4" data-bs-toggle="collapse" data-bs-target="#comp-103-acc-tab-1-collapse_4" aria-expanded="false" aria-controls="comp-103-acc-tab-1-collapse_4" bis_skin_checked="1">
                                 <div class="title" bis_skin_checked="1">
-                                  <h5>Bursa Showroom</h5>
+	                                  <h5>Шоурум в Бурсе</h5>
                                 </div>
                                 <div class="head-icon" bis_skin_checked="1">
                                   <i>
@@ -150,7 +150,7 @@ F: (+90) 212 270 48 28</span></p>
 							<div class="comp-103-acc-item" data-map-link="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6227.702499898449!2d35.6167!3d38.698261!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x152b6db9f1c2467d%3A0x6440d4afeafe2065!2sNurus%20kayseri!5e0!3m2!1str!2str!4v1750066729992!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" bis_skin_checked="1">
                               <div class="comp-103-acc-item-head" id="comp-103-acc-tab-1-head_5" data-bs-toggle="collapse" data-bs-target="#comp-103-acc-tab-1-collapse_5" aria-expanded="false" aria-controls="comp-103-acc-tab-1-collapse_5" bis_skin_checked="1">
                                 <div class="title" bis_skin_checked="1">
-                                  <h5>Kayseri Store</h5>
+	                                  <h5>Магазин в Кайсери</h5>
                                 </div>
                                 <div class="head-icon" bis_skin_checked="1">
                                   <i>
@@ -178,7 +178,7 @@ F: (+90) 212 270 48 28</span></p>
 							<div class="comp-103-acc-item" data-map-link="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12762.360582861946!2d30.735806000000004!3d36.900152!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14c3853f9ae0050f%3A0xe965a60461fa0271!2sNurus%20Antalya!5e0!3m2!1str!2str!4v1750066634213!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" bis_skin_checked="1">
                               <div class="comp-103-acc-item-head" id="comp-103-acc-tab-1-head_6" data-bs-toggle="collapse" data-bs-target="#comp-103-acc-tab-1-collapse_6" aria-expanded="false" aria-controls="comp-103-acc-tab-1-collapse_6" bis_skin_checked="1">
                                 <div class="title" bis_skin_checked="1">
-                                  <h5>Antalya Store</h5>
+	                                  <h5>Магазин в Анталье</h5>
                                 </div>
                                 <div class="head-icon" bis_skin_checked="1">
                                   <i>
@@ -206,7 +206,7 @@ F: (+90) 212 270 48 28</span></p>
 							<div class="comp-103-acc-item" data-map-link="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3183.5532096719126!2d37.360952!3d37.068129!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1531e482251bf27b%3A0xb6756cfe956b86ca!2sNurus!5e0!3m2!1str!2str!4v1750066692589!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" bis_skin_checked="1">
                               <div class="comp-103-acc-item-head" id="comp-103-acc-tab-1-head_7" data-bs-toggle="collapse" data-bs-target="#comp-103-acc-tab-1-collapse_7" aria-expanded="false" aria-controls="comp-103-acc-tab-1-collapse_7" bis_skin_checked="1">
                                 <div class="title" bis_skin_checked="1">
-                                  <h5>Gaziantep Store</h5>
+	                                  <h5>Магазин в Газиантепе</h5>
                                 </div>
                                 <div class="head-icon" bis_skin_checked="1">
                                   <i>
@@ -234,7 +234,7 @@ F: (+90) 212 270 48 28</span></p>
                                                       <div class="comp-103-acc-item" data-map-link="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1593.2706263296081!2d35.328167!3d36.996882!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15288f6bc8334665%3A0xf7f1822cd3eff916!2sNurus%20Adana!5e0!3m2!1str!2str!4v1750066664652!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" bis_skin_checked="1">
                               <div class="comp-103-acc-item-head" id="comp-103-acc-tab-1-head_8" data-bs-toggle="collapse" data-bs-target="#comp-103-acc-tab-1-collapse_8" aria-expanded="false" aria-controls="comp-103-acc-tab-1-collapse_8" bis_skin_checked="1">
                                 <div class="title" bis_skin_checked="1">
-                                  <h5>Adana Store</h5>
+	                                  <h5>Магазин в Адане</h5>
                                 </div>
                                 <div class="head-icon" bis_skin_checked="1">
                                   <i>
@@ -262,7 +262,7 @@ F: (+90) 212 270 48 28</span></p>
                                                       <div class="comp-103-acc-item" data-map-link="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3016.6693497085894!2d29.25878607585163!3d40.87912997136893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cadc9dfdc18d4b%3A0x9d6a1e0ac9fa7819!2sTevfik%20%C4%B0leri%20Caddesi!5e0!3m2!1str!2str!4v1750318790294!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" bis_skin_checked="1">
                               <div class="comp-103-acc-item-head" id="comp-103-acc-tab-1-head_9" data-bs-toggle="collapse" data-bs-target="#comp-103-acc-tab-1-collapse_9" aria-expanded="false" aria-controls="comp-103-acc-tab-1-collapse_9" bis_skin_checked="1">
                                 <div class="title" bis_skin_checked="1">
-                                  <h5>Istanbul Atom Ofis Corner Shop</h5>
+	                                  <h5>Угловой магазин Atom Ofis в Стамбуле</h5>
                                 </div>
                                 <div class="head-icon" bis_skin_checked="1">
                                   <i>
@@ -289,7 +289,7 @@ F: (+90) 212 270 48 28</span></p>
                                                       <div class="comp-103-acc-item" data-map-link="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3125.351315615297!2d27.158453475725608!3d38.43335347182684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bbd9d94cb9567f%3A0x1bba077fbd1520b8!2sFolkart%20Vega!5e0!3m2!1str!2str!4v1754031305157!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" bis_skin_checked="1">
                               <div class="comp-103-acc-item-head" id="comp-103-acc-tab-1-head_10" data-bs-toggle="collapse" data-bs-target="#comp-103-acc-tab-1-collapse_10" aria-expanded="false" aria-controls="comp-103-acc-tab-1-collapse_10" bis_skin_checked="1">
                                 <div class="title" bis_skin_checked="1">
-                                  <h5>İzmir Office</h5>
+	                                  <h5>Офис в Измире</h5>
                                 </div>
                                 <div class="head-icon" bis_skin_checked="1">
                                   <i>

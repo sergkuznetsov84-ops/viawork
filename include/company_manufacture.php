@@ -4,7 +4,7 @@
       <div class="col-lg-12" >
         <div class="comp-50-head" >
           <div class="comp-50-head-subtitle" ></div>
-          <div class="comp-50-head-title" >Design For Manufacturing</div>
+          <div class="comp-50-head-title" >Проектирование для производства</div>
         </div>
       </div>
       <div class="col-lg-10 offset-lg-1" >

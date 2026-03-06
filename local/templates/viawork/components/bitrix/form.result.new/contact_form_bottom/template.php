@@ -30,7 +30,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 						<div id="gf_9" class="gform_anchor" tabindex="-1" >
 						</div>
 						<div id="gform_confirmation_wrapper_9" data-form-theme="orbital" class="gform_confirmation_wrapper gform_wrapper gform-theme gform-theme--foundation gform-theme--framework gform-theme--orbital " >
-							<div id="gform_confirmation_message_9" class="gform_confirmation_message_9 gform_confirmation_message" >Спасисибо за Ваше обращение!  Мы свяжемся с вами в ближайшее время.</div></div>
+								<div id="gform_confirmation_message_9" class="gform_confirmation_message_9 gform_confirmation_message" >Спасибо за ваше обращение. Мы свяжемся с вами в ближайшее время.</div></div>
 					</div>
 				</div>
 			</div>
@@ -62,7 +62,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 									<label class="gfield_label gform-field-label" for="input_9_1">
 										ФИО
 										<span class="gfield_required">
-											<span class="gfield_required gfield_required_text">(Required)</span>
+												<span class="gfield_required gfield_required_text">(обязательно)</span>
 										</span>
 									</label>
 									<div class="ginput_container ginput_container_text" >
@@ -76,9 +76,9 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 									</div>
 								</div>
 								<div id="field_9_4" class="gfield gfield--type-email gfield--input-type-email gfield--width-half field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" >
-									<label class="gfield_label gform-field-label" for="input_9_4">E-Mail</label>
+										<label class="gfield_label gform-field-label" for="input_9_4">Электронная почта</label>
 									<div class="ginput_container ginput_container_email" >
-										<input name="form_email_16" id="input_9_4" type="email" value="" class="large" tabindex="51" placeholder="E-Mail" aria-invalid="false">
+											<input name="form_email_16" id="input_9_4" type="email" value="" class="large" tabindex="51" placeholder="Электронная почта" aria-invalid="false">
 									</div>
 								</div>
 								<div id="field_9_5" class="gfield gfield--type-fileupload gfield--input-type-fileupload gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" >
@@ -86,12 +86,12 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
 									<div class="ginput_container ginput_container_fileupload" >
 										<input type="hidden" name="MAX_FILE_SIZE" value="524288000">
 										<input name="form_file_17" id="input_9_5" type="file" class="large" aria-describedby="gfield_upload_rules_9_5" onchange="javascript:gformValidateFileSize( this, 524288000 );" tabindex="52">
-										<span class="gfield_description gform_fileupload_rules" id="gfield_upload_rules_9_5">Max. file size: 500 MB.</span>
+											<span class="gfield_description gform_fileupload_rules" id="gfield_upload_rules_9_5">Макс. размер файла: 500 МБ.</span>
 										<input name="form_file_17" class="inputfile" size="0" type="file">
 									</div>
 								</div>
 								<fieldset id="field_9_6" class="gfield gfield--type-consent gfield--type-choice gfield--input-type-consent gfield--width-full field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible">
-									<legend class="gfield_label gform-field-label gfield_label_before_complex">Consent</legend>
+										<legend class="gfield_label gform-field-label gfield_label_before_complex">Согласие</legend>
 									<div class="ginput_container ginput_container_consent" >
 										<input name="input_7.1" id="input_9_7_1" type="checkbox" value="1" tabindex="54" aria-invalid="false">
 										<label class="gform-field-label gform-field-label--type-inline gfield_consent_label" for="input_9_7_1">
