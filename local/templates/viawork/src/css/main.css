@@ -37781,4 +37781,26 @@ html[lang="ru"] body {
     padding-left: 18px;
     padding-right: 18px;
   }
+
+  body.language-ru .header-main-end .search-dropdown form input,
+  body.language-ru .header-main-end .search-dropdown form input::placeholder,
+  html[lang="ru"] body .header-main-end .search-dropdown form input,
+  html[lang="ru"] body .header-main-end .search-dropdown form input::placeholder {
+    font-family: 'Gellix Regular', Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+  }
+
+  body.language-ru .header-main-end .search-dropdown .search-suggestions .title,
+  html[lang="ru"] body .header-main-end .search-dropdown .search-suggestions .title {
+    font-family: 'Gellix Regular', Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    margin-bottom: 14px;
+  }
+
+  body.language-ru .header-main-end .search-dropdown .search-suggestions ul li a,
+  html[lang="ru"] body .header-main-end .search-dropdown .search-suggestions ul li a {
+    font-family: 'Gellix Regular', Verdana, Geneva, sans-serif;
+    font-size: 13px;
+  }
 }
