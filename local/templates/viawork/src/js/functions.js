@@ -1,18 +1,4 @@
 jQuery( document ).ready(function() {
-
-		const $window = jQuery(window);
-		const $fixedHeader = jQuery('#headerfixed');
-
-		if ($fixedHeader.length) {
-			const toggleFixedHeader = function() {
-				const scrollTop = $window.scrollTop();
-				$fixedHeader.toggleClass('is-visible', scrollTop > 120);
-			};
-
-			toggleFixedHeader();
-			$window.on('scroll', toggleFixedHeader);
-		}
-
 	    jQuery( document ).ready(function() {
 			jQuery('.active-sort').on('click',function() {
 				jQuery(".comp-24-filters-sort").toggleClass("show")
