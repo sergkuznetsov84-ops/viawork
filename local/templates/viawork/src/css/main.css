@@ -37654,6 +37654,16 @@ html[lang="ru"] body {
 }
 
 @media only screen and (min-width:1201px) {
+  body.language-ru .comp-93,
+  html[lang="ru"] body .comp-93 {
+    padding-bottom: 48px;
+  }
+
+  body.language-ru .comp-93.is-dark .comp-93-wrapper,
+  html[lang="ru"] body .comp-93.is-dark .comp-93-wrapper {
+    padding-bottom: 104px;
+  }
+
   body.language-ru .comp-93-head .title,
   html[lang="ru"] body .comp-93-head .title {
     font-family: 'Gellix Regular', Verdana, Geneva, sans-serif;
@@ -37704,6 +37714,16 @@ html[lang="ru"] body {
   body.language-ru .comp-3-content,
   html[lang="ru"] body .comp-3-content {
     margin-top: 56px;
+  }
+
+  body.language-ru .comp-10,
+  html[lang="ru"] body .comp-10 {
+    padding-top: 32px;
+  }
+
+  body.language-ru .comp-10-head,
+  html[lang="ru"] body .comp-10-head {
+    margin-bottom: 22px;
   }
 
   body.language-ru .comp-3-content-info {
