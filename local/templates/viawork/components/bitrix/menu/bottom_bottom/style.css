@@ -1,10 +1,27 @@
+.footer .footer-bottom .legal-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px 22px;
+    max-width: 760px;
+}
+
 .footer .footer-bottom .legal-links a:hover {
     opacity: .7;
 }
 .footer .footer-bottom .legal-links a {
     color: #fff;
-    font-size: 14px;
+    font-size: 13px;
     line-height: normal;
     text-decoration: none;
     transition: opacity .5s ease;
+    white-space: nowrap;
+}
+
+@media only screen and (max-width: 1200px) {
+    .footer .footer-bottom .legal-links {
+        max-width: 620px;
+        gap: 8px 18px;
+    }
 }
