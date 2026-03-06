@@ -34,9 +34,9 @@
 					<div class="gform-body gform_body" >
 						<div id="gform_fields_1" class="gform_fields top_label form_sublabel_below description_below validation_below" >
 							<div id="field_1_1" class="gfield gfield--type-email field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" >
-									<label class="gfield_label gform-field-label screen-reader-text" for="input_1_1">Электронная почта</label>
+									<label class="gfield_label gform-field-label screen-reader-text" for="input_1_1">E-mail</label>
 									<div class="ginput_container ginput_container_email" >
-										<input  name="EMAIL" value="<?=$arResult['SUBSCRIPTION']['EMAIL'] != '' ? $arResult['SUBSCRIPTION']['EMAIL'] : $arResult['REQUEST']['EMAIL'];?>" class="large" tabindex="49" placeholder="Электронная почта" aria-invalid="false" required>
+										<input  name="EMAIL" value="<?=$arResult['SUBSCRIPTION']['EMAIL'] != '' ? $arResult['SUBSCRIPTION']['EMAIL'] : $arResult['REQUEST']['EMAIL'];?>" class="large" tabindex="49" placeholder="E-mail" aria-invalid="false" required>
 									</div>
 							</div>
 						</div>

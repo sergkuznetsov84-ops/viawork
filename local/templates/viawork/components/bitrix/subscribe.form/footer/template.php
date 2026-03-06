@@ -9,7 +9,7 @@
 		<div class="gform-body gform_body" >
 			<div  class="gform_fields top_label form_sublabel_below description_below validation_below" >
 				<div class="gfield gfield--type-email gfield--input-type-email gfield_contains_required field_sublabel_below gfield--no-description field_description_below field_validation_below gfield_visibility_visible" >
-					<label class="gfield_label gform-field-label" for="input_4_1">Электронная почта<span class="gfield_required"><span class="gfield_required gfield_required_text">(обязательно)</span></span></label><div class="ginput_container ginput_container_email" >
+					<label class="gfield_label gform-field-label" for="input_4_1">E-mail<span class="gfield_required"><span class="gfield_required gfield_required_text">(обязательно)</span></span></label><div class="ginput_container ginput_container_email" >
 				<input type="email" class="large" aria-required="true" aria-invalid="false" name="sf_EMAIL" class="grey medium" required size="20" value="<?=$arResult["EMAIL"]?>" placeholder="<?=GetMessage("subscr_form_email_title")?>">
 		</div></div></div></div>
 			<?foreach($arResult["RUBRICS"] as $itemID => $itemValue):?>
