@@ -37695,4 +37695,64 @@ html[lang="ru"] body {
     margin-left: 0;
     width: 16px;
   }
+
+  body.language-ru .comp-3-head .title,
+  html[lang="ru"] body .comp-3-head .title {
+    font-size: 28px;
+  }
+
+  body.language-ru .comp-3-content,
+  html[lang="ru"] body .comp-3-content {
+    margin-top: 48px;
+  }
+
+  body.language-ru .comp-3-content-info {
+    gap: 14px;
+    max-width: 460px;
+  }
+
+  html[lang="ru"] body .comp-3-content-info {
+    gap: 14px;
+    max-width: 460px;
+  }
+
+  body.language-ru .comp-3-content-info .badge-logos,
+  html[lang="ru"] body .comp-3-content-info .badge-logos {
+    gap: 12px;
+  }
+
+  body.language-ru .comp-3-content-info .subtitle,
+  html[lang="ru"] body .comp-3-content-info .subtitle {
+    font-size: 11px;
+    letter-spacing: 3px;
+  }
+
+  body.language-ru .comp-3-content-info .title,
+  html[lang="ru"] body .comp-3-content-info .title {
+    font-size: 54px;
+    line-height: .92;
+    max-width: 420px;
+  }
+
+  body.language-ru .comp-3-content-info .text,
+  html[lang="ru"] body .comp-3-content-info .text {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.08;
+    max-width: 460px;
+  }
+
+  body.language-ru .comp-3-content-info .actions,
+  html[lang="ru"] body .comp-3-content-info .actions {
+    gap: 12px;
+  }
+
+  body.language-ru .comp-3-content-info .actions .btn,
+  html[lang="ru"] body .comp-3-content-info .actions .btn {
+    font-family: 'Gellix Regular', Verdana, Geneva, sans-serif;
+    font-size: 13px;
+    height: 42px;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
 }

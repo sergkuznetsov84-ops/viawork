@@ -53,6 +53,24 @@ foreach ($arResult['ITEMS'] as $key => $item) {
     }
     $processedItem['BADGES'] = $badges;
 
+    if (defined('LANGUAGE_ID') && LANGUAGE_ID === 'ru') {
+        $titleMap = [
+            'Calma For U' => 'Calma для&nbsp;вас',
+            'Calma For All' => 'Calma для&nbsp;всех',
+        ];
+        $previewMap = [
+            'Optimized Video Call and Work Performance' => 'Оптимальные видеозвонки и высокая производительность',
+            'Optimized Video Call and Work Efficiency' => 'Оптимальные видеозвонки и высокая производительность',
+            'Оптимизированные видеозвонки и производительность труда' => 'Оптимальные видеозвонки и высокая производительность',
+        ];
+
+        $processedItem['TITLE_HTML'] = $titleMap[$processedItem['NAME']] ?? htmlspecialcharsbx($processedItem['NAME']);
+        $processedItem['PREVIEW_HTML'] = $previewMap[$processedItem['PREVIEW_TEXT']] ?? htmlspecialcharsbx($processedItem['PREVIEW_TEXT']);
+    } else {
+        $processedItem['TITLE_HTML'] = htmlspecialcharsbx($processedItem['NAME']);
+        $processedItem['PREVIEW_HTML'] = htmlspecialcharsbx($processedItem['PREVIEW_TEXT']);
+    }
+
     $processedItems[] = $processedItem;
 }
 ?>
@@ -109,13 +127,13 @@ foreach ($arResult['ITEMS'] as $key => $item) {
 
                                                 <?php if (!empty($item['NAME'])): ?>
                                                     <div class="title">
-                                                        <h3><?= htmlspecialcharsbx($item['NAME']) ?></h3>
+                                                        <h3><?= $item['TITLE_HTML'] ?></h3>
                                                     </div>
                                                 <?php endif; ?>
 
                                                 <?php if (!empty($item['PREVIEW_TEXT'])): ?>
                                                     <div class="text">
-                                                        <p><?= htmlspecialcharsbx($item['PREVIEW_TEXT']) ?></p>
+                                                        <p><?= $item['PREVIEW_HTML'] ?></p>
                                                     </div>
                                                 <?php endif; ?>
 
@@ -123,7 +141,7 @@ foreach ($arResult['ITEMS'] as $key => $item) {
                                                         <a href="<?= htmlspecialcharsbx($item['BUTTON1_LINK']) ?>" 
                                                            target="<?= htmlspecialcharsbx($item['BUTTON1_TARGET']) ?>" 
                                                            class="btn btn-black btn-semibold btn-rnd-full">
-                                                            <span>Узнать больше</span>
+                                                            <span>Подробнее</span>
                                                         </a>
 
                                                         <a href="<?= htmlspecialcharsbx($item['BUTTON2_LINK']) ?>" 
