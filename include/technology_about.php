@@ -1,10 +1,10 @@
 <section class="comp-1 style-2">
 	<div class="comp-1-wrapper" >
-		<div class="comp-1-media" >
-			<video autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" poster="" alt="" preload="none">
-                <source src="<?=SITE_TEMPLATE_PATH."/src/img"?>/Nurus_Technology_Low.mp4" type="video/mp4">
-            </video>
-		</div>
+			<div class="comp-1-media" >
+				<video autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" poster="<?=SITE_TEMPLATE_PATH."/src/img"?>/tube-technology-nurus-e1755849160461.jpg" preload="metadata">
+	                <source src="<?=SITE_TEMPLATE_PATH."/src/img"?>/Nurus_Technology_Low.mp4" type="video/mp4">
+	            </video>
+			</div>
 
 		<div class="comp-1-content" ></div>
 
