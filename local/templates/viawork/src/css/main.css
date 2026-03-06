@@ -24189,6 +24189,39 @@ section.handoff-footer .handoff-footer-contain a:hover {
   line-height: normal
 }
 
+#headerfixed {
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  transform: translateY(-100%);
+  transition: opacity .25s ease, transform .25s ease;
+  visibility: hidden;
+  width: 100%;
+  z-index: 999
+}
+
+#headerfixed.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  visibility: visible
+}
+
+#headerfixed .header-top {
+  display: none
+}
+
+#headerfixed .header-wrapper {
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .08)
+}
+
+#headerfixed .header-main {
+  padding: 18px 0
+}
+
 .header-main {
   align-items: center;
   display: flex;
