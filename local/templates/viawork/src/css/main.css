@@ -37109,6 +37109,12 @@ section.handoff-footer .handoff-footer-contain a:hover {
 }
 
 @media only screen and (min-width:992px) {
+  .comp-24-main:has(.comp-24-filters-main-btn.show) .comp-24-body>.row>.col-12 {
+    flex: 0 0 75%;
+    margin-left: 25%;
+    max-width: 75%;
+  }
+
   .comp-24-main:has(.comp-24-filters-main-btn.show) .comp-24-body-cards.odd-view .comp-24-card {
     grid-column: span 3
   }
