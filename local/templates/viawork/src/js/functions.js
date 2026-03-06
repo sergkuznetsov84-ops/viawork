@@ -4,17 +4,13 @@ jQuery( document ).ready(function() {
     const $body = jQuery('body');
 
     if ($header.length) {
-        const toggleFixedHeader = function() {
-            const scrollTop = $window.scrollTop();
+        const syncHeaderOffset = function() {
             const headerHeight = $header.outerHeight();
-            const isFixed = scrollTop > 120;
-
-            $header.toggleClass('is-fixed', isFixed);
-            $body.css('padding-top', isFixed ? headerHeight + 'px' : '');
+            $body.css('padding-top', headerHeight + 'px');
         };
 
-        toggleFixedHeader();
-        $window.on('scroll resize', toggleFixedHeader);
+        syncHeaderOffset();
+        $window.on('resize', syncHeaderOffset);
     }
 
 	    jQuery( document ).ready(function() {

@@ -24114,22 +24114,18 @@ section.handoff-footer .handoff-footer-contain a:hover {
 }
 
 .header {
-  position: relative;
-  z-index: 999
-}
-
-.header.is-fixed {
   left: 0;
   position: fixed;
   top: 0;
-  width: 100%
+  width: 100%;
+  z-index: 999
 }
 
 .header .header-wrapper {
   background: #fff
 }
 
-.header.is-fixed .header-wrapper {
+.header .header-wrapper {
   box-shadow: 0 8px 24px rgba(0, 0, 0, .08)
 }
 
