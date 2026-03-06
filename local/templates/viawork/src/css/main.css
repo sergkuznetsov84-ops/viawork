@@ -37438,3 +37438,45 @@ html[lang="ru"] body {
 .footer * {
   font-family: inherit;
 }
+
+/* Russian desktop header: tighten spacing to stay closer to the original layout */
+@media only screen and (min-width:1201px) {
+  body.language-ru .header-main,
+  html[lang="ru"] body .header-main {
+    padding: 22px 0;
+  }
+
+  body.language-ru .header-main-nav,
+  html[lang="ru"] body .header-main-nav {
+    gap: 22px;
+  }
+
+  body.language-ru .header-main-nav .nav-list,
+  html[lang="ru"] body .header-main-nav .nav-list {
+    gap: 22px;
+  }
+
+  body.language-ru .header-main-nav .nav-list-item-link a,
+  html[lang="ru"] body .header-main-nav .nav-list-item-link a {
+    font-size: 15px;
+  }
+
+  body.language-ru .header-main-nav .header-btn a,
+  html[lang="ru"] body .header-main-nav .header-btn a {
+    font-size: 12px;
+    gap: 6px;
+    padding: 8px 15px;
+  }
+}
+
+@media only screen and (min-width:1201px) and (max-width:1439px) {
+  body.language-ru .header-main-nav .nav-list,
+  html[lang="ru"] body .header-main-nav .nav-list {
+    gap: 18px;
+  }
+
+  body.language-ru .header-main-nav .nav-list-item-link a,
+  html[lang="ru"] body .header-main-nav .nav-list-item-link a {
+    font-size: 14px;
+  }
+}
