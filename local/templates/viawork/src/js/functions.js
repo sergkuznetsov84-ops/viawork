@@ -1,4 +1,22 @@
 jQuery( document ).ready(function() {
+    const $window = jQuery(window);
+    const $header = jQuery('.header').first();
+    const $body = jQuery('body');
+
+    if ($header.length) {
+        const toggleFixedHeader = function() {
+            const scrollTop = $window.scrollTop();
+            const headerHeight = $header.outerHeight();
+            const isFixed = scrollTop > 120;
+
+            $header.toggleClass('is-fixed', isFixed);
+            $body.css('padding-top', isFixed ? headerHeight + 'px' : '');
+        };
+
+        toggleFixedHeader();
+        $window.on('scroll resize', toggleFixedHeader);
+    }
+
 	    jQuery( document ).ready(function() {
 			jQuery('.active-sort').on('click',function() {
 				jQuery(".comp-24-filters-sort").toggleClass("show")

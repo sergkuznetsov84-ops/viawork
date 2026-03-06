@@ -24114,13 +24114,23 @@ section.handoff-footer .handoff-footer-contain a:hover {
 }
 
 .header {
-  position: sticky;
-  top: 0;
+  position: relative;
   z-index: 999
+}
+
+.header.is-fixed {
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%
 }
 
 .header .header-wrapper {
   background: #fff
+}
+
+.header.is-fixed .header-wrapper {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .08)
 }
 
 .header.header-dark .header-wrapper {
@@ -37667,10 +37677,22 @@ html[lang="ru"] body {
 
   body.language-ru .comp-93-content .card-content .action a,
   html[lang="ru"] body .comp-93-content .card-content .action a {
+    align-items: center;
+    display: inline-flex;
     font-family: 'Gellix Regular', Verdana, Geneva, sans-serif;
     font-size: 14px;
     font-weight: 400;
+    gap: 10px;
+    height: 44px;
     padding-left: 18px;
     padding-right: 18px;
+  }
+
+  body.language-ru .comp-93-content .card-content .action a i,
+  html[lang="ru"] body .comp-93-content .card-content .action a i {
+    display: inline-flex;
+    height: 12px;
+    margin-left: 0;
+    width: 16px;
   }
 }
