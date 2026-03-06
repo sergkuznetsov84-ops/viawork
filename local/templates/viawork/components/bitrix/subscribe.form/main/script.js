@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
       const errorElement = document.querySelector(".gform_validation_errors h2");
 
       if (errorElement) {
-        errorElement.innerHTML = '<span class="gform-icon gform-icon--circle-error"></span>There was a problem with your submission. Please review the fields below.';
+        errorElement.innerHTML = '<span class="gform-icon gform-icon--circle-error"></span>Не удалось отправить форму. Проверьте, пожалуйста, заполнение полей ниже.';
       }
       return false;
     }
