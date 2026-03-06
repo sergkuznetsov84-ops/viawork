@@ -259,18 +259,18 @@
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     const fixedHeader = document.getElementById("headerfixed");
-    let lastScroll = 0;
+    if (!fixedHeader) {
+        return;
+    }
 
 	window.addEventListener("scroll", function() {
+        const currentScroll = window.pageYOffset || document.documentElement.scrollTop || 0;
+
         if (currentScroll > 100) {
-            // Добавляем класс, когда скролл больше 100px
             fixedHeader.classList.add("fixed");
         } else {
-            // Убираем класс, когда вернулись вверх
             fixedHeader.classList.remove("fixed");
         }
-
-        lastScroll = currentScroll;
     });
 });
 </script>
@@ -294,5 +294,4 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 					
-
 

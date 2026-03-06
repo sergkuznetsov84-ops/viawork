@@ -24115,10 +24115,10 @@ section.handoff-footer .handoff-footer-contain a:hover {
 
 .header {
   left: 0;
-  position: fixed;
+  position: relative;
   top: 0;
   width: 100%;
-  z-index: 999
+  z-index: 800
 }
 
 .header .header-wrapper {
@@ -24135,11 +24135,6 @@ section.handoff-footer .handoff-footer-contain a:hover {
 
 .header .header-top {
   display: none
-}
-
-.main-product>.comp-1:first-child,
-.main-blogs>.comp-1:first-child {
-  margin-top: calc(var(--header-offset, 0px) * -1);
 }
 
 .header-top {
@@ -24219,7 +24214,40 @@ section.handoff-footer .handoff-footer-contain a:hover {
 }
 
 #headerfixed {
-  display: none !important
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  transform: translateY(-100%);
+  transition: opacity .25s ease, transform .25s ease;
+  visibility: hidden;
+  width: 100%;
+  z-index: 999
+}
+
+#headerfixed.fixed {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  visibility: visible
+}
+
+#headerfixed .header {
+  position: relative
+}
+
+#headerfixed .header-top {
+  display: none
+}
+
+#headerfixed .header-wrapper {
+  background: #fff;
+  box-shadow: none
+}
+
+#headerfixed .header.header-dark .header-wrapper {
+  background: #25282a
 }
 
 .header-main {
@@ -37114,10 +37142,10 @@ section.handoff-footer .handoff-footer-contain a:hover {
 }
 
 @media only screen and (min-width:992px) {
-  .comp-24-main:has(.comp-24-filters-main-btn.show) .comp-24-body>.row>.col-12 {
-    flex: 0 0 75%;
+  .comp-24-main:has(.comp-24-filters-main-btn.show) .comp-24-body-selected-filters,
+  .comp-24-main:has(.comp-24-filters-main-btn.show) .comp-24-body-cards {
     margin-left: 25%;
-    max-width: 75%;
+    width: 75%;
   }
 
   .comp-24-main:has(.comp-24-filters-main-btn.show) .comp-24-body-cards.odd-view .comp-24-card {

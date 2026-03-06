@@ -1,7 +1,5 @@
 jQuery( document ).ready(function() {
     const $window = jQuery(window);
-    const $header = jQuery('.header').first();
-    const $body = jQuery('body');
     const $catalogFilterButton = jQuery('.comp-24-filters-main-btn');
     const $catalogFilterBody = jQuery('.comp-24-filters-body');
     const $catalogContentColumn = jQuery('.comp-24-body > .row > .col-12');
@@ -17,17 +15,6 @@ jQuery( document ).ready(function() {
             $catalogContentColumn.removeClass('col-lg-9 offset-lg-3');
         }
     };
-
-    if ($header.length) {
-        const syncHeaderOffset = function() {
-            const headerHeight = $header.outerHeight();
-            $body.css('padding-top', headerHeight + 'px');
-            document.documentElement.style.setProperty('--header-offset', headerHeight + 'px');
-        };
-
-        syncHeaderOffset();
-        $window.on('resize', syncHeaderOffset);
-    }
 
     syncCatalogFilterLayout();
     $window.on('resize', syncCatalogFilterLayout);
