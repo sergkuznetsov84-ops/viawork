@@ -24137,6 +24137,11 @@ section.handoff-footer .handoff-footer-contain a:hover {
   display: none
 }
 
+.main-product>.comp-1:first-child,
+.main-blogs>.comp-1:first-child {
+  margin-top: calc(var(--header-offset, 0px) * -1);
+}
+
 .header-top {
   background: #e9ebef;
   padding: 10px 0

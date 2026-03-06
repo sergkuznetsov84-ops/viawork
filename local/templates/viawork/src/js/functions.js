@@ -22,6 +22,7 @@ jQuery( document ).ready(function() {
         const syncHeaderOffset = function() {
             const headerHeight = $header.outerHeight();
             $body.css('padding-top', headerHeight + 'px');
+            document.documentElement.style.setProperty('--header-offset', headerHeight + 'px');
         };
 
         syncHeaderOffset();
