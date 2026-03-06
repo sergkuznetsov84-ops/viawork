@@ -37443,41 +37443,45 @@ html[lang="ru"] body {
 @media only screen and (min-width:1201px) {
   body.language-ru .header-main,
   html[lang="ru"] body .header-main {
-    padding: 22px 0;
+    padding: 28px 0;
   }
 
   body.language-ru .header-main-nav,
   html[lang="ru"] body .header-main-nav {
-    gap: 22px;
+    gap: 26px;
   }
 
   body.language-ru .header-main-nav .nav-list,
   html[lang="ru"] body .header-main-nav .nav-list {
-    gap: 22px;
+    gap: 24px;
   }
 
   body.language-ru .header-main-nav .nav-list-item-link a,
   html[lang="ru"] body .header-main-nav .nav-list-item-link a {
-    font-size: 15px;
+    font-family: 'Gellix Regular', Verdana, Geneva, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
   }
 
   body.language-ru .header-main-nav .header-btn a,
   html[lang="ru"] body .header-main-nav .header-btn a {
-    font-size: 12px;
-    gap: 6px;
-    padding: 8px 15px;
+    font-family: 'Gellix Regular', Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    gap: 12px;
+    padding: 8px 20px;
   }
 }
 
 @media only screen and (min-width:1201px) and (max-width:1439px) {
   body.language-ru .header-main-nav .nav-list,
   html[lang="ru"] body .header-main-nav .nav-list {
-    gap: 18px;
+    gap: 20px;
   }
 
   body.language-ru .header-main-nav .nav-list-item-link a,
   html[lang="ru"] body .header-main-nav .nav-list-item-link a {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
