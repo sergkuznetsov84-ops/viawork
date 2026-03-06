@@ -24126,11 +24126,15 @@ section.handoff-footer .handoff-footer-contain a:hover {
 }
 
 .header .header-wrapper {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, .08)
+  box-shadow: none
 }
 
 .header.header-dark .header-wrapper {
   background: #25282a
+}
+
+.header .header-top {
+  display: none
 }
 
 .header-top {
