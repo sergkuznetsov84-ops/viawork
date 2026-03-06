@@ -37624,3 +37624,35 @@ html[lang="ru"] body {
     max-width: 380px;
   }
 }
+
+@media only screen and (min-width:1201px) {
+  body.language-ru .comp-93-head .title,
+  html[lang="ru"] body .comp-93-head .title {
+    font-family: 'Gellix Regular', Verdana, Geneva, sans-serif;
+    font-size: 34px;
+  }
+
+  body.language-ru .comp-93-content .card-content,
+  html[lang="ru"] body .comp-93-content .card-content {
+    margin-top: 12px;
+  }
+
+  body.language-ru .comp-93-content .card-content .text,
+  html[lang="ru"] body .comp-93-content .card-content .text {
+    font-family: 'Gellix Regular', Verdana, Geneva, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-left: 0;
+    max-width: 250px;
+  }
+
+  body.language-ru .comp-93-content .card-content .action a,
+  html[lang="ru"] body .comp-93-content .card-content .action a {
+    font-family: 'Gellix Regular', Verdana, Geneva, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}

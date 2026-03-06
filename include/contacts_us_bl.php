@@ -7,7 +7,7 @@
             <h4>СВЯЖИТЕСЬ С НАМИ</h4>
           </div>
           <div class="title fadeInUp-scroll visible" data-delay="250">
-            <h2>Мы рядом с вами на каждом этапе пути</h2>
+            <h2>Мы рядом с вами на каждом этапе</h2>
           </div>
         </div>
         <div class="comp-93-content fadeInUp-scroll visible" data-delay="400">
@@ -24,7 +24,7 @@
 
                 <div class="card-content">
                   <div class="text">
-                    <p>Давайте спланируем ваше рабочее пространство вместе</p>
+                    <p>Спланируем рабочее пространство вместе</p>
                   </div>
                   <div class="action">
                     <a href="/contact/" class="btn btn-white btn-rnd-full btn-medium btn-gradient" target="">
