@@ -25204,7 +25204,7 @@ section.handoff-footer .handoff-footer-contain a:hover {
   }
 
   .comp-10 {
-    margin-bottom: 30px;
+    margin-bottom: 16px;
     padding: 30px 0 0
   }
 
@@ -25588,12 +25588,12 @@ section.handoff-footer .handoff-footer-contain a:hover {
   }
 
   .comp-11 {
-    padding: 30px 0 0
+    padding: 16px 0 0
   }
 
   .comp-11-main {
     border-radius: 5px;
-    padding: 44px 20px
+    padding: 32px 20px
   }
 
   .comp-11-head .icon i {
@@ -25602,15 +25602,22 @@ section.handoff-footer .handoff-footer-contain a:hover {
   }
 
   .comp-11-head .title {
-    font-size: 24px
+    font-size: 22px;
+    margin-top: 14px
   }
 
   .comp-11-head .description {
-    font-size: 12px
+    font-size: 12px;
+    margin-top: 10px
   }
 
   .comp-11-form {
+    margin-top: 20px;
     width: 100%
+  }
+
+  .comp-11-form .gform_validation_errors {
+    display: none
   }
 
   .comp-11-form .gform_footer .btn {
@@ -25626,7 +25633,7 @@ section.handoff-footer .handoff-footer-contain a:hover {
   .comp-11-form form input {
     border-radius: 32px;
     font-size: 14px;
-    height: 64px;
+    height: 48px;
     padding: 0 14px;
     text-align: center
   }
@@ -37891,5 +37898,53 @@ html[lang="ru"] body {
   html[lang="ru"] body .header-main-end .search-dropdown .search-suggestions ul li a {
     font-family: 'Gellix Regular', Verdana, Geneva, sans-serif;
     font-size: 13px;
+  }
+}
+
+/* Russian mobile: tighten spacing to match original */
+@media only screen and (min-width:320px) and (max-width:991px) {
+  body.language-ru .comp-10,
+  html[lang="ru"] body .comp-10 {
+    margin-bottom: 12px;
+    padding-top: 24px;
+  }
+
+  body.language-ru .comp-10-head,
+  html[lang="ru"] body .comp-10-head {
+    margin-bottom: 16px;
+  }
+
+  body.language-ru .comp-11,
+  html[lang="ru"] body .comp-11 {
+    padding-top: 12px;
+  }
+
+  body.language-ru .comp-11-main,
+  html[lang="ru"] body .comp-11-main {
+    padding: 28px 16px;
+  }
+
+  body.language-ru .comp-11-head .title,
+  html[lang="ru"] body .comp-11-head .title {
+    font-size: 20px;
+    line-height: 1.1;
+    margin-top: 12px;
+  }
+
+  body.language-ru .comp-11-head .description,
+  html[lang="ru"] body .comp-11-head .description {
+    font-size: 11px;
+    line-height: 1.3;
+    margin-top: 8px;
+  }
+
+  body.language-ru .comp-11-form,
+  html[lang="ru"] body .comp-11-form {
+    margin-top: 16px;
+  }
+
+  body.language-ru .comp-93,
+  html[lang="ru"] body .comp-93 {
+    padding: 32px 0 24px;
   }
 }
