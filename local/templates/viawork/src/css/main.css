@@ -28774,8 +28774,6 @@ section.handoff-footer .handoff-footer-contain a:hover {
   }
 
   .header.show .header-main-nav {
-    height: 100dvh;
-    top: 0;
     z-index: 1200
   }
 
