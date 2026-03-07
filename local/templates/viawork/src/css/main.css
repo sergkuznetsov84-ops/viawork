@@ -28775,22 +28775,13 @@ section.handoff-footer .handoff-footer-contain a:hover {
     width: 92px
   }
 
-  .header {
-    z-index: 100000
-  }
-
   .header .header-wrapper {
     position: relative;
     z-index: 100002
   }
 
-  .header.show .header-wrapper {
-    background: #fff;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100002
+  .header.show {
+    z-index: 100000
   }
 
   .header .header-bars,
@@ -28798,6 +28789,10 @@ section.handoff-footer .handoff-footer-contain a:hover {
   .header .header-main-end {
     position: relative;
     z-index: 100003
+  }
+
+  #headerfixed.fixed {
+    z-index: 100001
   }
 
   .header-main-nav {
