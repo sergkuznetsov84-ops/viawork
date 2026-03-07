@@ -25044,6 +25044,10 @@ section.handoff-footer .handoff-footer-contain a:hover {
 }
 
 @media only screen and (min-width:320px) and (max-width:991px) {
+  .comp-88:has(.comp-88-video-mobile:not([poster])) {
+    display: none
+  }
+
   main {
     padding-top: 102px
   }
