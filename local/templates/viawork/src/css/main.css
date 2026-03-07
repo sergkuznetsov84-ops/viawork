@@ -28770,11 +28770,17 @@ section.handoff-footer .handoff-footer-contain a:hover {
   }
 
   .header.show {
-    z-index: 1201
+    z-index: 100000
+  }
+
+  .header.show .header-wrapper {
+    position: relative;
+    z-index: 100002
   }
 
   .header.show .header-main-nav {
-    z-index: 1200
+    background: #fff;
+    z-index: 100001
   }
 
   .header-main-nav:after,
