@@ -17,15 +17,7 @@ $this->setFrameMode(true);
 if (empty($arResult['ITEMS'])) {
     return;
 }
-$previewPicture = '';
-        if (!empty($item['PREVIEW_PICTURE'])) {
-            if (is_array($item['PREVIEW_PICTURE'])) {
-                $previewPicture = $item['PREVIEW_PICTURE']['SRC'] ?? '';
-            } else {
-                $previewPicture = CFile::GetPath($item['PREVIEW_PICTURE']);
-            }
-        }
-// Обработка элементов
+
 $processedItems = [];
 
 foreach ($arResult['ITEMS'] as $key => $item) {
@@ -51,17 +43,17 @@ foreach ($arResult['ITEMS'] as $key => $item) {
         'NAME' => $item['~NAME'],
         'PREVIEW_PICTURE' => $previewPicture,
         'DETAIL_PICTURE' => $detailPicture,
+        'LINK' => $item['PROPERTIES']['LINK']['VALUE'] ?? '#',
     ];
 
-    // Обработка видео для десктопа
-    if (!empty($item['PROPERTIES']['VIDEO']['VALUE'])) {
-        $desktopFile = CFile::GetFileArray($item['PROPERTIES']['VIDEO']['VALUE']);
+    $desktopVideoId = $item['PROPERTIES']['VIDEO_DESKTOP']['VALUE'] ?? $item['PROPERTIES']['VIDEO']['VALUE'] ?? null;
+    if (!empty($desktopVideoId)) {
+        $desktopFile = CFile::GetFileArray($desktopVideoId);
         if ($desktopFile) {
-            $processedItem['VIDEO']['SRC'] = $desktopFile['SRC'];
+            $processedItem['VIDEO_DESKTOP_SRC'] = $desktopFile['SRC'];
         }
     }
 
-    // Обработка видео для мобильных
     if (!empty($item['PROPERTIES']['VIDEO_MOBILE']['VALUE'])) {
         $mobileFile = CFile::GetFileArray($item['PROPERTIES']['VIDEO_MOBILE']['VALUE']);
         if ($mobileFile) {
@@ -69,9 +61,21 @@ foreach ($arResult['ITEMS'] as $key => $item) {
         }
     }
 
-    $processedItem['LINK'] = $item['PROPERTIES']['LINK']['VALUE'] ?? '#';
+    $processedItem['DESKTOP_FALLBACK_IMAGE'] = $detailPicture ?: $previewPicture;
+    $processedItem['MOBILE_FALLBACK_IMAGE'] = $previewPicture ?: $detailPicture;
 
-    $processedItems[] = $processedItem;
+    if (
+        !empty($processedItem['VIDEO_DESKTOP_SRC']) ||
+        !empty($processedItem['VIDEO_MOBILE_SRC']) ||
+        !empty($processedItem['DESKTOP_FALLBACK_IMAGE']) ||
+        !empty($processedItem['MOBILE_FALLBACK_IMAGE'])
+    ) {
+        $processedItems[] = $processedItem;
+    }
+}
+
+if (empty($processedItems)) {
+    return;
 }
 
 ?>
@@ -91,16 +95,28 @@ foreach ($arResult['ITEMS'] as $key => $item) {
                                          aria-label="<?= ($index + 1) . ' / ' . count($processedItems) ?>">
                                         <div class="comp-88-media scale-scroll visible" data-delay="200">
                                             <a href="<?= htmlspecialcharsbx($item['LINK']) ?>">
-                                                <?php if (!empty($item['VIDEO']['SRC'])): ?>
+                                                <?php if (!empty($item['VIDEO_DESKTOP_SRC'])): ?>
                                                     <video class="comp-88-video-desktop" 
-                                                           src="<?= $item['VIDEO']['SRC'] ?>" 
+                                                           src="<?= htmlspecialcharsbx($item['VIDEO_DESKTOP_SRC']) ?>" 
                                                            autoplay muted playsinline></video>
+                                                <?php elseif (!empty($item['DESKTOP_FALLBACK_IMAGE'])): ?>
+                                                    <img class="comp-88-image-desktop sp-no-webp"
+                                                         src="<?= htmlspecialcharsbx($item['DESKTOP_FALLBACK_IMAGE']) ?>"
+                                                         alt="<?= htmlspecialcharsbx($item['NAME']) ?>">
                                                 <?php endif; ?>
                                                 
-                                                <?php if (!empty($item['VIDEO']['SRC'])): ?>
+                                                <?php if (!empty($item['VIDEO_MOBILE_SRC'])): ?>
                                                     <video class="comp-88-video-mobile" 
-                                                           src="<?= $item['VIDEO']['SRC'] ?>" 
+                                                           src="<?= htmlspecialcharsbx($item['VIDEO_MOBILE_SRC']) ?>" 
                                                            autoplay muted playsinline></video>
+                                                <?php elseif (!empty($item['VIDEO_DESKTOP_SRC'])): ?>
+                                                    <video class="comp-88-video-mobile" 
+                                                           src="<?= htmlspecialcharsbx($item['VIDEO_DESKTOP_SRC']) ?>" 
+                                                           autoplay muted playsinline></video>
+                                                <?php elseif (!empty($item['MOBILE_FALLBACK_IMAGE'])): ?>
+                                                    <img class="comp-88-image-mobile sp-no-webp"
+                                                         src="<?= htmlspecialcharsbx($item['MOBILE_FALLBACK_IMAGE']) ?>"
+                                                         alt="<?= htmlspecialcharsbx($item['NAME']) ?>">
                                                 <?php endif; ?>
                                             </a>
                                         </div>

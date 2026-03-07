@@ -21891,6 +21891,10 @@ section.comp-81+.comp-26 .address-box.pointed .title span:after {
   display: none !important
 }
 
+.comp-88-image-mobile {
+  display: none !important
+}
+
 .comp-88-swiper .swiper-wrapper .swiper-slide {
   height: 100%;
   width: 100%
@@ -28100,6 +28104,14 @@ section.handoff-footer .handoff-footer-contain a:hover {
   }
 
   .comp-88-video-mobile {
+    display: block !important
+  }
+
+  .comp-88-image-desktop {
+    display: none !important
+  }
+
+  .comp-88-image-mobile {
     display: block !important
   }
 
