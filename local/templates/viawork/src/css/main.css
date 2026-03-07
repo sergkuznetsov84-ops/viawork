@@ -28783,6 +28783,13 @@ section.handoff-footer .handoff-footer-contain a:hover {
     z-index: 100002
   }
 
+  .header.show .header-bars,
+  .header.show .header-main-logo,
+  .header.show .header-main-end {
+    position: relative;
+    z-index: 100003
+  }
+
   .header.show .header-main-nav {
     background: #fff;
     transition: transform .7s ease, visibility 0s 0s;
