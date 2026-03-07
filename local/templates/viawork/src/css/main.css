@@ -25588,12 +25588,12 @@ section.handoff-footer .handoff-footer-contain a:hover {
   }
 
   .comp-11 {
-    padding: 16px 0 0
+    padding: 20px 0 0
   }
 
   .comp-11-main {
-    border-radius: 5px;
-    padding: 32px 20px
+    border-radius: 10px;
+    padding: 40px 20px 44px
   }
 
   .comp-11-head .icon i {
@@ -25603,16 +25603,17 @@ section.handoff-footer .handoff-footer-contain a:hover {
 
   .comp-11-head .title {
     font-size: 22px;
-    margin-top: 14px
+    margin-top: 20px
   }
 
   .comp-11-head .description {
     font-size: 12px;
-    margin-top: 10px
+    line-height: 1.4;
+    margin-top: 14px
   }
 
   .comp-11-form {
-    margin-top: 20px;
+    margin-top: 24px;
     width: 100%
   }
 
@@ -25633,7 +25634,7 @@ section.handoff-footer .handoff-footer-contain a:hover {
   .comp-11-form form input {
     border-radius: 32px;
     font-size: 14px;
-    height: 48px;
+    height: 52px;
     padding: 0 14px;
     text-align: center
   }
@@ -37901,11 +37902,11 @@ html[lang="ru"] body {
   }
 }
 
-/* Russian mobile: tighten spacing to match original */
+/* Russian mobile: match original airy spacing */
 @media only screen and (min-width:320px) and (max-width:991px) {
   body.language-ru .comp-10,
   html[lang="ru"] body .comp-10 {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     padding-top: 24px;
   }
 
@@ -37916,31 +37917,32 @@ html[lang="ru"] body {
 
   body.language-ru .comp-11,
   html[lang="ru"] body .comp-11 {
-    padding-top: 12px;
+    padding-top: 16px;
   }
 
   body.language-ru .comp-11-main,
   html[lang="ru"] body .comp-11-main {
-    padding: 28px 16px;
+    border-radius: 10px;
+    padding: 36px 16px 40px;
   }
 
   body.language-ru .comp-11-head .title,
   html[lang="ru"] body .comp-11-head .title {
     font-size: 20px;
-    line-height: 1.1;
-    margin-top: 12px;
+    line-height: 1.15;
+    margin-top: 18px;
   }
 
   body.language-ru .comp-11-head .description,
   html[lang="ru"] body .comp-11-head .description {
-    font-size: 11px;
-    line-height: 1.3;
-    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+    margin-top: 12px;
   }
 
   body.language-ru .comp-11-form,
   html[lang="ru"] body .comp-11-form {
-    margin-top: 16px;
+    margin-top: 22px;
   }
 
   body.language-ru .comp-93,
