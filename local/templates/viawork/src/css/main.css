@@ -25056,6 +25056,13 @@ section.handoff-footer .handoff-footer-contain a:hover {
     overflow: hidden
   }
 
+  /* iOS/Safari overlay artifact guard: hide hero visuals while mobile menu is open */
+  body.sm-md-overflow-none main.main-home .comp-88 .comp-88-media,
+  body.sm-md-overflow-none main.main-home .comp-88 .card-btn {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
   .container,
   .container-fluid,
   .container-lg,
