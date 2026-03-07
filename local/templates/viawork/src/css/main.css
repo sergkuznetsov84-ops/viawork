@@ -28707,13 +28707,15 @@ section.handoff-footer .handoff-footer-contain a:hover {
   }
 
   .footer .footer-bottom-wrapper {
-    align-items: flex-start
+    align-items: flex-start;
+    flex-wrap: wrap
   }
 
   .footer .footer-bottom .legal-links {
     align-items: flex-end;
     flex-direction: column-reverse;
     gap: 0;
+    margin-left: auto;
     text-align: right
   }
 
