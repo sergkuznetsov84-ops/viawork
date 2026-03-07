@@ -25203,6 +25203,11 @@ section.handoff-footer .handoff-footer-contain a:hover {
     transform: translateX(50%)
   }
 
+  .comp-10 {
+    margin-bottom: 30px;
+    padding: 30px 0 0
+  }
+
   .comp-10.style-2 .comp-10-wrapper {
     margin: 0 16px;
     padding: 30px 0
@@ -25580,6 +25585,10 @@ section.handoff-footer .handoff-footer-contain a:hover {
 
   .comp-106 .text {
     font-size: 20px
+  }
+
+  .comp-11 {
+    padding: 30px 0 0
   }
 
   .comp-11-main {
@@ -28289,7 +28298,7 @@ section.handoff-footer .handoff-footer-contain a:hover {
   }
 
   .comp-93 {
-    padding: 100px 0 90px
+    padding: 40px 0 30px
   }
 
   .comp-93.is-dark .comp-93-wrapper {
