@@ -28755,6 +28755,22 @@ section.handoff-footer .handoff-footer-contain a:hover {
     width: 92px
   }
 
+  .header {
+    z-index: 100000
+  }
+
+  .header .header-wrapper {
+    position: relative;
+    z-index: 100002
+  }
+
+  .header .header-bars,
+  .header .header-main-logo,
+  .header .header-main-end {
+    position: relative;
+    z-index: 100003
+  }
+
   .header-main-nav {
     align-items: center;
     background: #fff;
@@ -28770,29 +28786,12 @@ section.handoff-footer .handoff-footer-contain a:hover {
     transform: translateX(100%);
     transition: transform .7s ease, visibility 0s .7s;
     visibility: hidden;
-    width: 100%
-  }
-
-  .header.show {
-    z-index: 100000
-  }
-
-  .header.show .header-wrapper {
-    position: relative;
-    z-index: 100002
-  }
-
-  .header.show .header-bars,
-  .header.show .header-main-logo,
-  .header.show .header-main-end {
-    position: relative;
-    z-index: 100003
+    width: 100%;
+    z-index: 100001
   }
 
   .header.show .header-main-nav {
-    background: #fff;
-    transition: transform .7s ease, visibility 0s 0s;
-    z-index: 100001
+    transition: transform .7s ease, visibility 0s 0s
   }
 
   .header-main-nav:after,
