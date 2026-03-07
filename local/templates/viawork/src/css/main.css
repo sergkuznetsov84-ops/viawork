@@ -28782,6 +28782,15 @@ section.handoff-footer .handoff-footer-contain a:hover {
     z-index: 100002
   }
 
+  .header.show .header-wrapper {
+    background: #fff;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100002
+  }
+
   .header .header-bars,
   .header .header-main-logo,
   .header .header-main-end {
