@@ -25053,6 +25053,13 @@ section.handoff-footer .handoff-footer-contain a:hover {
     overflow: hidden
   }
 
+  /* iOS/Safari overlay artifact guard: hide hero visuals while mobile menu is open */
+  body.sm-md-overflow-none main.main-home .comp-88 .comp-88-media,
+  body.sm-md-overflow-none main.main-home .comp-88 .card-btn {
+    opacity: 0 !important;
+    visibility: hidden !important;
+  }
+
   .container,
   .container-fluid,
   .container-lg,
@@ -28769,12 +28776,8 @@ section.handoff-footer .handoff-footer-contain a:hover {
   }
 
   .header .header-wrapper {
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 100%;
-    z-index: 100000
+    position: relative;
+    z-index: 100002
   }
 
   .header.show {
@@ -28799,24 +28802,20 @@ section.handoff-footer .handoff-footer-contain a:hover {
     flex-direction: column;
     height: 100%;
     left: 0;
-    opacity: 0;
-    pointer-events: none;
     overflow-x: hidden;
     overflow-y: auto;
     padding-top: 80px;
     position: fixed;
     top: 0;
     transform: translateX(100%);
-    transition: transform .7s ease, opacity .25s ease, visibility 0s linear .25s;
+    transition: transform .7s ease, visibility 0s .7s;
     visibility: hidden;
     width: 100%;
     z-index: 100001
   }
 
   .header.show .header-main-nav {
-    background: #fff;
-    pointer-events: auto;
-    transition: transform .7s ease, opacity .25s ease, visibility 0s linear 0s
+    transition: transform .7s ease, visibility 0s 0s
   }
 
   .header-main-nav:after,
