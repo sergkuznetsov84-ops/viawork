@@ -28769,6 +28769,16 @@ section.handoff-footer .handoff-footer-contain a:hover {
     width: 100%
   }
 
+  .header.show {
+    z-index: 1201
+  }
+
+  .header.show .header-main-nav {
+    height: 100dvh;
+    top: 0;
+    z-index: 1200
+  }
+
   .header-main-nav:after,
   .header-main-nav:before {
     background: #fff;
