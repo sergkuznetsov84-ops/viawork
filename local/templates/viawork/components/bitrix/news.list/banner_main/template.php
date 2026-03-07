@@ -98,7 +98,9 @@ if (empty($processedItems)) {
                                                 <?php if (!empty($item['VIDEO_DESKTOP_SRC'])): ?>
                                                     <video class="comp-88-video-desktop" 
                                                            src="<?= htmlspecialcharsbx($item['VIDEO_DESKTOP_SRC']) ?>" 
-                                                           autoplay muted playsinline></video>
+                                                           poster="<?= htmlspecialcharsbx($item['DESKTOP_FALLBACK_IMAGE']) ?>"
+                                                           preload="metadata"
+                                                           autoplay muted playsinline loop></video>
                                                 <?php elseif (!empty($item['DESKTOP_FALLBACK_IMAGE'])): ?>
                                                     <img class="comp-88-image-desktop sp-no-webp"
                                                          src="<?= htmlspecialcharsbx($item['DESKTOP_FALLBACK_IMAGE']) ?>"
@@ -108,11 +110,15 @@ if (empty($processedItems)) {
                                                 <?php if (!empty($item['VIDEO_MOBILE_SRC'])): ?>
                                                     <video class="comp-88-video-mobile" 
                                                            src="<?= htmlspecialcharsbx($item['VIDEO_MOBILE_SRC']) ?>" 
-                                                           autoplay muted playsinline></video>
+                                                           poster="<?= htmlspecialcharsbx($item['MOBILE_FALLBACK_IMAGE']) ?>"
+                                                           preload="metadata"
+                                                           autoplay muted playsinline loop></video>
                                                 <?php elseif (!empty($item['VIDEO_DESKTOP_SRC'])): ?>
                                                     <video class="comp-88-video-mobile" 
                                                            src="<?= htmlspecialcharsbx($item['VIDEO_DESKTOP_SRC']) ?>" 
-                                                           autoplay muted playsinline></video>
+                                                           poster="<?= htmlspecialcharsbx($item['MOBILE_FALLBACK_IMAGE']) ?>"
+                                                           preload="metadata"
+                                                           autoplay muted playsinline loop></video>
                                                 <?php elseif (!empty($item['MOBILE_FALLBACK_IMAGE'])): ?>
                                                     <img class="comp-88-image-mobile sp-no-webp"
                                                          src="<?= htmlspecialcharsbx($item['MOBILE_FALLBACK_IMAGE']) ?>"
