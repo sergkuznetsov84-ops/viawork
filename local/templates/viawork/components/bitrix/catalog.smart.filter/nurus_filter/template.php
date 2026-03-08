@@ -104,6 +104,109 @@ $templateData = array(
 			
 		</div>
 	</form>
+	<div class="comp-24-filters-body-mobile">
+		<div class="comp-24-filters-body-mobile-selected-filters"></div>
+		<div class="comp-24-filters-body-mobile-head">
+			<div class="title">
+				<i>
+					<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="none">
+						<path d="M16.0117 4.04651H19.0009" stroke="#25282A" stroke-width="1.44404" stroke-linecap="round" stroke-linejoin="round"></path>
+						<path d="M1 4.04651H9.91696" stroke="#25282A" stroke-width="1.44404" stroke-linecap="round" stroke-linejoin="round"></path>
+						<path d="M10.0762 13.1729H19.0004" stroke="#25282A" stroke-width="1.44404" stroke-linecap="round" stroke-linejoin="round"></path>
+						<path d="M1 13.1729H3.98195" stroke="#25282A" stroke-width="1.44404" stroke-linecap="round" stroke-linejoin="round"></path>
+						<path d="M12.9649 0.999756C14.6472 0.999756 16.0118 2.36438 16.0118 4.04669C16.0118 5.72899 14.6472 7.09361 12.9649 7.09361C11.2826 7.09361 9.91797 5.72899 9.91797 4.04669C9.91797 2.36438 11.2826 0.999756 12.9649 0.999756Z" stroke="#25282A" stroke-width="1.44404" stroke-linecap="round" stroke-linejoin="round"></path>
+						<path d="M7.02935 10.1262C8.71166 10.1262 10.0763 11.4908 10.0763 13.1732C10.0763 14.8555 8.71166 16.2201 7.02935 16.2201C5.34704 16.2201 3.98242 14.8555 3.98242 13.1732C3.98242 11.4908 5.34704 10.1262 7.02935 10.1262Z" stroke="#25282A" stroke-width="1.44404" stroke-linecap="round" stroke-linejoin="round"></path>
+					</svg>
+				</i>
+				<span>Filter Products</span>
+			</div>
+			<div class="close-btn">
+				<a href="javascript:;">
+					<i>
+						<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+							<path d="M1 1L13 13" stroke="#25282A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+							<path d="M13 1L1 13" stroke="#25282A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+						</svg>
+					</i>
+				</a>
+			</div>
+		</div>
+		<div class="comp-24-filters-body-mobile-content">
+			<?foreach($arResult["ITEMS"] as $key=>$arItem):
+				if (empty($arItem["VALUES"]) || isset($arItem["PRICE"])) {
+					continue;
+				}
+				if ($arItem["DISPLAY_TYPE"] == "A" && ($arItem["VALUES"]["MAX"]["VALUE"] - $arItem["VALUES"]["MIN"]["VALUE"] <= 0)) {
+					continue;
+				}
+			?>
+				<div class="comp-24-filters-body-mobile-content-item">
+					<div class="comp-24-filters-body-mobile-content-item-head">
+						<span><?=htmlspecialcharsbx($arItem["NAME"])?></span>
+						<i>
+							<svg xmlns="http://www.w3.org/2000/svg" width="15" height="9" viewBox="0 0 15 9" fill="none">
+								<path d="M1 1L7.35028 7.35028L13.7006 1" stroke="#25282A" stroke-miterlimit="10"></path>
+							</svg>
+						</i>
+					</div>
+					<div class="comp-24-filters-body-mobile-content-item-list">
+						<div class="list-head">
+							<div class="back-btn">
+								<a href="javascript:;">
+									<i>
+										<svg xmlns="http://www.w3.org/2000/svg" width="9" height="15" viewBox="0 0 9 15" fill="none">
+											<path d="M8 1L1.64972 7.35028L8 13.7006" stroke="#25282A" stroke-miterlimit="10"></path>
+										</svg>
+									</i>
+								</a>
+							</div>
+							<span><?=htmlspecialcharsbx($arItem["NAME"])?></span>
+							<div class="close-btn">
+								<a href="javascript:;">
+									<i>
+										<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+											<path d="M1 1L13 13" stroke="#25282A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+											<path d="M13 1L1 13" stroke="#25282A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+										</svg>
+									</i>
+								</a>
+							</div>
+						</div>
+						<div class="list-content">
+							<div class="list-content-item-sublist show">
+								<div class="list-content-item-sublist-body">
+									<?foreach($arItem["VALUES"] as $val => $ar):?>
+										<div class="list-content-item-sublist-body-item">
+											<button
+												type="button"
+												class="mobile-filter-option<?if ($ar["CHECKED"]):?> active<?endif?>"
+												data-checkbox-id="<?echo $ar["CONTROL_ID"]?>"
+												data-filter-name="<?=htmlspecialcharsbx($arItem["NAME"])?>"
+												data-filter-value="<?=htmlspecialcharsbx($ar["VALUE"])?>"
+											>
+												<span><?=htmlspecialcharsbx($ar["VALUE"])?></span>
+											</button>
+										</div>
+									<?endforeach;?>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?endforeach;?>
+		</div>
+		<div class="comp-24-filters-body-mobile-footer">
+			<div class="apply-btn">
+				<a href="javascript:;" class="mobile-filter-apply-btn">
+					Apply
+					<span class="mobile-filter-apply-count">0</span>
+				</a>
+			</div>
+			<div class="clear-btn">
+				<a href="javascript:;" class="mobile-filter-clear-btn">Clear</a>
+			</div>
+		</div>
+	</div>
 	<div style="clear: both;"></div>
 </div>
 </div>

@@ -2,48 +2,65 @@ jQuery( document ).ready(function() {
     const $window = jQuery(window);
     const $catalogFilterButton = jQuery('.comp-24-filters-main-btn');
     const $catalogFilterBody = jQuery('.comp-24-filters-body');
+    const $catalogFilterMobileBody = jQuery('.comp-24-filters-body-mobile');
     const $catalogContentColumn = jQuery('.comp-24-body > .row > .col-12');
     const $catalogFilterOverlay = jQuery('.comp-24-filters .mobile-overlay');
     const isMobileCatalogFilter = function() {
         return window.matchMedia('(max-width: 991px)').matches;
     };
 
-    const ensureMobileCatalogFilterShell = function() {
-        if (!$catalogFilterBody.length || $catalogFilterBody.find('.comp-24-mobile-filter-head').length) {
-            return;
-        }
-
-        const buttonLabel = $catalogFilterButton.find('span').first().text().trim() || 'Filter Products';
-
-        $catalogFilterBody.prepend(
-            '<div class="comp-24-mobile-filter-head">' +
-                '<div class="comp-24-mobile-filter-title">' + buttonLabel + '</div>' +
-                '<button type="button" class="comp-24-mobile-filter-close" aria-label="Close filter">' +
-                    '<span></span><span></span>' +
-                '</button>' +
-            '</div>'
-        );
-
-        $catalogFilterBody.append(
-            '<div class="comp-24-mobile-filter-footer">' +
-                '<button type="button" class="comp-24-mobile-filter-apply">Apply</button>' +
-            '</div>'
-        );
-    };
-
     const closeMobileCatalogFilter = function() {
         $catalogFilterButton.removeClass('show');
-        $catalogFilterBody.removeClass('show mobile-sheet');
+        $catalogFilterMobileBody.removeClass('show');
+        $catalogFilterMobileBody.find('.comp-24-filters-body-mobile-content-item-list.show').removeClass('show');
         $catalogFilterOverlay.removeClass('active');
         jQuery('body').removeClass('sm-md-overflow-none');
     };
 
     const openMobileCatalogFilter = function() {
-        ensureMobileCatalogFilterShell();
         $catalogFilterButton.addClass('show');
-        $catalogFilterBody.addClass('mobile-sheet show');
+        $catalogFilterMobileBody.addClass('show');
         $catalogFilterOverlay.addClass('active');
         jQuery('body').addClass('sm-md-overflow-none');
+    };
+
+    const syncMobileCatalogFilterState = function() {
+        if (!$catalogFilterMobileBody.length) {
+            return;
+        }
+
+        let checkedCount = 0;
+        const selectedItems = [];
+
+        $catalogFilterMobileBody.find('.mobile-filter-option').each(function() {
+            const $option = jQuery(this);
+            const checkboxId = $option.data('checkbox-id');
+            const $checkbox = jQuery('#' + checkboxId);
+            const isChecked = $checkbox.is(':checked');
+
+            $option.toggleClass('active', isChecked);
+
+            if (isChecked) {
+                checkedCount += 1;
+                selectedItems.push(
+                    '<div class="selected-filters-item">' +
+                        '<span>' + $option.data('filter-value') + '</span>' +
+                        '<i data-checkbox-id="' + checkboxId + '">' +
+                            '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">' +
+                                '<path d="M1 1L7 7" stroke="white" stroke-width="0.548446" stroke-linecap="round" stroke-linejoin="round"></path>' +
+                                '<path d="M7 1L1 7" stroke="white" stroke-width="0.548446" stroke-linecap="round" stroke-linejoin="round"></path>' +
+                            '</svg>' +
+                        '</i>' +
+                    '</div>'
+                );
+            }
+        });
+
+        $catalogFilterMobileBody.find('.mobile-filter-apply-count').text(checkedCount);
+        $catalogFilterMobileBody.find('.comp-24-filters-body-mobile-selected-filters')
+            .toggleClass('show', checkedCount > 0)
+            .html(selectedItems.join(''));
+        $catalogFilterMobileBody.find('.comp-24-filters-body-mobile-footer .clear-btn').toggleClass('show', checkedCount > 0);
     };
 
     const syncCatalogFilterLayout = function() {
@@ -59,6 +76,7 @@ jQuery( document ).ready(function() {
     };
 
     syncCatalogFilterLayout();
+    syncMobileCatalogFilterState();
     $window.on('resize', function() {
         if (!isMobileCatalogFilter()) {
             closeMobileCatalogFilter();
@@ -90,7 +108,7 @@ jQuery( document ).ready(function() {
             event.preventDefault();
             event.stopImmediatePropagation();
 
-            if ($catalogFilterBody.hasClass('show')) {
+            if ($catalogFilterMobileBody.hasClass('show')) {
                 closeMobileCatalogFilter();
             } else {
                 openMobileCatalogFilter();
@@ -109,9 +127,56 @@ jQuery( document ).ready(function() {
         closeMobileCatalogFilter();
     });
 
-    jQuery(document).on('click', '.comp-24-mobile-filter-apply', function(event) {
+    jQuery(document).on('click', '.comp-24-filters-body-mobile-head .close-btn, .comp-24-filters-body-mobile-content-item-list .close-btn', function(event) {
+        event.preventDefault();
+        closeMobileCatalogFilter();
+    });
+
+    jQuery(document).on('click', '.comp-24-filters-body-mobile-content-item-head', function() {
+        jQuery(this).siblings('.comp-24-filters-body-mobile-content-item-list').addClass('show');
+    });
+
+    jQuery(document).on('click', '.comp-24-filters-body-mobile-content-item-list .back-btn', function(event) {
+        event.preventDefault();
+        jQuery(this).closest('.comp-24-filters-body-mobile-content-item-list').removeClass('show');
+    });
+
+    jQuery(document).on('click', '.mobile-filter-option', function(event) {
+        const $option = jQuery(this);
+        const checkboxId = $option.data('checkbox-id');
+        const $checkbox = jQuery('#' + checkboxId);
+
+        event.preventDefault();
+
+        if (!$checkbox.length) {
+            return;
+        }
+
+        $checkbox.prop('checked', !$checkbox.is(':checked')).trigger('change');
+        syncMobileCatalogFilterState();
+    });
+
+    jQuery(document).on('click', '.mobile-filter-apply-btn', function(event) {
         event.preventDefault();
         $catalogFilterBody.find('.bx_filter_search_button').first().trigger('click');
+    });
+
+    jQuery(document).on('click', '.mobile-filter-clear-btn', function(event) {
+        event.preventDefault();
+        $catalogFilterBody.find('.bx_filter_input_checkbox input:checked').prop('checked', false);
+        syncMobileCatalogFilterState();
+    });
+
+    jQuery(document).on('click', '.comp-24-filters-body-mobile-selected-filters i', function() {
+        const checkboxId = jQuery(this).data('checkbox-id');
+        const $checkbox = jQuery('#' + checkboxId);
+
+        if (!$checkbox.length) {
+            return;
+        }
+
+        $checkbox.prop('checked', false).trigger('change');
+        syncMobileCatalogFilterState();
     });
 
     $catalogFilterOverlay.on('click', function() {
@@ -124,6 +189,7 @@ jQuery( document ).ready(function() {
     
     jQuery('.bx_filter_input_checkbox input, label').on('change' , function (params) {
         if (isMobileCatalogFilter()) {
+            syncMobileCatalogFilterState();
             return;
         }
 
