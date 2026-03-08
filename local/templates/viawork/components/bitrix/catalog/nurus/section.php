@@ -8,7 +8,7 @@
 				</div>
 			</div>
 			<div class="comp-24-filters" >
-				<div class="mobile-overlay active" ></div>
+				<div class="mobile-overlay" ></div>
 				<div class="row" >
 					<div class="col-6 col-lg-3" >
 						<div class="comp-24-filters-main" >
