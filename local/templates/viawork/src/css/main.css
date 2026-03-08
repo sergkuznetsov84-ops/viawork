@@ -28776,9 +28776,7 @@ section.handoff-footer .handoff-footer-contain a:hover {
   }
 
   .header .header-wrapper {
-    background: #fff;
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 100002
   }
 
@@ -28793,8 +28791,8 @@ section.handoff-footer .handoff-footer-contain a:hover {
     z-index: 100003
   }
 
-  #headerfixed {
-    display: none
+  #headerfixed.fixed {
+    z-index: 100003
   }
 
   .header-main-nav {
