@@ -5,8 +5,19 @@ jQuery( document ).ready(function() {
     const $catalogFilterMobileBody = jQuery('.comp-24-filters-body-mobile');
     const $catalogContentColumn = jQuery('.comp-24-body > .row > .col-12');
     const $catalogFilterOverlay = jQuery('.comp-24-filters .mobile-overlay');
+    const $catalogFiltersRoot = jQuery('.comp-24-filters').first();
     const isMobileCatalogFilter = function() {
         return window.matchMedia('(max-width: 991px)').matches;
+    };
+
+    const mountMobileCatalogFilter = function() {
+        if (!$catalogFilterMobileBody.length || !$catalogFiltersRoot.length) {
+            return;
+        }
+
+        if (!$catalogFilterMobileBody.parent().is($catalogFiltersRoot)) {
+            $catalogFilterMobileBody.appendTo($catalogFiltersRoot);
+        }
     };
 
     const closeMobileCatalogFilter = function() {
@@ -76,8 +87,10 @@ jQuery( document ).ready(function() {
     };
 
     syncCatalogFilterLayout();
+    mountMobileCatalogFilter();
     syncMobileCatalogFilterState();
     $window.on('resize', function() {
+        mountMobileCatalogFilter();
         if (!isMobileCatalogFilter()) {
             closeMobileCatalogFilter();
         }
