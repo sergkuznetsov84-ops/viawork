@@ -28740,6 +28740,12 @@ section.handoff-footer .handoff-footer-contain a:hover {
     text-align: right
   }
 
+  .footer .footer-bottom .legal-links a {
+    display: block;
+    text-align: right;
+    width: 100%
+  }
+
   .header.header-dark .header-main-nav .nav-list-item-dropdown-item-head {
     background: #2c2f31
   }
