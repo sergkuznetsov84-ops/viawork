@@ -11889,21 +11889,27 @@ body.home .comp-10 {
   transform: rotate(180deg)
 }
 
-.comp-24-filters-sort .active-sort {
-  align-items: center;
-  display: flex;
-  gap: 10px
-}
+  .comp-24-filters-sort .active-sort {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    min-width: 0
+  }
 
-.comp-24-filters-sort .active-sort a {
+  .comp-24-filters-sort .active-sort a {
   color: #25282a;
   font-size: 14px;
-  line-height: normal
-}
+  line-height: normal;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+  }
 
-.comp-24-filters-sort .active-sort .icon {
-  display: flex
-}
+  .comp-24-filters-sort .active-sort .icon {
+  display: flex;
+  flex: 0 0 auto
+  }
 
 .comp-24-filters-sort .active-sort .icon i {
   display: flex;
