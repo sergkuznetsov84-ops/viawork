@@ -339,7 +339,7 @@ F: (+90) 212 270 48 28</span></p>
                                 </div>
                               </div>
                             </div>
-                                                      <div class="comp-103-acc-item" data-map-link="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.7960761904706!2d28.974361075862003!3d41.07344997134149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab6e0b297cc9f%3A0xec4b09e1c7e4b8d8!2sSempre%20Ofis%20Mobilyalar%C4%B1%20%C3%87a%C4%9Flayan!5e0!3m2!1str!2str!4v1758282365911!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" bis_skin_checked="1">
+                            <div class="comp-103-acc-item" data-map-link="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.7960761904706!2d28.974361075862003!3d41.07344997134149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab6e0b297cc9f%3A0xec4b09e1c7e4b8d8!2sSempre%20Ofis%20Mobilyalar%C4%B1%20%C3%87a%C4%9Flayan!5e0!3m2!1str!2str!4v1758282365911!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" bis_skin_checked="1">
                               <div class="comp-103-acc-item-head" id="comp-103-acc-tab-1-head_12" data-bs-toggle="collapse" data-bs-target="#comp-103-acc-tab-1-collapse_12" aria-expanded="false" aria-controls="comp-103-acc-tab-1-collapse_12" bis_skin_checked="1">
                                 <div class="title" bis_skin_checked="1">
                                   <h5>Sempre Office Furniture Çağlayan</h5>
@@ -360,15 +360,46 @@ F: (+90) 212 270 48 28</span></p>
                                     </div>
                                     <div class="links" bis_skin_checked="1">
                                       <p><a class="c-link c-link--underline" href="mailto:info@sempremobilya.com.tr" target="_blank" rel="noopener noreferrer" data-stringify-link="mailto:info@sempremobilya.com.tr" data-sk="tooltip_parent" aria-haspopup="menu">E:info@sempremobilya.com.tr</a></p>
-<p><a class="c-link c-link--underline" href="https://www.google.com/search?q=sempre+mobilya+%C3%A7a%C4%9Flayan&amp;client=safari&amp;sca_esv=a6493d853efe4d30&amp;rls=en&amp;sxsrf=AE3TifMnv4-Un0PCZw9KkwRcxTH_BfW7FA%3A1758283946905&amp;ei=qkjNaMP8NpOUxc8PjpXu8QU&amp;oq=sempre+%C3%A7a%C4%9F&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiDHNlbXByZSDDp2HEnyoCCAAyBhAAGBYYHjIGEAAYFhgeMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigAUjVGlCDBljaD3ADeAGQAQCYAeABoAGXD6oBBTAuNi40uAEDyAEA-AEBmAIMoALADsICChAAGLADGNYEGEfCAgQQIxgnwgIKECMYgAQYJxiKBcICCxAAGIAEGLEDGIMBwgILEC4YgAQYsQMYgwHCAggQABiABBixA8ICERAuGIAEGLEDGNEDGIMBGMcBwgIOEAAYgAQYsQMYgwEYigXCAgUQABiABMICDhAuGIAEGLEDGIMBGIoFwgIKEAAYgAQYQxiKBcICCBAuGIAEGLEDwgIOEC4YgAQYxwEYjgUYrwHCAgsQLhiABBjHARivAcICAhAmwgIFECEYnwWYAwCIBgGQBgiSBwUzLjQuNaAHuZYBsgcFMC40LjW4B7UOwgcHMC4zLjYuM8gHPw&amp;sclient=gws-wiz-serp#" target="_blank" rel="noopener noreferrer" data-stringify-link="https://www.google.com/search?q=sempre+mobilya+%C3%A7a%C4%9Flayan&amp;client=safari&amp;sca_esv=a6493d853efe4d30&amp;rls=en&amp;sxsrf=AE3TifMnv4-Un0PCZw9KkwRcxTH_BfW7FA%3A1758283946905&amp;ei=qkjNaMP8NpOUxc8PjpXu8QU&amp;oq=sempre+%C3%A7a%C4%9F&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiDHNlbXByZSDDp2HEnyoCCAAyBhAAGBYYHjIGEAAYFhgeMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigAUjVGlCDBljaD3ADeAGQAQCYAeABoAGXD6oBBTAuNi40uAEDyAEA-AEBmAIMoALADsICChAAGLADGNYEGEfCAgQQIxgnwgIKECMYgAQYJxiKBcICCxAAGIAEGLEDGIMBwgILEC4YgAQYsQMYgwHCAggQABiABBixA8ICERAuGIAEGLEDGNEDGIMBGMcBwgIOEAAYgAQYsQMYgwEYigXCAgUQABiABMICDhAuGIAEGLEDGIMBGIoFwgIKEAAYgAQYQxiKBcICCBAuGIAEGLEDwgIOEC4YgAQYxwEYjgUYrwHCAgsQLhiABBjHARivAcICAhAmwgIFECEYnwWYAwCIBgGQBgiSBwUzLjQuNaAHuZYBsgcFMC40LjW4B7UOwgcHMC4zLjYuM8gHPw&amp;sclient=gws-wiz-serp#" data-sk="tooltip_parent">T: (0212) 210 60 06</a></p>
+                                        <p><a class="c-link c-link--underline" href="https://www.google.com/search?q=sempre+mobilya+%C3%A7a%C4%9Flayan&amp;client=safari&amp;sca_esv=a6493d853efe4d30&amp;rls=en&amp;sxsrf=AE3TifMnv4-Un0PCZw9KkwRcxTH_BfW7FA%3A1758283946905&amp;ei=qkjNaMP8NpOUxc8PjpXu8QU&amp;oq=sempre+%C3%A7a%C4%9F&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiDHNlbXByZSDDp2HEnyoCCAAyBhAAGBYYHjIGEAAYFhgeMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigAUjVGlCDBljaD3ADeAGQAQCYAeABoAGXD6oBBTAuNi40uAEDyAEA-AEBmAIMoALADsICChAAGLADGNYEGEfCAgQQIxgnwgIKECMYgAQYJxiKBcICCxAAGIAEGLEDGIMBwgILEC4YgAQYsQMYgwHCAggQABiABBixA8ICERAuGIAEGLEDGNEDGIMBGMcBwgIOEAAYgAQYsQMYgwEYigXCAgUQABiABMICDhAuGIAEGLEDGIMBGIoFwgIKEAAYgAQYQxiKBcICCBAuGIAEGLEDwgIOEC4YgAQYxwEYjgUYrwHCAgsQLhiABBjHARivAcICAhAmwgIFECEYnwWYAwCIBgGQBgiSBwUzLjQuNaAHuZYBsgcFMC40LjW4B7UOwgcHMC4zLjYuM8gHPw&amp;sclient=gws-wiz-serp#" target="_blank" rel="noopener noreferrer" data-stringify-link="https://www.google.com/search?q=sempre+mobilya+%C3%A7a%C4%9Flayan&amp;client=safari&amp;sca_esv=a6493d853efe4d30&amp;rls=en&amp;sxsrf=AE3TifMnv4-Un0PCZw9KkwRcxTH_BfW7FA%3A1758283946905&amp;ei=qkjNaMP8NpOUxc8PjpXu8QU&amp;oq=sempre+%C3%A7a%C4%9F&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiDHNlbXByZSDDp2HEnyoCCAAyBhAAGBYYHjIGEAAYFhgeMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigAUjVGlCDBljaD3ADeAGQAQCYAeABoAGXD6oBBTAuNi40uAEDyAEA-AEBmAIMoALADsICChAAGLADGNYEGEfCAgQQIxgnwgIKECMYgAQYJxiKBcICCxAAGIAEGLEDGIMBwgILEC4YgAQYsQMYgwHCAggQABiABBixA8ICERAuGIAEGLEDGNEDGIMBGMcBwgIOEAAYgAQYsQMYgwEYigXCAgUQABiABMICDhAuGIAEGLEDGIMBGIoFwgIKEAAYgAQYQxiKBcICCBAuGIAEGLEDwgIOEC4YgAQYxwEYjgUYrwHCAgsQLhiABBjHARivAcICAhAmwgIFECEYnwWYAwCIBgGQBgiSBwUzLjQuNaAHuZYBsgcFMC40LjW4B7UOwgcHMC4zLjYuM8gHPw&amp;sclient=gws-wiz-serp#" data-sk="tooltip_parent">T: (0212) 210 60 06</a></p>
                                     </div>
                                   </div>
                                 </div>
                               </div>
+
                             </div>
+                            <!-- Новый блок — Магазин в Москве (Artplay) -->
+                      <div class="comp-103-acc-item" data-map-link="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.3602806303193!2d37.6708652191429!3d55.752243381334544!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a947bc2d663%3A0x31a6cb343f75247a!2z0J3QuNC20L3Rj9GPINCh0YvRgNC-0LzRj9GC0L3QuNGH0LXRgdC60LDRjyDRg9C7LiwgMTDRgdGCMiwg0JzQvtGB0LrQstCwLCAxMDUxMjA!5e0!3m2!1sru!2sru!4v1773663881604!5m2!1sru!2sru" bis_skin_checked="1">
+                        <div class="comp-103-acc-item-head" id="comp-103-acc-tab-1-head_13" data-bs-toggle="collapse" data-bs-target="#comp-103-acc-tab-1-collapse_13" aria-expanded="false" aria-controls="comp-103-acc-tab-1-collapse_13" bis_skin_checked="1">
+                          <div class="title" bis_skin_checked="1">
+                            <h5>Магазин в Москве, Artplay</h5>
+                          </div>
+                          <div class="head-icon" bis_skin_checked="1">
+                            <i>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="13" viewBox="0 0 21 13" fill="none">
+                                <path d="M20 1.73883L10.4984 12L1 1.73883L1.68414 1L10.4984 10.5189L19.3159 1L20 1.73883Z" stroke="#373F43"></path>
+                              </svg>
+                            </i>
+                          </div>
+                        </div>                     
+                        <div class="comp-103-acc-item-collapse collapse" id="comp-103-acc-tab-1-collapse_13" aria-labelledby="comp-103-acc-tab-1-head_13" data-bs-parent="#comp-103-acc-tab-1" bis_skin_checked="1">
+                          <div class="comp-103-acc-item-collapse-body" bis_skin_checked="1">
+                            <div class="comp-103-acc-item-collapse-body-content" bis_skin_checked="1">
+                              <div class="address" bis_skin_checked="1">
+                                <p>Нижняя Сыромятническая ул., дом 10, стр. 2, 3 этаж, Artplay<br>Москва, Россия</p>
+                              </div>
+                              <div class="links" bis_skin_checked="1">
+                                <p><!-- Если есть телефон и email — добавьте сюда -->
+                                  <!-- Пример: <a href="tel:+74951234567"><b>T:</b> +7 (495) 123-45-67</a><br> -->
+                                  <!-- <a href="mailto:moscow@nurus.com"><b>E:</b> moscow@nurus.com</a> -->
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                                                   </div>
                         <div class="comp-103-map" bis_skin_checked="1">
-                          <iframe src="<?=SITE_TEMPLATE_PATH."/src/img"?>/embed.html" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                          <iframe src="<?=SITE_TEMPLATE_PATH.'/src/img'?>/embed.html" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                       </div>
                     </div>

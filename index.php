@@ -1,6 +1,6 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetTitle("Мебельная компания");
+$APPLICATION->SetTitle("Главная страница | Nurus");
 ?> <main class="main-home">
 	<!-- test deploy -->
 <?php
@@ -58,7 +58,7 @@ $APPLICATION->IncludeComponent(
 		"PAGER_TEMPLATE" => ".default",
 		"DISPLAY_TOP_PAGER" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
-		"PAGER_TITLE" => "Новости",
+		"PAGER_TITLE" => "Íîâîñòè",
 		"PAGER_SHOW_ALWAYS" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -128,7 +128,7 @@ $APPLICATION->IncludeComponent(
 		"CACHE_GROUPS" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "N",
-		"PAGER_TITLE" => "О компании",
+		"PAGER_TITLE" => "Î êîìïàíèè",
 		"PAGER_SHOW_ALWAYS" => "Y",
 		"PAGER_TEMPLATE" => "",
 		"PAGER_DESC_NUMBERING" => "Y",
@@ -198,7 +198,7 @@ $APPLICATION->IncludeComponent(
 		"CACHE_GROUPS" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "N",
-		"PAGER_TITLE" => "О компании",
+		"PAGER_TITLE" => "Î êîìïàíèè",
 		"PAGER_SHOW_ALWAYS" => "Y",
 		"PAGER_TEMPLATE" => "",
 		"PAGER_DESC_NUMBERING" => "Y",
@@ -272,7 +272,7 @@ $APPLICATION->IncludeComponent(
 		"CACHE_GROUPS" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "N",
-		"PAGER_TITLE" => "О компании",
+		"PAGER_TITLE" => "Î êîìïàíèè",
 		"PAGER_SHOW_ALWAYS" => "Y",
 		"PAGER_TEMPLATE" => "",
 		"PAGER_DESC_NUMBERING" => "Y",
@@ -361,7 +361,7 @@ $APPLICATION->IncludeComponent(
 		"CACHE_GROUPS" => "Y",
 		"DISPLAY_TOP_PAGER" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "N",
-		"PAGER_TITLE" => "О компании",
+		"PAGER_TITLE" => "Î êîìïàíèè",
 		"PAGER_SHOW_ALWAYS" => "Y",
 		"PAGER_TEMPLATE" => "",
 		"PAGER_DESC_NUMBERING" => "Y",
