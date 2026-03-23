@@ -32,6 +32,7 @@ if (!empty($arResult['ITEMS']) && is_array($arResult['ITEMS'])) {
             'ID' => $item['ID'],
             'NAME' => $item['~NAME'] ?? '',
             'DETAIL_PAGE_URL' => $item['DETAIL_PAGE_URL'] ?? '',
+			'LINK' => $item['PROPERTIES']['LINK']['VALUE'] ?? '',
             'PREVIEW_PICTURE' => $previewPicture,
             'EDIT_AREA_ID' => $this->GetEditAreaId($item['ID']),
         ];
@@ -68,7 +69,8 @@ $colClass = $colClasses[min($itemsCount, 6)] ?? 'col-6 col-lg-3';
                 <div class="row">
                     <?php foreach ($processedSections as $section): ?>
                         <div class="<?= $colClass ?>" id="<?= $section['EDIT_AREA_ID'] ?>">
-                            <a href="<?= htmlspecialcharsbx($section['DETAIL_PAGE_URL']) ?>" class="card">
+                            <!--<a href="<?= htmlspecialcharsbx($section['DETAIL_PAGE_URL']) ?>" class="card">-->
+                            <a href="<?= htmlspecialcharsbx($section['LINK']) ?>" class="card">
                                 <?php if (!empty($section['PREVIEW_PICTURE'])): ?>
                                     <picture>
                                         <source srcset="<?= htmlspecialcharsbx($section['PREVIEW_PICTURE']) ?>" type="image/avif">

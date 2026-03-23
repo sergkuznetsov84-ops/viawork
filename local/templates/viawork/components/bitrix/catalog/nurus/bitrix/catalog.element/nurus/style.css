@@ -1,0 +1,28 @@
+main {
+    padding-top: inherit;
+}
+/* Фон блока, пока видео не загрузилось (выберите подходящий цвет) */
+.comp-1-media {
+    background-color: #f4f4f4; /* Светло-серый или #25282A если нужен темный */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Начальное состояние видео — невидимое */
+.hero-video-fade {
+    opacity: 0;
+    transition: opacity 1.5s ease; /* Скорость проявления видео */
+}
+
+/* Класс, который добавится через JS при старте видео */
+.hero-video-fade.is-playing {
+    opacity: 1;
+}
+.comp-1-badges .badge-media {
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+

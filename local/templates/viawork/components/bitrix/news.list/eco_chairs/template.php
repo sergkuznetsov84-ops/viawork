@@ -37,13 +37,44 @@ $this->setFrameMode(true);
 								</div>
 							</div>
 						</div>
-			<div class="comp-6-body" >
-				<div class="row" >
-					<?foreach($arResult["ITEMS"] as $arItem):?>
-						<?
-						$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
-						$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-						?>
+						<div class="comp-6-body" >
+							<div class="row" >
+								<?foreach($arResult["ITEMS"] as $arItem):?>
+								    <?
+								    $this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+								    $this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+								    ?>
+								    <div class="col-md-3 col-6" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
+								        <div class="comp-6-item fadeInUp-scroll" data-delay="350" >
+								            <div class="comp-6-item-start" >
+								                <div class="comp-6-item-media" >
+							                        <?if(!empty($arItem["CUSTOM_PHOTO"])):?>
+							                            <img src="<?=$arItem["CUSTOM_PHOTO"]?>" class="sp-no-webp" alt="<?=htmlspecialcharsbx($arItem["NAME"])?>">
+							                        <?//else:?>
+							                             <!-- Если нет вообще ничего, выводим заглушку -->
+							                            <!-- <img src="<?=SITE_TEMPLATE_PATH?>/img/no-image.jpg" class="sp-no-webp" alt=""> -->
+							                        <?endif;?>                                            
+								                </div>
+								            </div>
+								            <div class="comp-6-item-end" >
+								                <div class="comp-6-item-title" >
+								                    <h5><?=$arItem["NAME"];?></h5>
+								                </div>
+								                <div class="comp-6-item-price" >
+								                    <span><?=$arItem["PREVIEW_TEXT"];?></span>
+								                </div>
+								                <div class="comp-6-item-actions" >
+								                    <a href="<?=$arItem["DETAIL_PAGE_URL"];?>" target="" class="btn btn-arsenic btn-rnd-full btn-semibold">Подробнее</a>                                                       
+								                </div>
+								            </div>
+								        </div>
+								    </div>
+								<?endforeach;?>
+								<!-- <?foreach($arResult["ITEMS"] as $arItem):?>
+									<?
+									$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+									$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+									?>
 									<div class="col-md-3 col-6" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
 										<div class="comp-6-item fadeInUp-scroll" data-delay="350" >
 											<div class="comp-6-item-start" >
@@ -64,7 +95,7 @@ $this->setFrameMode(true);
 											</div>
 										</div>
 									</div>
-							<?endforeach;?>
+								<?endforeach;?> -->
 							</div>
 						</div>
 					</div>

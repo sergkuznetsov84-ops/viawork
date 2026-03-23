@@ -78,28 +78,28 @@ Asset::getInstance()->addString('<link href="https://fonts.googleapis.com/css2?f
 					<span></span>
 				</div>	  
 					<?$APPLICATION->IncludeComponent(
-						"bitrix:menu", 
-						"viawork_top_menu", 
-						array(
-							"ROOT_MENU_TYPE" => "top",
-							"MAX_LEVEL" => "1",
-							"CHILD_MENU_TYPE" => "left",
-							"USE_EXT" => "Y",
-							"MENU_CACHE_TYPE" => "A",
-							"MENU_CACHE_TIME" => "36000000",
-							"MENU_CACHE_USE_GROUPS" => "Y",
-							"MENU_CACHE_GET_VARS" => array(
-							),
-							"COMPONENT_TEMPLATE" => "viawork_top_menu",
-							"DELAY" => "N",
-							"ALLOW_MULTI_SELECT" => "N",
-							"MENU_THEME" => "site"
-						),
-						false,
-						array(
-							"ACTIVE_COMPONENT" => "Y"
-						)
-					);?>
+	"bitrix:menu", 
+	"viawork_top_menu", 
+	array(
+		"ROOT_MENU_TYPE" => "top",
+		"MAX_LEVEL" => "1",
+		"CHILD_MENU_TYPE" => "left",
+		"USE_EXT" => "Y",
+		"MENU_CACHE_TYPE" => "A",
+		"MENU_CACHE_TIME" => "36000000",
+		"MENU_CACHE_USE_GROUPS" => "Y",
+		"MENU_CACHE_GET_VARS" => array(
+		),
+		"COMPONENT_TEMPLATE" => "viawork_top_menu",
+		"DELAY" => "N",
+		"ALLOW_MULTI_SELECT" => "N",
+		"MENU_THEME" => "site"
+	),
+	false,
+	array(
+		"ACTIVE_COMPONENT" => "Y"
+	)
+);?>
 				<div class="header-btn" >
 					<a href="/" target="_blank" class="btn-blue"> <span>Calma</span> <i>
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="13" viewBox="0 0 16 13" fill="none">

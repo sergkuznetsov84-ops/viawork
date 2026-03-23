@@ -21,7 +21,7 @@
 						<path d="M0.26699 8.28649L7.53398 1.0195C7.70583 0.847646 7.93906 0.749444 8.17229 0.749444C8.40553 0.749444 8.63876 0.83537 8.81061 1.0195C9.16659 1.37548 9.16659 1.95242 8.81061 2.30841L3.09031 8.02871L21 8.02871L21 9.84545L3.10259 9.84545L8.82288 15.5535C9.17887 15.9095 9.17887 16.4864 8.82288 16.8424C8.4669 17.1984 7.88996 17.1984 7.53398 16.8424L0.266989 9.5754C-0.0889943 9.21941 -0.0889942 8.64247 0.26699 8.28649Z" fill="#25282A"></path>
 						</svg>
 					</i>
-					Back                    
+					Назад                    
 				</a>
 			</div>
 		<div class="row" >
@@ -64,8 +64,9 @@
 							<span>Все товары</span>
 						</a>
 					<div class="nav-list-item-dropdown-item-body is-desktop" >
+						<a href="/all-products/aksessuary/" target="" class="">Аксессуары</a> 
 						<a href="/all-products/storage/" target="" class="">Хранение</a> 
-						<!-- <a href="/en/storage-en/" target="" class="">Storage</a>  -->
+						<a href="/all-products/seriya-dlya-rukovoditeley/" target="" class="">Серия для руководителей</a> 
 					</div>
 					<div class="nav-list-item-dropdown-item-end is-desktop" >
 						<a href="/all-products/" target="" class="">Посмотреть все товары

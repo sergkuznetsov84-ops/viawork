@@ -54,6 +54,61 @@ if (!function_exists('buildSectionCodePath')) {
     }
 }
 
+// if (!function_exists('getIBlockSectionTree')) {
+//     function getIBlockSectionTree($iblockId)
+//     {
+//         $sectionsById = array();
+//         $codePathCache = array();
+
+//         $dbSections = CIBlockSection::GetList(
+//             array('LEFT_MARGIN' => 'ASC'),
+//             array(
+//                 'IBLOCK_ID' => $iblockId,
+//                 'ACTIVE' => 'Y',
+//                 '!ID' => array(32, 248),
+//             ),
+//             false,
+//             array('ID', 'NAME', 'CODE', 'DEPTH_LEVEL', 'IBLOCK_SECTION_ID', 'UF_ICON', 'UF_SHOW_IN_MENU')
+//         );
+
+//         while ($arSection = $dbSections->GetNext()) {
+//             $arSection['ICON'] = null;
+//             if (!empty($arSection['UF_ICON'])) {
+//                 $arSection['ICON'] = CFile::GetFileArray($arSection['UF_ICON']);
+//             }
+
+//             $sectionsById[(int)$arSection['ID']] = $arSection;
+//         }
+
+//         $tree = array();
+//         foreach ($sectionsById as $sectionId => $section) {
+//             $codePath = buildSectionCodePath($sectionId, $sectionsById, $codePathCache);
+//             $sectionUrl = $codePath !== '' ? buildCatalogMenuUrl($codePath) : '/all-products/';
+
+//             if ((int)$section['IBLOCK_SECTION_ID'] === 0) {
+//                 $tree[$sectionId] = array(
+//                     'ID' => $sectionId,
+//                     'NAME' => $section['NAME'],
+//                     'URL' => $sectionUrl,
+//                     'ICON' => $section['ICON'] ? $section['ICON']['SRC'] : '',
+//                     'SUB_SECTIONS' => array(),
+//                 );
+//                 continue;
+//             }
+
+//             $parentId = (int)$section['IBLOCK_SECTION_ID'];
+//             if ((int)$section['UF_SHOW_IN_MENU'] === 1 && isset($tree[$parentId])) {
+//                 $tree[$parentId]['SUB_SECTIONS'][] = array(
+//                     'NAME' => $section['NAME'],
+//                     'URL' => $sectionUrl,
+//                 );
+//             }
+//         }
+
+//         return array($tree, $sectionsById, $codePathCafche);
+//     }
+// }
+
 if (!function_exists('getIBlockSectionTree')) {
     function getIBlockSectionTree($iblockId)
     {
@@ -65,10 +120,11 @@ if (!function_exists('getIBlockSectionTree')) {
             array(
                 'IBLOCK_ID' => $iblockId,
                 'ACTIVE' => 'Y',
-                '!ID' => array(32, 248),
+                '!ID' => array(32, 248, 253, 254),
             ),
             false,
-            array('ID', 'NAME', 'CODE', 'DEPTH_LEVEL', 'IBLOCK_SECTION_ID', 'UF_ICON', 'UF_SHOW_IN_MENU')
+            // Добавили UF_LINK в массив ниже
+            array('ID', 'NAME', 'CODE', 'DEPTH_LEVEL', 'IBLOCK_SECTION_ID', 'UF_ICON', 'UF_SHOW_IN_MENU', 'UF_LINK')
         );
 
         while ($arSection = $dbSections->GetNext()) {
@@ -98,9 +154,17 @@ if (!function_exists('getIBlockSectionTree')) {
 
             $parentId = (int)$section['IBLOCK_SECTION_ID'];
             if ((int)$section['UF_SHOW_IN_MENU'] === 1 && isset($tree[$parentId])) {
+                
+                // ЛОГИКА ДЛЯ ID=6:
+                // Если родитель раздела ("Переговорные кабинки") имеет ID 6 и заполнено поле UF_LINK, берем его
+                $finalUrl = $sectionUrl;
+                if ($parentId === 6 && !empty($section['UF_LINK'])) {
+                    $finalUrl = $section['UF_LINK'];
+                }
+
                 $tree[$parentId]['SUB_SECTIONS'][] = array(
                     'NAME' => $section['NAME'],
-                    'URL' => $sectionUrl,
+                    'URL' => $finalUrl, // Используем итоговый URL
                 );
             }
         }

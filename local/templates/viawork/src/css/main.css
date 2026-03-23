@@ -10777,7 +10777,8 @@ body.home .comp-10 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: 88px;
+  /*padding-top: 88px;*/
+  padding-top: 10px;
   row-gap: 12px;
   width: 100%
 }
@@ -12238,6 +12239,7 @@ body.home .comp-10 {
 .comp-24-card-title h5,
 .comp-24-card-title h6 {
   color: #373f43;
+  font-family: "Gellix SemiBold";
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
@@ -18015,7 +18017,8 @@ select:hover {
 }
 
 .comp-6-item-media img {
-  height: 300px;
+  /*height: 300px;*/
+  height: 250px;
   max-width: 100%;
   -o-object-fit: contain;
   object-fit: contain
@@ -25048,12 +25051,13 @@ section.handoff-footer .handoff-footer-contain a:hover {
 
 @media only screen and (min-width:320px) and (max-width:991px) {
   main {
-    padding-top: 102px
+    /*padding-top: 102px*/
+    padding-top: 29px
   }
 
-  main.main-home {
+  /*main.main-home {
     padding-top: 0
-  }
+  }*/
 
   .sm-md-overflow-none {
     overflow: hidden
@@ -28814,7 +28818,8 @@ section.handoff-footer .handoff-footer-contain a:hover {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 100002
+    /*z-index: 100002*/
+    z-index: 9999
   }
 
   #headerfixed {
@@ -28823,7 +28828,8 @@ section.handoff-footer .handoff-footer-contain a:hover {
 
   .header .header-wrapper {
     position: relative;
-    z-index: 100002
+    /*z-index: 100002*/
+    z-index: 9999
   }
 
   .header.show {
@@ -37824,11 +37830,11 @@ html[lang="ru"] body {
   body.language-ru .comp-93-content .card-content .text,
   html[lang="ru"] body .comp-93-content .card-content .text {
     font-family: 'Gellix Regular', Verdana, Geneva, sans-serif;
-    font-size: 16px;
+    font-size: 17px;
     font-weight: 400;
     line-height: 1.1;
     margin-left: 0;
-    max-width: 250px;
+    max-width: 270px;
   }
 
   body.language-ru .comp-93-content .card-content .action a,

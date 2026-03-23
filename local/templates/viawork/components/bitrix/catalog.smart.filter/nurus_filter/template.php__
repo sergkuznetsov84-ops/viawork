@@ -19,139 +19,102 @@ $templateData = array(
 	'TEMPLATE_CLASS' => 'bx_'.$arParams['TEMPLATE_THEME']
 );
 ?>
+<div class="bx_filter ">
+	<div class="bx_filter_section">
+		<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" class="smartfilter">
+			<?foreach($arResult["HIDDEN"] as $arItem):?>
+			<input type="hidden" name="<?echo $arItem["CONTROL_NAME"]?>" id="<?echo $arItem["CONTROL_ID"]?>" value="<?echo $arItem["HTML_VALUE"]?>" />
+			<?endforeach;
+			//prices
+			
+			//not prices
+			foreach($arResult["ITEMS"] as $key=>$arItem)
+			{
+				if(
+					empty($arItem["VALUES"])
+					|| isset($arItem["PRICE"])
+				)
+					continue;
 
-			<div class="col-6 col-lg-3 order-0">
-					<div class="comp-105-filters-main">
-						<div class="comp-105-filters-main-btn ">
-							<a href="javascript:;">
-								<i class="filter-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17" fill="none">
-									<path d="M16.0117 4.04651H19.0009" stroke="white" stroke-width="1.44404" stroke-linecap="round" stroke-linejoin="round"></path>
-									<path d="M1 4.04651H9.91696" stroke="white" stroke-width="1.44404" stroke-linecap="round" stroke-linejoin="round"></path>
-									<path d="M10.0762 13.1729H19.0004" stroke="white" stroke-width="1.44404" stroke-linecap="round" stroke-linejoin="round"></path>
-									<path d="M1 13.1729H3.98195" stroke="white" stroke-width="1.44404" stroke-linecap="round" stroke-linejoin="round"></path>
-									<path d="M12.9649 0.999756C14.6472 0.999756 16.0118 2.36438 16.0118 4.04669C16.0118 5.72899 14.6472 7.09361 12.9649 7.09361C11.2826 7.09361 9.91797 5.72899 9.91797 4.04669C9.91797 2.36438 11.2826 0.999756 12.9649 0.999756Z" stroke="white" stroke-width="1.44404" stroke-linecap="round" stroke-linejoin="round"></path>
-									<path d="M7.02935 10.1262C8.71166 10.1262 10.0763 11.4908 10.0763 13.1732C10.0763 14.8555 8.71166 16.2201 7.02935 16.2201C5.34704 16.2201 3.98242 14.8555 3.98242 13.1732C3.98242 11.4908 5.34704 10.1262 7.02935 10.1262Z" stroke="white" stroke-width="1.44404" stroke-linecap="round" stroke-linejoin="round"></path>
-								</svg>
-								</i>
-								<span>Фильтр товаров</span>
-								<i class="arrow-icon">
-								<svg xmlns="http://www.w3.org/2000/svg" width="18" height="10" viewBox="0 0 18 10" fill="none">
-									<path d="M17 1L9.06352 9.06352L1 1.12704" stroke="white" stroke-width="1.33723" stroke-linecap="round" stroke-linejoin="round"></path>
-								</svg>
-								</i>
-							</a>
-						</div>
-						<div class="comp-105-filters-body">
-							<div class="bx_filter row">
-								<div class="bx_filter_section">
-									<form name="<?echo $arResult["FILTER_NAME"]."_form"?>" action="<?echo $arResult["FORM_ACTION"]?>" method="get" class="smartfilter">
-										<?foreach($arResult["HIDDEN"] as $arItem):?>
-										<input type="hidden" name="<?echo $arItem["CONTROL_NAME"]?>" id="<?echo $arItem["CONTROL_ID"]?>" value="<?echo $arItem["HTML_VALUE"]?>" />
-										<?endforeach;
-										//prices
-										
-										//not prices
-										foreach($arResult["ITEMS"] as $key=>$arItem)
-										{
-											if(
-												empty($arItem["VALUES"])
-												|| isset($arItem["PRICE"])
-											)
-												continue;
-
-											if (
-												$arItem["DISPLAY_TYPE"] == "A"
-												&& (
-													$arItem["VALUES"]["MAX"]["VALUE"] - $arItem["VALUES"]["MIN"]["VALUE"] <= 0
-												)
-											)
-												continue;
-											?>
-											<div class="comp-24-filters-body-item<?if ($arItem["DISPLAY_EXPANDED"]== "Y"):?>active<?endif?>">
-												<span class="bx_filter_container_modef"></span>
-												<div class="comp-24-filters-body-item-title" onclick="smartFilter.hideFilterProps(this)"><?=$arItem["NAME"]?>
-													<i><svg xmlns="http://www.w3.org/2000/svg" width="15" height="9" viewBox="0 0 15 9" fill="none">
+				if (
+					$arItem["DISPLAY_TYPE"] == "A"
+					&& (
+						$arItem["VALUES"]["MAX"]["VALUE"] - $arItem["VALUES"]["MIN"]["VALUE"] <= 0
+					)
+				)
+					continue;
+				?>
+				<div class="comp-24-filters-body-item<?if ($arItem["DISPLAY_EXPANDED"]== "Y"):?>active<?endif?>">
+					<span class="bx_filter_container_modef"></span>
+					<div class="comp-24-filters-body-item-title" onclick="smartFilter.hideFilterProps(this)"><?=$arItem["NAME"]?> <i><svg xmlns="http://www.w3.org/2000/svg" width="15" height="9" viewBox="0 0 15 9" fill="none">
 															<path d="M1 1L7.35028 7.35028L13.7006 1" stroke="#25282A" stroke-miterlimit="10"></path>
-														</svg>
-													</i>
-												</div>
-												<div class="bx_filter_block">
-													<div class="bx_filter_parameters_box_container">
-														<?
-														$arCur = current($arItem["VALUES"]);
-														switch ($arItem["DISPLAY_TYPE"])
-														{
-															
-															default://CHECKBOXES
-																?>
-																<?foreach($arItem["VALUES"] as $val => $ar):?>
-																	<label data-role="label_<?=$ar["CONTROL_ID"]?>" class="bx_filter_param_label <? echo $ar["DISABLED"] ? 'disabled': '' ?>" for="<? echo $ar["CONTROL_ID"] ?>">
-																		<span class="bx_filter_input_checkbox">
-																			<input
-																				type="checkbox"
-																				value="<? echo $ar["HTML_VALUE"] ?>"
-																				name="<? echo $ar["CONTROL_NAME"] ?>"
-																				id="<? echo $ar["CONTROL_ID"] ?>"
-																				<? echo $ar["CHECKED"]? 'checked="checked"': '' ?>
-																				onclick="smartFilter.click(this)"
-																			/>
-																			<label title="<?=$ar["VALUE"];?>" for="<? echo $ar["CONTROL_NAME"] ?>"><?=$ar["VALUE"];?> </label>
-																			<?
-																			if ($arParams["DISPLAY_ELEMENT_COUNT"] !== "N" && isset($ar["ELEMENT_COUNT"])):
-																				?> (<span data-role="count_<?=$ar["CONTROL_ID"]?>"><? echo $ar["ELEMENT_COUNT"]; ?></span>)<?
-																			endif;?></span>
-																		</span>
-																	</label>
-																<?endforeach;?>
-														<?
-														}
-														?>
-													</div>
-												</div>
-											</div>
+														</svg></i></div>
+					<div class="bx_filter_block">
+						<div class="bx_filter_parameters_box_container">
+						<?
+						$arCur = current($arItem["VALUES"]);
+						switch ($arItem["DISPLAY_TYPE"])
+						{
+							
+							default://CHECKBOXES
+								?>
+								<?foreach($arItem["VALUES"] as $val => $ar):?>
+									<label data-role="label_<?=$ar["CONTROL_ID"]?>" class="bx_filter_param_label <? echo $ar["DISABLED"] ? 'disabled': '' ?>" for="<? echo $ar["CONTROL_ID"] ?>">
+										<span class="bx_filter_input_checkbox">
+											<input
+												type="checkbox"
+												value="<? echo $ar["HTML_VALUE"] ?>"
+												name="<? echo $ar["CONTROL_NAME"] ?>"
+												id="<? echo $ar["CONTROL_ID"] ?>"
+												<? echo $ar["CHECKED"]? 'checked="checked"': '' ?>
+												onclick="smartFilter.click(this)"
+											/>
+											<label title="<?=$ar["VALUE"];?>" for="<? echo $ar["CONTROL_NAME"] ?>"><?=$ar["VALUE"];?> </label>
 											<?
-											}
-											?>
-											<div class="bx_filter_button_box active">		
-												<div class="comp-24-filters-body-footer" >
-													<div class="clear-all-btn" >
-														<input class="bx_filter_search_button" type="submit" id="set_filter" name="set_filter" style="display:none;" value="<?=GetMessage("CT_BCSF_SET_FILTER")?>"/>
-														<input class="bx_filter_search_reset" type="submit" id="del_filter" name="del_filter" value="Сбросить все фильтры" />
-													</div>
-												</div>
-												<div class="bx_filter_popup_result <?=$arParams["POPUP_POSITION"]?>" id="modef" <?if(!isset($arResult["ELEMENT_COUNT"])) echo 'style="display:none"';?> style="display: inline-block;">
-													<?echo GetMessage("CT_BCSF_FILTER_COUNT", array("#ELEMENT_COUNT#" => '<span id="modef_num">'.intval($arResult["ELEMENT_COUNT"]).'</span>'));?>
-													<span class="arrow"></span>
-													<a href="<?echo $arResult["FILTER_URL"]?>"><?echo GetMessage("CT_BCSF_FILTER_SHOW")?></a>
-												</div>
-											</div>
-										
-									</form>				
-
-							</div>
+											if ($arParams["DISPLAY_ELEMENT_COUNT"] !== "N" && isset($ar["ELEMENT_COUNT"])):
+												?> (<span data-role="count_<?=$ar["CONTROL_ID"]?>"><? echo $ar["ELEMENT_COUNT"]; ?></span>)<?
+											endif;?></span>
+										</span>
+									</label>
+								<?endforeach;?>
+						<?
+						}
+						?>
 						</div>
+						<div class="clb"></div>
 					</div>
 				</div>
-			</div>
-			<div class="col-lg-3 col-xl-2 d-none d-lg-block" bis_skin_checked="1">
-				<div class="comp-105-filters-download-btn" bis_skin_checked="1">
-					<a href="javascript:;" id="download-selected">
-						<span>Download <b id="selected-count">0</b> Files</span>
-						<i>
-							<svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
-							<path d="M10.5 1V14.2537" stroke="#373F43" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-							<path d="M4.19531 7.98535L10.4986 14.254L16.8094 7.98535" stroke="#373F43" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-							<path d="M20 16V17.9552C20 19.0896 19.0834 20 17.9415 20H3.05852C1.92408 20 1 19.0821 1 17.9552V16" stroke="#373F43" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-							</svg>
-						</i>
-					</a>
+			<?
+			}
+			?>
+			<div class="clb"></div>
+			<div class="bx_filter_button_box active">		
+				<div class="comp-24-filters-body-footer" >
+					<div class="clear-all-btn" >
+						<input class="bx_filter_search_button" type="submit" id="set_filter" name="set_filter" style="display:none;" value="<?=GetMessage("CT_BCSF_SET_FILTER")?>"/>
+						<input class="bx_filter_search_reset" type="submit" id="del_filter" name="del_filter" value="Сбросить все фильтры" />
+					</div>
+				</div>
+				<div class="bx_filter_popup_result <?=$arParams["POPUP_POSITION"]?>" id="modef" <?if(!isset($arResult["ELEMENT_COUNT"])) echo 'style="display:none"';?> style="display: inline-block;">
+					<?echo GetMessage("CT_BCSF_FILTER_COUNT", array("#ELEMENT_COUNT#" => '<span id="modef_num">'.intval($arResult["ELEMENT_COUNT"]).'</span>'));?>
+					<span class="arrow"></span>
+					<a href="<?echo $arResult["FILTER_URL"]?>"><?echo GetMessage("CT_BCSF_FILTER_SHOW")?></a>
 				</div>
 			</div>
+			
+		</div>
+	</form>
+	<div style="clear: both;"></div>
+</div>
+</div>
+
+				</div>
+			</div>
+			
 			<div class="col-lg-3 col-xl-2 d-lg-block d-none ms-lg-auto" >
 				<div class="comp-24-filters-search" >
 					<form action="">
-						<input type="text" id ="element-search" placeholder="Поиск" name="arrFilter1[?NAME]" value="<?= $_REQUEST['arrFilter1']['?NAME'] ?>" onkeyup="debouncedUpdate(this.value)">
+						<input type="text" id ="element-search" placeholder="Поиск" name="resFilter[?NAME]" value="<?= $_REQUEST['resFilter']['?NAME'] ?>" onkeyup="debouncedUpdate(this.value)">
 
 								<script>
 								let timeoutId;
@@ -165,9 +128,9 @@ $templateData = array(
 									const url = new URL(window.location.href);
 									
 									if (value.trim()) {
-										url.searchParams.set('arrFilter1[?NAME]', value.trim());
+										url.searchParams.set('resFilter[?NAME]', value.trim());
 									} else {
-										url.searchParams.delete('arrFilter1[?NAME]');
+										url.searchParams.delete('resFilter[?NAME]');
 									}
 									
 									window.location.href = url.toString();
@@ -223,14 +186,66 @@ $templateData = array(
 					</div>
 				</div>
 			</div>
+			<div class="col-lg-3 col-xl-2 d-lg-block d-none" >
+				<div class="comp-24-filters-view" >
+					<div class="comp-24-filters-view-title" >
+						<span>View:</span>
+					</div>
+					<div class="comp-24-filters-view-options" >
+						<a href="javascript:;" class="option-odd active">
+							<i>
+								<svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+									<rect x="25" y="24" width="7" height="11" transform="rotate(-180 25 24)" fill="#D9D9D9"></rect>
+									<rect x="25" y="11" width="7" height="11" transform="rotate(-180 25 11)" fill="#D9D9D9"></rect>
+									<rect x="16" y="24" width="7" height="11" transform="rotate(-180 16 24)" fill="#D9D9D9"></rect>
+									<rect x="7" y="24" width="7" height="11" transform="rotate(-180 7 24)" fill="#D9D9D9"></rect>
+									<rect x="16" y="11" width="7" height="11" transform="rotate(-180 16 11)" fill="#D9D9D9"></rect>
+									<rect x="7" y="11" width="7" height="11" transform="rotate(-180 7 11)" fill="#D9D9D9"></rect>
+								</svg>
+							</i>
+						</a>
+						<a href="javascript:;" class="option-even">
+							<i>
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+									<rect x="24" y="24" width="11" height="11" transform="rotate(-180 24 24)" fill="#D9D9D9"></rect>
+									<rect x="24" y="11" width="11" height="11" transform="rotate(-180 24 11)" fill="#D9D9D9"></rect>
+									<rect x="11" y="24" width="11" height="11" transform="rotate(-180 11 24)" fill="#D9D9D9"></rect>
+									<rect x="11" y="11" width="11" height="11" transform="rotate(-180 11 11)" fill="#D9D9D9"></rect>
+								</svg>
+							</i>
+						</a>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	
-	<div class="comp-24-body" style="display:none;" >
+	<div class="comp-24-body" style="min-height: 383px;" >
+		<div class="loading-spinner" style="display: none;" >
+			<div class="loading-spinner-inner" >
+				<div class="spinner" ></div>
+			</div>
+		</div>
 		<div class="row" >
 			<div class="col-12" >
 			<div class="comp-24-body-selected-filters">
 			<?$i = 1;?>
+			<?if ($APPLICATION->GetCurDir() != "/all-products/") {?>
+				
+				<?$section = CIBlockSection::GetList([], ['CODE' => $arParams["SECTION_CODE_CUST"]], false, ['NAME'])->Fetch();?>
+				<div class="selected-filters-item" >
+					<a href="/all-products/">
+						<label>
+							<?=$section['NAME'];?>
+							<i>
+								<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+								<path d="M1 1L7 7" stroke="#25282A" stroke-width="0.548446" stroke-linecap="round" stroke-linejoin="round"></path>
+								<path d="M7 1L1 7" stroke="#25282A" stroke-width="0.548446" stroke-linecap="round" stroke-linejoin="round"></path>
+								</svg>
+							</i>
+						</lebal>
+					</a>
+				</div>
+			<?}?>
 			<?foreach($arResult["ITEMS"] as $key=>$arItem){
 				if(	empty($arItem["VALUES"])|| isset($arItem["PRICE"]))
 					continue;

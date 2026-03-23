@@ -117,6 +117,8 @@ jQuery( document ).ready(function() {
         jQuery('.comp-24-body-cards').addClass('grid-view');
     })
 	    $catalogFilterButton.on('click', function(event) {
+			// debugger;
+			console.log(event);
         if (isMobileCatalogFilter()) {
             event.preventDefault();
             event.stopImmediatePropagation();
@@ -129,7 +131,7 @@ jQuery( document ).ready(function() {
 
             return false;
         }
-
+		
 		jQuery(this).toggleClass("show");
 		$catalogFilterBody.toggleClass("show");
         syncCatalogFilterLayout();

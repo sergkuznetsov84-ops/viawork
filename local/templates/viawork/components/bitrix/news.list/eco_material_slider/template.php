@@ -20,10 +20,10 @@ $this->setFrameMode(true);
           <div class="row" >
             <div class="col-lg-8 offset-lg-2" >
                 <div class="title fadeInUp-scroll" data-delay="200" >
-					<h2>Nurus Materials</h2>
+                  <h2>Материалы</h2>
                 </div>
                 <div class="description" >
-					<p>Discover Nurus’ extensive material library, selected and developed with nearly a century of expertise.</p>
+                  <p>Откройте для себя обширную библиотеку материалов Nurus, отобранных и разработанных с учетом почти векового опыта.</p>
                 </div>
             </div>
           </div>
@@ -33,32 +33,30 @@ $this->setFrameMode(true);
               <div class="comp-100-content fadeInUp-scroll" data-delay="300" >
                 <div class="swiper comp-100-swiper" >
                   <div class="swiper-wrapper" >
-<?$i=0;?>
-<?foreach($arResult["ITEMS"] as $arItem):?>
-	<?$i++;?>
-	<?
-	$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
-	$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
-	?>
-	<div class="swiper-slide" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
-        <div class="card" >
-            <div class="card-media" >
-                <picture><source srcset="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" type="image/avif"><source srcset="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" type="image/webp"><img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" class=" sp-no-webp" alt=""> </picture>
-            </div>
-            <div class="card-content" >
-                <div class="title" >
-                    <h4><?=$arItem["NAME"];?></h4>
+                    <?$i=0;?>
+                    <?foreach($arResult["ITEMS"] as $arItem):?>
+                    	<?$i++;?>
+                    	<?
+                    	$this->AddEditAction($arItem['ID'], $arItem['EDIT_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_EDIT"));
+                    	$this->AddDeleteAction($arItem['ID'], $arItem['DELETE_LINK'], CIBlock::GetArrayByID($arItem["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CT_BNL_ELEMENT_DELETE_CONFIRM')));
+                    	?>
+                    	<div class="swiper-slide" id="<?=$this->GetEditAreaId($arItem['ID']);?>">
+                        <div class="card" >
+                          <div class="card-media" >
+                            <picture><source srcset="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" type="image/avif"><source srcset="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" type="image/webp"><img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" class=" sp-no-webp" alt=""> </picture>
+                          </div>
+                          <div class="card-content" >
+                            <div class="title" >
+                                <h4><?=$arItem["NAME"];?></h4>
+                            </div>
+                            <div class="text" >
+                                <p><?echo $arItem["PREVIEW_TEXT"];?></p>
+                            </div>
+                          </div>
+                  		</div>
+                  	</div>
+                  <?endforeach;?>
                 </div>
-                <div class="text" >
-                    <p><?echo $arItem["PREVIEW_TEXT"];?></p>
-                 </div>
-            </div>
-		</div>
-	</div>
-																	
-	
-<?endforeach;?>
- </div>
                 </div>
                 <div class="swiper-actions" >
                   <a href="javascript:;" class="nav-prev">

@@ -1,7 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
 <div class="comp-24-body-cards odd-view grid-view" >
-	<?
-	foreach($arResult["ITEMS"] as $cell=>$arElement):
+	<?foreach($arResult["ITEMS"] as $cell=>$arElement):
 		$width = 0;
 		$this->AddEditAction($arElement['ID'], $arElement['EDIT_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_EDIT"));
 		$this->AddDeleteAction($arElement['ID'], $arElement['DELETE_LINK'], CIBlock::GetArrayByID($arParams["IBLOCK_ID"], "ELEMENT_DELETE"), array("CONFIRM" => GetMessage('CATALOG_ELEMENT_DELETE_CONFIRM')));
@@ -24,9 +23,7 @@
 				<h5><?=$arElement["NAME"]?></h5>
 			</div>
 		</div>
-	<?
-	endforeach; 
-	?>
+	<?endforeach;?>
 </div>
 
 <?if($arParams["DISPLAY_BOTTOM_PAGER"]):?>
