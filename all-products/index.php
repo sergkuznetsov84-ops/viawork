@@ -114,7 +114,8 @@ $APPLICATION->SetTitle("Все продукты");
 	),
 	false
 );?>
-<section class="comp-17">
+
+<!-- <section class="comp-17">
 	<div class="comp-17-wrapper" >
 		<div class="comp-17-main" >
 			<div class="comp-17-content" >
@@ -138,9 +139,10 @@ $APPLICATION->SetTitle("Все продукты");
 			</div>
 		</div>
 	</div>
-</section>
-<section class="comp-93 style-1">
-  <div class="comp-93-wrapper" >
+</section> -->
+
+<!-- <section class="comp-93 style-1">
+  <div class="comp-93-wrapper">
     <div class="container" >
       <div class="comp-93-main" >
         <div class="comp-93-head" >
@@ -166,7 +168,7 @@ $APPLICATION->SetTitle("Все продукты");
                       <p>Давайте спланируем Ваше рабочее пространство вместе!</p>
                     </div>
                                           <div class="action" >
-                        <a href="/contact/" class="btn btn-white btn-rnd-full btn-medium btn-gradient" target="">
+                        <a href="/contacts/" class="btn btn-white btn-rnd-full btn-medium btn-gradient" target="">
                                                     <span>Свяжитесь с нами</span>
                           <i>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
@@ -191,7 +193,7 @@ $APPLICATION->SetTitle("Все продукты");
                       <p>Хотите стать официальным поставщиком?</p>
                     </div>
 					<div class="action" >
-                        <a href="/contact/" class="btn btn-white btn-rnd-full btn-medium btn-gradient" target="">
+                        <a href="/contacts/" class="btn btn-white btn-rnd-full btn-medium btn-gradient" target="">
 						<span>Напишите нам</span>
                           <i>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
@@ -213,10 +215,10 @@ $APPLICATION->SetTitle("Все продукты");
                   </div>
                   <div class="card-content" >
                     <div class="text" >
-                      <p>Engineered for a Better Work Experience</p>
+                      <p>Инновации для комфортной работы</p>
                     </div>
 					<div class="action" >
-                        <a href="https://calma.nurus.com/" class="btn btn-blue btn-regular btn-rnd-full btn-blue" target="">
+                        <a href="http://calma.iwdev18.beget.tech/" class="btn btn-blue btn-regular btn-rnd-full btn-blue" target="">
 							<span>Calma</span>
                           <i>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="12" viewBox="0 0 16 12" fill="none">
@@ -233,7 +235,10 @@ $APPLICATION->SetTitle("Все продукты");
       </div>
     </div>
   </div>
-<!-- </section><section class="comp-20">
+</section> -->
+
+
+<!-- <section class="comp-20">
 	<div class="comp-20-wrapper" >
 		<div class="container" >
 			<form action="/en/all-products/" method="">
@@ -291,6 +296,6 @@ $APPLICATION->SetTitle("Все продукты");
 		</div>
 	</div>
 </section> -->
-  </main>
+</main>
 
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

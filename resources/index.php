@@ -63,7 +63,7 @@ $APPLICATION->SetTitle("Документы");
 		"PROPERTY_CODE" => array(
 			0 => "",
 			1 => "DESCRIPTION",
-			2 => "",
+			2 => "FILE",
 		),
 		"CHECK_DATES" => "Y",
 		"DETAIL_URL" => "",

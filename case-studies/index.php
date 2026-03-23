@@ -15,7 +15,7 @@ $APPLICATION->SetTitle("Наши работы");
 		"AJAX_MODE" => "N",
 		"IBLOCK_TYPE" => "content",
 		"IBLOCK_ID" => "54",
-		"NEWS_COUNT" => "20",
+		"NEWS_COUNT" => "50",
 		"USE_SEARCH" => "Y",
 		"USE_RSS" => "Y",
 		"USE_RATING" => "Y",

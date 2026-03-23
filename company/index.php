@@ -58,7 +58,7 @@ $APPLICATION->SetTitle("О компании");
 		"SORT_ORDER2" => "DESC",
 		"FILTER_NAME" => "",
 		"FIELD_CODE" => array(
-			0 => "ID",
+			0 => "NAME",
 			1 => "",
 		),
 		"PROPERTY_CODE" => array(
