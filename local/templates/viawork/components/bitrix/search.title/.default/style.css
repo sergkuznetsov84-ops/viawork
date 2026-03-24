@@ -1,5 +1,5 @@
 .title-search-result {
-    z-index: 1000;
+    z-index: 9999;
     background: #fff;
 }
 .title-search-result .search-suggestions {
