@@ -61,11 +61,13 @@ JCSmartFilter.prototype.reload = function(input)
 		if (this.cache[this.cacheKey])
 		{
 			this.curFilterinput = input;
+			console.log(1);
 			this.postHandler(this.cache[this.cacheKey], true);
 		}
 		else
 		{
 			this.curFilterinput = input;
+			console.log(2);
 			BX.ajax.loadJSON(
 				this.ajaxURL,
 				this.values2post(values),
@@ -137,87 +139,145 @@ JCSmartFilter.prototype.updateItem = function (PID, arItem)
 
 JCSmartFilter.prototype.postHandler = function (result, fromCache)
 {
-	var hrefFILTER, url, curProp;
-	var modef = BX('modef');
-	var modef_num = BX('modef_num');
+    if (!result || !result.ITEMS) {
+        this.cacheKey = '';
+        return;
+    }
 
-	if (!!result && !!result.ITEMS)
-	{
-		for(var PID in result.ITEMS)
-		{
-			if (result.ITEMS.hasOwnProperty(PID))
-			{
-				this.updateItem(PID, result.ITEMS[PID]);
-			}
-		}
+    var modef = BX('modef');
+    var modef_num = BX('modef_num');
+    var url = result.FILTER_URL || result.FILTER_AJAX_URL || '';
 
-		if (!!modef && !!modef_num)
-		{
-			modef_num.innerHTML = result.ELEMENT_COUNT;
-			hrefFILTER = BX.findChildren(modef, {tag: 'A'}, true);
+    // Обновляем фильтр (чекбоксы, слайдеры, счётчики)
+    for (var PID in result.ITEMS) {
+        if (result.ITEMS.hasOwnProperty(PID)) {
+            this.updateItem(PID, result.ITEMS[PID]);
+        }
+    }
 
-			if (result.FILTER_URL && hrefFILTER)
-			{
-				hrefFILTER[0].href = BX.util.htmlspecialcharsback(result.FILTER_URL);
+    // Блок "Найдено X товаров"
+    if (modef && modef_num) {
+        modef_num.innerHTML = result.ELEMENT_COUNT || 0;
+        if (modef.style.display === 'none') {
+            modef.style.display = 'inline-block';
+        }
 
-			}
+        if (this.viewMode === "vertical" && this.curFilterinput && modef) {
+            var parentBox = BX.findParent(this.curFilterinput, {class: 'bx_filter_parameters_box'}) ||
+                            BX.findChild(document.body, {class: 'bx_filter_parameters_box'}, true);
+            if (parentBox) {
+                var curProp = BX.findChild(parentBox, {class: 'bx_filter_container_modef'}, true);
+                if (curProp) {
+                    if (modef.parentNode) modef.parentNode.removeChild(modef);
+                    curProp.appendChild(modef);
+                }
+            }
+        }
+    }
 
-			if (result.FILTER_AJAX_URL && result.COMPONENT_CONTAINER_ID)
-			{
-				BX.bind(hrefFILTER[0], 'click', function(e)
-				{
-					url = BX.util.htmlspecialcharsback(result.FILTER_AJAX_URL);
-					BX.ajax.insertToNode(url, result.COMPONENT_CONTAINER_ID);
-					return BX.PreventDefault(e);
-				});
-			}
+    // === Главное обновление: товары + пагинация ===
+    if (result.COMPONENT_CONTAINER_ID && url) {
+        var ajaxUrl = BX.util.htmlspecialcharsback(url);
+        if (ajaxUrl.indexOf('?') === -1) ajaxUrl += '?';
+        else ajaxUrl += '&';
+        ajaxUrl += 'ajax_get=Y&ajax_get_filter=Y';
 
-			if (result.INSTANT_RELOAD && result.COMPONENT_CONTAINER_ID)
-			{
-				url = BX.util.htmlspecialcharsback(result.FILTER_AJAX_URL);
-				BX.ajax.insertToNode(url, result.COMPONENT_CONTAINER_ID);
-			}
-			else
-			{
-				if (modef.style.display === 'none')
-				{
-					modef.style.display = 'inline-block';
-				}
-				if (this.viewMode == "vertical")
-				{
-					curProp = BX.findChild(BX.findParent(this.curFilterinput, {'class':'bx_filter_parameters_box'}), {'class':'bx_filter_container_modef'}, true, false);
-					curProp.appendChild(modef);
-				}
-			}
-			url = result.FILTER_URL;
-	
-			url.match(/%(?![0-9][0-9a-fA-F]+)/g) ? (url = url.replace(/%(?![0-9][0-9a-fA-F]+)/g, "%25"),
-		    $(".bx-ie").length && !$(".bx-ie11").length || !$(".bx-core").length ? location.href = url : window.history.pushState(null, document.title, url)) : window.History.enabled || null != window.history.pushState ? window.History.pushState(null, document.title, decodeURIComponent(url)) : location.href = url,
-		    $(".middle > .container .ajax_load").length && $(".middle > .container .ajax_load").addClass("loading-state"),
-		    $.ajax({
-		        url: url,
-		        type: "GET",
-		        data: {
-		            ajax_get: "Y",
-		            ajax_get_filter: "Y"
-		        },
-		        success: function(html) {			                  
-		            var itemsHtml = $(html).find(".static-scales-row").html();
-		            $(".static-scales-row").html(itemsHtml)
-		        }
-		    })
-			// 
+        BX.ajax.insertToNode(ajaxUrl, result.COMPONENT_CONTAINER_ID, function() {
+            // После вставки товаров обновляем пагинацию
+            updatePaginationFromResult(result, url);
+        });
+    } 
+    else if (url) {
+        // Запасной вариант jQuery
+        $.ajax({
+            url: BX.util.htmlspecialcharsback(url),
+            type: "GET",
+            data: { ajax_get: "Y", ajax_get_filter: "Y" },
+            success: function(html) {
+                var $html = $(html);
 
-		}
+                // Обновляем товары
+                var $newItems = $html.find('#catalog_items, .catalog-section, .bx_catalog_section, .comp-24-body-cards').first();
+                if ($newItems.length) {
+                    $('.comp-24-body-cards, #catalog_items, .catalog-section').html($newItems.html());
+                }
 
-	}
+                // Обновляем пагинацию
+                var $newPagination = $html.find('.comp-24-pagination').first();
+				console.log($newPagination);
+                if ($newPagination.length) {
+                    $('.comp-24-pagination').replaceWith($newPagination);
+                } else {
+					console.log($html.find('.comp-24-pagination'));
+                    $('.comp-24-pagination').html($html.find('.comp-24-pagination').html());
+                }
 
-	if (!fromCache && this.cacheKey !== '')
-	{
-		this.cache[this.cacheKey] = result;
-	}
-	this.cacheKey = '';
+                updatePaginationFromResult(result, url);
+            }
+        });
+    }
+
+    // PushState
+    /*if (url) {
+        if (url.match(/%(?![0-9][0-9a-fA-F]+)/g)) {
+            url = url.replace(/%(?![0-9][0-9a-fA-F]+)/g, "%25");
+        }
+        if (window.history && typeof window.history.pushState === 'function') {
+            window.history.pushState(null, document.title, decodeURIComponent(url));
+        }
+    }
+
+    if (!fromCache && this.cacheKey !== '') {
+        this.cache[this.cacheKey] = result;
+    }
+    this.cacheKey = '';*/
+	// PushState — делаем чистый URL без параметров фильтра
+    if (url) {
+        var cleanUrl = window.location.pathname;
+        if (cleanUrl.slice(-1) !== '/') cleanUrl += '/';
+
+        if (window.history && typeof window.history.replaceState === 'function') {
+            window.history.replaceState(null, document.title, cleanUrl);
+        } else if (window.History && typeof window.History.replaceState === 'function') {
+            window.History.replaceState(null, document.title, cleanUrl);
+        }
+    }
+
+    // Сохранение в кэш
+    if (!fromCache && this.cacheKey !== '') {
+        this.cache[this.cacheKey] = result;
+    }
+    this.cacheKey = '';
 };
+
+// ====================== ОБНОВЛЕНИЕ ПАГИНАЦИИ ======================
+function updatePaginationFromResult(result, url) {
+    // 1. Заменяем весь блок пагинации свежим HTML
+    var $newPagination = $('.comp-24-pagination').last(); // на случай дублирования
+
+    // Если в результате есть информация о количестве страниц — можно принудительно поправить
+    if (result.NAV_PAGE_COUNT && result.NAV_PAGE_COUNT > 0) {
+        var totalPages = result.NAV_PAGE_COUNT || 1;
+        var currentPage = result.NAV_PAGE_NUMBER || 1;
+
+        $('.comp-24-pagination .current-page').text(currentPage);
+        $('.comp-24-pagination .total-page span').text(totalPages);
+
+        // Активируем/деактивируем кнопки
+        if (currentPage <= 1) {
+            $('.comp-24-pagination .prev-btn').addClass('disabled');
+        } else {
+            $('.comp-24-pagination .prev-btn').removeClass('disabled');
+        }
+        if (currentPage >= totalPages) {
+            $('.comp-24-pagination .next-btn').addClass('disabled');
+        } else {
+            $('.comp-24-pagination .next-btn').removeClass('disabled');
+        }
+    }
+
+    console.log('Пагинация обновлена. Товаров: ' + (result.ELEMENT_COUNT || '?') + ', страниц: ' + (result.NAV_PAGE_COUNT || '?'));
+}
 
 JCSmartFilter.prototype.gatherInputsValues = function (values, elements)
 {

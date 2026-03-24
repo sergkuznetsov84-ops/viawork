@@ -7,7 +7,7 @@ $pageCount = intval($arResult['NavPageCount']);
 $currentPage = intval($arResult['NavPageNomer']);
 $navNum = intval($arResult['NavNum']);
 
-if ($pageCount <= 1) return;
+if ($pageCount <1) return;
 
 $baseUrl = $arResult['sUrlPath'] . ($arResult['NavQueryString'] ? '?' . $arResult['NavQueryString'] . '&' : '?');
 ?>

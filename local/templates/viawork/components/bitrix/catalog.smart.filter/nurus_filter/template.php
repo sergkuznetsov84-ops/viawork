@@ -186,6 +186,7 @@ $templateData = array(
 											>
 												<span><?=htmlspecialcharsbx($ar["VALUE"])?></span>
 											</button>
+											
 										</div>
 									<?endforeach;?>
 								</div>
