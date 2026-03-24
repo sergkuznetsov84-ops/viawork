@@ -1,4 +1,30 @@
 jQuery( document ).ready(function() {
+    const isMobileProductMenuContext = function() {
+        if (!window.matchMedia('(max-width: 991px)').matches) {
+            return false;
+        }
+
+        return /^\/(?:en\/)?(?:all-products|product)(?:\/|$)/.test(window.location.pathname);
+    };
+
+    const openMobileProductsMenu = function($header) {
+        const $productsLink = $header.find('.nav-list-item').first().find('.nav-list-item-link').first();
+        const $productsDropdown = $productsLink.siblings('.nav-list-item-dropdown');
+
+        if (!$productsLink.length || !$productsDropdown.length) {
+            return;
+        }
+
+        $header.addClass('mobile-dropdown');
+        $header.find('.nav-list-item-link').not($productsLink).removeClass('active');
+        $header.find('.nav-list-item-dropdown').not($productsDropdown).removeClass('show');
+        $header.find('.language-btn, .search-btn').removeClass('active');
+        $header.find('.language-dropdown, .search-dropdown').removeClass('show');
+
+        $productsLink.addClass('active');
+        $productsDropdown.addClass('show');
+    };
+
     const $window = jQuery(window);
     const $catalogFilterButton = jQuery('.comp-24-filters-main-btn');
     const $catalogFilterBody = jQuery('.comp-24-filters-body');
@@ -211,6 +237,18 @@ jQuery( document ).ready(function() {
    
     jQuery('.selected-filters-item label').on('click', function () {
         jQuery('input[name="' + jQuery(this).attr('fore') + '"]').trigger('click');
-    })
+    });
+
+    jQuery(document).on('click', '.header .header-bars', function() {
+        const $header = jQuery(this).closest('.header');
+
+        window.setTimeout(function() {
+            if (!$header.hasClass('show') || !isMobileProductMenuContext()) {
+                return;
+            }
+
+            openMobileProductsMenu($header);
+        }, 0);
+    });
 
 });
