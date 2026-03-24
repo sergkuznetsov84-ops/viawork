@@ -12,7 +12,7 @@ Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/src/js/jquery.min.js");
 Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/src/js/jquery-migrate.min.js");
 Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/src/js/script.js");
 Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/src/js/prod.js");
-Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/src/js/functions.js");
+//Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/src/js/functions.js");
 //Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/src/js/jquery.validate.methods.js");
 //Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/src/js/jquery.validate.messages.js");
 //Asset::getInstance()->addJs(SITE_TEMPLATE_PATH."/src/js/jquery.validate.js");
