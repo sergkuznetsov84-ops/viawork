@@ -25,3 +25,9 @@
         gap: 8px 18px;
     }
 }
+
+@media (max-width: 991px) {
+    .footer .footer-bottom .legal-links a {
+        font-size: 12px;
+    }
+}
