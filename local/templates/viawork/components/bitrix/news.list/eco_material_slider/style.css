@@ -1,3 +1,5 @@
-.comp-100-main .title h4 {
-	font-size: 33px;
+@media (min-width: 992px) {
+    .comp-100-main .title h4 {
+        font-size: 33px;
+    }
 }
