@@ -68,7 +68,7 @@ $templateData = array(
 											)
 												continue;
 											?>
-											<div class="comp-24-filters-body-item<?if ($arItem["DISPLAY_EXPANDED"]== "Y"):?>active<?endif?>">
+											<div class="comp-24-filters-body-item <?if ($arItem["DISPLAY_EXPANDED"]== "Y"):?>active<?endif?> <?foreach($arItem["VALUES"] as $val => $ar){ if ($ar["CHECKED"]){ echo 'checked'; break;}}?>">
 												<span class="bx_filter_container_modef"></span>
 												<div class="comp-24-filters-body-item-title" onclick="smartFilter.hideFilterProps(this)"><?=$arItem["NAME"]?>
 													<i><svg xmlns="http://www.w3.org/2000/svg" width="15" height="9" viewBox="0 0 15 9" fill="none">
@@ -185,8 +185,8 @@ $templateData = array(
 				</div>
 			</div>
 			<div class="col-6 col-lg-3 col-xl-2" >
-				<div class="comp-24-filters-sort" >
-					<div class="comp-24-filters-sort-title" >
+				<div class="comp-105-filters-sort" >
+					<div class="comp-105-filters-sort-title" >
 						<span>Сортировка:</span>
 					</div>
 					<?
@@ -215,7 +215,7 @@ $templateData = array(
 							</i>
 						</div>
 					</div>
-					<div class="comp-24-filters-sort-options" >
+					<div class="comp-105-filters-sort-options" >
 						<a href="<?= getSortUrl(1) ?>" id="sort-option_1">По новизне </a>
 						<a href="<?= getSortUrl(2) ?>" id="sort-option_2">По названию A-я</a>
 						<a href="<?= getSortUrl(3) ?>" id="sort-option_3"> По названию Я-а</a>
@@ -299,12 +299,17 @@ $templateData = array(
 		border: none;
 	}
 
-	.comp-24-filters-body-item.active i {
+	.comp-24-filters-body-item.checked.active i {
 		cursor: pointer;
 		display: flex;
 		height: 9px;
 		width: 15px;
 		transform: rotate(180deg);
+	}
+	.comp-24-filters-body-item.checked.active .bx_filter_block{
+		display: block; 
+		opacity: 1;
+		height:100%;
 	}
 	.comp-24-filters-body-item-title{
 		display: flex;

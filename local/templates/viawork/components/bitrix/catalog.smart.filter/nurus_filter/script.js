@@ -146,109 +146,137 @@ JCSmartFilter.prototype.postHandler = function (result, fromCache)
 
     var modef = BX('modef');
     var modef_num = BX('modef_num');
-    var url = result.FILTER_URL || result.FILTER_AJAX_URL || '';
+    var filterUrl = result.FILTER_URL || result.FILTER_AJAX_URL || window.location.href;
 
-    // Обновляем фильтр (чекбоксы, слайдеры, счётчики)
+    // 1. Обновляем счётчики и состояния фильтра
     for (var PID in result.ITEMS) {
         if (result.ITEMS.hasOwnProperty(PID)) {
             this.updateItem(PID, result.ITEMS[PID]);
         }
     }
 
-    // Блок "Найдено X товаров"
+    // 2. Обновляем блок "Найдено X товаров"
     if (modef && modef_num) {
         modef_num.innerHTML = result.ELEMENT_COUNT || 0;
         if (modef.style.display === 'none') {
             modef.style.display = 'inline-block';
         }
-
-        if (this.viewMode === "vertical" && this.curFilterinput && modef) {
-            var parentBox = BX.findParent(this.curFilterinput, {class: 'bx_filter_parameters_box'}) ||
-                            BX.findChild(document.body, {class: 'bx_filter_parameters_box'}, true);
-            if (parentBox) {
-                var curProp = BX.findChild(parentBox, {class: 'bx_filter_container_modef'}, true);
-                if (curProp) {
-                    if (modef.parentNode) modef.parentNode.removeChild(modef);
-                    curProp.appendChild(modef);
-                }
-            }
-        }
     }
 
-    // === Главное обновление: товары + пагинация ===
-    if (result.COMPONENT_CONTAINER_ID && url) {
-        var ajaxUrl = BX.util.htmlspecialcharsback(url);
+    // 3. Главное обновление контента (товары + пагинация)
+    if (result.COMPONENT_CONTAINER_ID && filterUrl) {
+        var ajaxUrl = BX.util.htmlspecialcharsback(filterUrl);
         if (ajaxUrl.indexOf('?') === -1) ajaxUrl += '?';
         else ajaxUrl += '&';
         ajaxUrl += 'ajax_get=Y&ajax_get_filter=Y';
 
-        BX.ajax.insertToNode(ajaxUrl, result.COMPONENT_CONTAINER_ID, function() {
-            // После вставки товаров обновляем пагинацию
-            updatePaginationFromResult(result, url);
-        });
-    } 
-    else if (url) {
-        // Запасной вариант jQuery
+        BX.ajax.insertToNode(ajaxUrl, result.COMPONENT_CONTAINER_ID);
+    }
+    else if (filterUrl) {
         $.ajax({
-            url: BX.util.htmlspecialcharsback(url),
+            url: BX.util.htmlspecialcharsback(filterUrl),
             type: "GET",
             data: { ajax_get: "Y", ajax_get_filter: "Y" },
             success: function(html) {
                 var $html = $(html);
 
-                // Обновляем товары
-                var $newItems = $html.find('#catalog_items, .catalog-section, .bx_catalog_section, .comp-24-body-cards').first();
-                if ($newItems.length) {
-                    $('.comp-24-body-cards, #catalog_items, .catalog-section').html($newItems.html());
+                var $newCards = $html.find('.comp-24-body-cards').first();
+                if ($newCards.length) {
+                    $('.comp-24-body-cards').html($newCards.html());
                 }
 
-                // Обновляем пагинацию
                 var $newPagination = $html.find('.comp-24-pagination').first();
-				console.log($newPagination);
                 if ($newPagination.length) {
                     $('.comp-24-pagination').replaceWith($newPagination);
-                } else {
-					console.log($html.find('.comp-24-pagination'));
-                    $('.comp-24-pagination').html($html.find('.comp-24-pagination').html());
                 }
-
-                updatePaginationFromResult(result, url);
             }
         });
     }
 
-    // PushState
-    /*if (url) {
-        if (url.match(/%(?![0-9][0-9a-fA-F]+)/g)) {
-            url = url.replace(/%(?![0-9][0-9a-fA-F]+)/g, "%25");
+    // === НОВОЕ: ОБНОВЛЯЕМ ССЫЛКИ СОРТИРОВКИ ===
+    updateSortLinksWithCurrentFilter(filterUrl);
+
+    // 4. Обновляем адресную строку
+    /*if (filterUrl) {
+        var cleanUrl = filterUrl;
+        if (cleanUrl.match(/%(?![0-9][0-9a-fA-F]+)/g)) {
+            cleanUrl = cleanUrl.replace(/%(?![0-9][0-9a-fA-F]+)/g, "%25");
         }
         if (window.history && typeof window.history.pushState === 'function') {
-            window.history.pushState(null, document.title, decodeURIComponent(url));
+            window.history.pushState(null, document.title, decodeURIComponent(cleanUrl));
         }
-    }
+    }*/
+	if (filterUrl) {
+        let cleanUrl = String(filterUrl);
 
-    if (!fromCache && this.cacheKey !== '') {
-        this.cache[this.cacheKey] = result;
-    }
-    this.cacheKey = '';*/
-	// PushState — делаем чистый URL без параметров фильтра
-    if (url) {
-        var cleanUrl = window.location.pathname;
-        if (cleanUrl.slice(-1) !== '/') cleanUrl += '/';
+        // Основная очистка от &amp;
+        cleanUrl = cleanUrl.replace(/&amp;/gi, '&');
 
-        if (window.history && typeof window.history.replaceState === 'function') {
-            window.history.replaceState(null, document.title, cleanUrl);
-        } else if (window.History && typeof window.History.replaceState === 'function') {
-            window.History.replaceState(null, document.title, cleanUrl);
+        // Дополнительная защита от битых процентов
+        cleanUrl = cleanUrl.replace(/%(?![0-9a-fA-F]{2})/gi, '%25');
+
+        // Убираем лишние технические параметры, если нужно
+        cleanUrl = cleanUrl.replace(/[?&]ajax_get=[^&]*/g, '');
+        cleanUrl = cleanUrl.replace(/[?&]ajax_get_filter=[^&]*/g, '');
+
+        // Убираем дублирующиеся &
+        cleanUrl = cleanUrl.replace(/&&+/g, '&');
+        cleanUrl = cleanUrl.replace('/?&', '/?');
+
+        if (window.history && typeof window.history.pushState === 'function') {
+            window.history.pushState(null, document.title, decodeURIComponent(cleanUrl));
+        } else {
+            window.location.replace(cleanUrl);   // replace вместо href, чтобы не создавать лишнюю историю
         }
+
+        console.log('Чистый URL:', cleanUrl);
     }
 
-    // Сохранение в кэш
     if (!fromCache && this.cacheKey !== '') {
         this.cache[this.cacheKey] = result;
     }
     this.cacheKey = '';
 };
+
+// ====================== ОБНОВЛЕНИЕ ССЫЛОК СОРТИРОВКИ (финальная версия) ======================
+function updateSortLinksWithCurrentFilter(currentFilterUrl)
+{
+    if (!currentFilterUrl) return;
+
+    // Получаем базовый путь
+    var basePath = window.location.pathname;
+    if (!basePath.endsWith('/')) basePath += '/';
+
+    // Парсим текущий URL и исправляем &amp;
+    var urlObj = new URL(currentFilterUrl.replace(/&amp;/g, '&'), window.location.origin);
+    var params = urlObj.searchParams;
+
+    $('.comp-24-filters-sort-options a').each(function() {
+        var $link = $(this);
+        var sortValue = $link.attr('id').replace('sort-option_', '');
+
+        var newUrl = basePath + '?';
+
+        // Копируем ВСЕ параметры из текущего фильтра
+        params.forEach(function(value, key) {
+            // Пропускаем только старый sort, если он есть
+            if (key !== 'sort') {
+                newUrl += key + '=' + encodeURIComponent(value) + '&';
+            }
+        });
+
+        // Добавляем новую сортировку
+        newUrl += 'sort=' + sortValue;
+
+        // Убираем последний &
+        if (newUrl.endsWith('&')) newUrl = newUrl.slice(0, -1);
+
+        // Устанавливаем href через нативный DOM (самое важное!)
+        $link[0].href = newUrl;
+
+        console.log(`Сортировка ${sortValue} →`, newUrl);
+    });
+}
 
 // ====================== ОБНОВЛЕНИЕ ПАГИНАЦИИ ======================
 function updatePaginationFromResult(result, url) {
