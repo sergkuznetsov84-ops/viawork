@@ -108,7 +108,6 @@
 	 */
 	var ACCESS_X = "X";
 
-
 	function getTypeSettings(prop)
 	{
 		let lp = BX.Landing.Main.getInstance();
@@ -380,10 +379,14 @@
 					showOptions.state = 'presets';
 				}
 
-				void BX.Landing.UI.Panel.FormSettingsPanel
-					.getInstance()
-					.show(showOptions)
-				;
+				const formSettingsPanelInstance = BX.Landing.UI.Panel.FormSettingsPanel.getInstance();
+				if (
+					formSettingsPanelInstance
+					&& element.ownerDocument === BX.Landing.PageObject.getEditorWindow().document
+				)
+				{
+					formSettingsPanelInstance.show(showOptions);
+				}
 			}
 		}
 
@@ -411,9 +414,7 @@
 		bind(top, "storage", this.onStorage);
 	};
 
-
 	BX.Landing.Block.storage = new BX.Landing.Collection.BlockCollection();
-
 
 	BX.Landing.Block.prototype = {
 		/**
@@ -581,11 +582,13 @@
 		createEvent: function(options)
 		{
 			return new BlockEvent({
+				blockId: this.id,
 				block: this.node,
 				node: !!options && !!options.node ? options.node : null,
+				content: this.content,
 				card: !!options && !!options.card ? options.card : null,
 				data: (!!options && options.data) || {},
-				onForceInit: this.forceInit.bind(this)
+				onForceInit: this.forceInit.bind(this),
 			});
 		},
 
@@ -1444,6 +1447,11 @@
 
 		onDesignerBlockClick: function()
 		{
+			BX.UI.Analytics.sendData({
+				tool: BX.Landing.Main.getAnalyticsCategoryByType(),
+				category: 'superblock',
+				event: 'open',
+			});
 			// get actual block content before designer edit
 			var oldContent = null;
 			BX.Landing.Backend.getInstance()
@@ -1488,20 +1496,25 @@
 									var newContent = response.content;
 									if (oldContent !== newContent)
 									{
+										BX.UI.Analytics.sendData({
+											tool: BX.Landing.Main.getAnalyticsCategoryByType(),
+											category: 'superblock',
+											event: 'save',
+										});
+
 										BX.Landing.History.getInstance().push();
 										this.reload().then(function()
 										{
 											fireCustomEvent("BX.Landing.Block:onDesignerBlockSave", [this.id]);
 										}.bind(this));
-										// analytic label on close
-										var metrika = new BX.Landing.Metrika(true);
-										metrika.sendLabel(
-											null,
-											"designerBlock",
-											"close" +
-											"&designed=" + (this.designed ? "Y" : "N") +
-											"&code=" + this.manifest.code
-										);
+									}
+									else
+									{
+										BX.UI.Analytics.sendData({
+											tool: BX.Landing.Main.getAnalyticsCategoryByType(),
+											category: 'superblock',
+											event: 'close',
+										});
 									}
 								}.bind(this));
 						}.bind(this)
@@ -3115,6 +3128,7 @@
 		 */
 		onStyleShow: function(selector = null)
 		{
+			this.sendDesignSliderAnalytics('site_editor');
 			BX.Landing.UI.Panel.EditorPanel.getInstance().hide();
 			BX.Landing.PageObject.getInstance().design()
 				.then((stylePanel) => {
@@ -3319,13 +3333,13 @@
 						items: typeSettings.items,
 						help: typeSettings.help,
 						onChange: onChange.bind(this),
-						onReset: onReset.bind(this)
+						onReset: onReset.bind(this),
 					});
 
 					// when field changed
 					function onChange(value, items, postfix, affect) {
 						// false handler by some fields events
-						if (value instanceof  BX.Event.BaseEvent)
+						if (value instanceof BX.Event.BaseEvent)
 						{
 							return;
 						}
@@ -4399,6 +4413,7 @@
 
 			BX.Landing.PageObject.getInstance().design()
 				.then((stylePanel) => {
+					this.sendDesignSliderAnalytics('form_editor');
 					if (formSelector)
 					{
 						this.showStylePanel(formSelector, stylePanel.blockId);
@@ -6159,6 +6174,20 @@
 			}
 
 			return true;
+		},
+
+		/**
+		 * Sends analytics event for design slider opening with custom c_section
+		 * @param {string} cSection - The section name for analytics (e.g., 'site_editor', 'forms_editor')
+		 */
+		sendDesignSliderAnalytics: function(cSection)
+		{
+			BX.UI.Analytics.sendData({
+				tool: BX.Landing.Main.getAnalyticsCategoryByType(),
+				category: 'design_slider',
+				event: 'open',
+				c_section: cSection,
+			});
 		},
 	};
 })();

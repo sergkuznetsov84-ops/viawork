@@ -25,7 +25,8 @@ class Repo
 	public static function checkContent($content, $splitter = '#SANITIZE#')
 	{
 		$result = new PublicActionResult();
-		$content = Manager::sanitize(
+		$bad = false;
+		$content = (new Landing\Sanitizer())->sanitizeText(
 			$content,
 			$bad,
 			$splitter
@@ -51,6 +52,7 @@ class Repo
 		$error = new \Bitrix\Landing\Error;
 
 		static::onRegisterCheckFields($fields, $error);
+		static::onRegisterCheckManifest($manifest);
 		static::onRegisterBefore($fields, $manifest, $error);
 		if (!empty($error->getErrors()))
 		{
@@ -95,11 +97,9 @@ class Repo
 
 		if (isset($fields['CONTENT']))
 		{
-			// sanitize content
-			$fields['CONTENT'] = Manager::sanitize(
-				$fields['CONTENT'],
-				$bad
-			);
+			$sanitizer = new Landing\Sanitizer();
+			$bad = false;
+			$fields['CONTENT'] = $sanitizer->sanitizeText($fields['CONTENT'], $bad);
 			if ($bad)
 			{
 				$error->addError(
@@ -129,7 +129,8 @@ class Repo
 							{
 								if (isset($preset[$code]))
 								{
-									$preset[$code] = Manager::sanitize(
+									$bad = false;
+									$preset[$code] = $sanitizer->sanitizeText(
 										$preset[$code],
 										$bad
 									);
@@ -239,6 +240,19 @@ class Repo
 					Loc::getMessage('LANDING_FIELD_NO_EXISTS', ['#field#' => $field])
 				);
 			}
+		}
+	}
+
+	/**
+	 * Check manifest
+	 * @param array $manifest
+	 * @return void
+	 */
+	protected static function onRegisterCheckManifest(array &$manifest): void
+	{
+		if (isset($manifest['assets']['class']))
+		{
+			unset($manifest['assets']['class']);
 		}
 	}
 

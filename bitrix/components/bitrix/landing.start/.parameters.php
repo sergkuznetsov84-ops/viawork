@@ -1,17 +1,25 @@
 <?php
-if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED!==true)
+
+use Bitrix\Landing\Copilot\Services\NameService;
+use Bitrix\Landing\Manager;
+use Bitrix\Landing\Site;
+use Bitrix\Main\Loader;
+
+if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
 {
 	die();
 }
 
-if (\Bitrix\Main\Loader::includeModule('landing'))
+if (Loader::includeModule('landing'))
 {
-	$types = \Bitrix\Landing\Site::getTypes();
+	$types = Site::getTypes();
 }
 else
 {
 	$types = array();
 }
+
+$sefModeAiName =
 
 $arComponentParameters = Array(
 	'PARAMETERS' => array(
@@ -195,12 +203,17 @@ $arComponentParameters = Array(
 				'NAME' => getMessage('LANDING_CMP_PAR_SM_FOLDER_EDIT'),
 				'DEFAULT' => 'folder/edit/#folder_edit#/',
 				'VARIABLES' => array('folder_edit')
-			)
+			),
+			'ai' => array(
+				'NAME' => NameService::replaceCopilotName(getMessage('LANDING_CMP_PAR_SM_AI_MSGVER_1')),
+				'DEFAULT' => 'ai/',
+				'VARIABLES' => array()
+			),
 		)
 	)
 );
 
-if (!\Bitrix\Landing\Manager::isB24())
+if (!Manager::isB24())
 {
 	unset($arComponentParameters['PARAMETERS']['SHOW_MENU']);
 }

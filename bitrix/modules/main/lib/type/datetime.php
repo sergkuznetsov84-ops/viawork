@@ -99,6 +99,16 @@ class DateTime extends Date
 	}
 
 	/**
+	 * Returns timezone offset.
+	 *
+	 * @return int
+	 */
+	public function getOffset(): int
+	{
+		return $this->value->getOffset();
+	}
+
+	/**
 	 * Returns timezone object.
 	 *
 	 * @return \DateTimeZone
@@ -158,11 +168,7 @@ class DateTime extends Date
 		$this->setDefaultTimeZone();
 
 		//second, adjust time according global timezone offset
-		static $diff = null;
-		if ($diff === null)
-		{
-			$diff = \CTimeZone::GetOffset();
-		}
+		$diff = \CTimeZone::GetOffset(null, false, $this);
 		if ($diff <> 0)
 		{
 			$this->add(($diff < 0 ? "-" : "") . "PT" . abs($diff) . "S");
@@ -193,11 +199,7 @@ class DateTime extends Date
 
 		if (\CTimeZone::Enabled())
 		{
-			static $diff = null;
-			if ($diff === null)
-			{
-				$diff = \CTimeZone::GetOffset();
-			}
+			$diff = \CTimeZone::GetOffset(null, false, $time);
 			if ($diff <> 0)
 			{
 				$time->add(($diff > 0 ? "-" : "") . "PT" . abs($diff) . "S");

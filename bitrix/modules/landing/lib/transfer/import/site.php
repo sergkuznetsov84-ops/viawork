@@ -2,14 +2,15 @@
 namespace Bitrix\Landing\Transfer\Import;
 
 use Bitrix\Landing\History;
+use Bitrix\Landing\Metrika;
 use Bitrix\Main\Loader;
 use Bitrix\Main\Event;
 use Bitrix\Main\ORM\Data\AddResult;
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\ModuleManager;
+use Bitrix\Main\Web\Json;
 use Bitrix\Rest\Marketplace;
 use Bitrix\Rest\Configuration;
-use Bitrix\Intranet\Integration;
 use Bitrix\Landing\Hook\Page\Copyright;
 use Bitrix\Landing\Hook\Page\B24button;
 use Bitrix\Landing\Rights;
@@ -232,7 +233,7 @@ class Site
 		Type::setScope($data['TYPE']);
 		if ($data['TYPE'] === 'MAINPAGE')
 		{
-			(new \Bitrix\Landing\Mainpage\Manager())->markStartCreation();
+			(new \Bitrix\Landing\Mainpage\Manager())->onStartPageCreation();
 		}
 
 		if ($isReplace && !$isPageStep)
@@ -603,7 +604,6 @@ class Site
 				self::onFinishReplaceSite($event);
 			}
 
-
 			// index page for multipage, or just once - for sigle page import
 			$mainPageId = null;
 			if (!empty($landings))
@@ -792,19 +792,19 @@ class Site
 				'href' => '#' . $siteId,
 				'target' => '_top',
 			];
+			$linkText = Loc::getMessage('LANDING_IMPORT_FINISH_GOTO_SITE');
 			if ($mainPageId)
 			{
 				$linkAttrs['data-is-landing'] = 'Y';
 				$linkAttrs['data-landing-id'] = $mainPageId;
+				$linkText = Loc::getMessage('LANDING_IMPORT_FINISH_GOTO_PAGE');
 			}
-			$linkText = Loc::getMessage('LANDING_IMPORT_FINISH_GOTO_SITE');
 			if ($siteType === 'KNOWLEDGE')
 			{
 				$linkAttrs['href'] = \Bitrix\Landing\Site::getPublicUrl($siteId);
 			}
 			elseif ($siteType === 'PAGE' && empty($additional))
 			{
-				$linkText = Loc::getMessage('LANDING_IMPORT_FINISH_GOTO_PAGE');
 				$url = Manager::getOption('tmp_last_show_url', '');
 				if ($url === '' && ModuleManager::isModuleInstalled('bitrix24'))
 				{
@@ -831,11 +831,8 @@ class Site
 				if (Loader::includeModule('intranet'))
 				{
 					$manager = new \Bitrix\Landing\Mainpage\Manager();
-					$manager->markEndCreation();
-					if (!$manager->isExistDefaultSocialGroupForPublication())
-					{
-						$manager->createDefaultSocialGroupForPublication();
-					}
+					$manager->onFinishPageCreation();
+
 					$linkAttrs['href'] = Scope\Mainpage::getPublicationPath() ?? '/';
 				}
 			}
@@ -870,40 +867,30 @@ class Site
 
 			if (
 				!empty($additional)
-				&& array_key_exists('st_category', $additional)
+				&& array_key_exists('st_tool', $additional)
 				&& array_key_exists('st_event', $additional)
+				&& Metrika\Tools::tryFrom($additional['st_tool'])
+				&& Metrika\Events::tryFrom($additional['st_event'])
 			)
 			{
-				$analyticData = [
-					'category' => $additional['st_category'],
-					'event' => $additional['st_event'],
-					'status' => 'success',
-				];
+				$tool = $additional['st_tool'];
+				$metrika = new Metrika\Metrika(
+					Metrika\Categories::tryFrom($tool),
+					Metrika\Events::tryFrom($additional['st_event']),
+					Metrika\Tools::tryFrom($tool),
+				);
+				$metrika->setStatus(Metrika\Statuses::Success);
+				$metrika->setType(Metrika\Types::template);
+
 				if (array_key_exists('st_section', $additional))
 				{
-					$analyticData['c_section'] = $additional['st_section'];
+					$metrika->setSection(Metrika\Sections::tryFrom($additional['st_section']));
 				}
-				if (array_key_exists('st_element', $additional))
-				{
-					$analyticData['c_element'] = $additional['st_element'];
-				}
-				if (array_key_exists('app_code', $additional))
-				{
-					$analyticData['params'] = [
-						'appCode' => $additional['app_code'],
-					];
-				}
-
-				$script = "if (typeof BX.Landing.Metrika !== 'undefined') {";
-				$script  .= "const metrika = new BX.Landing.Metrika(true);";
-				$script  .= "metrika.sendData(" . \CUtil::PhpToJSObject($analyticData) . ")";
-				$script  .= "}";
-				$domList[] = [
-					'TAG' => 'script',
-					'DATA' => [
-						'html' => $script,
-					],
-				];
+				$metrika
+					->setParam(1, 'appCode', $additional['appCode'] ?? '')
+					->setParam(3, 'siteId', $siteId)
+					->send()
+				;
 			}
 
 			return [

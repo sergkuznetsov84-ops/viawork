@@ -17,6 +17,7 @@ $MESS['LANDING_CMP_PAR_SM_SITE_CONTACTS'] = 'Страница настроек �
 $MESS['LANDING_CMP_PAR_SM_SITE_DOMAIN'] = 'Страница редактирования домена сайта';
 $MESS['LANDING_CMP_PAR_SM_SITE_DOMAIN_SWITCH'] = 'Страница передачи домена другому сайту';
 $MESS['LANDING_CMP_PAR_SM_SITE_COOKIES'] = 'Страница редактирования Cookies';
+$MESS['LANDING_CMP_PAR_SM_AI_MSGVER_1'] = 'Сайт с #COPILOT_NAME#';
 $MESS['LANDING_CMP_PAR_SM_LANDING_EDIT'] = 'Страница редактирования лендинга';
 $MESS['LANDING_CMP_PAR_SM_LANDING_DESIGN'] = 'Страница дизайна лендинга';
 $MESS['LANDING_CMP_PAR_SM_LANDING_VIEW'] = 'Страница просмотра/наполнения лендинга';

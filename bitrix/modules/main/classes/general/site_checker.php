@@ -2,6 +2,7 @@
 
 use Bitrix\Main\Application;
 use Bitrix\Main\ModuleTable;
+use Bitrix\Main\Service\Version\BitrixVm;
 
 class CSiteCheckerTest
 {
@@ -106,10 +107,11 @@ class CSiteCheckerTest
 
 		$arGroupName[8] = GetMessage("MAIN_SC_PERFORM");
 		$arGroupDesc[8] = '';
-		$arTestGroup[8] = [
-			['check_perf' => GetMessage("MAIN_SC_PERF_TEST")],
-			['check_compression' => GetMessage("MAIN_SC_COMPRESSION_TEST")],
-		];
+		if (!IsModuleInstalled('bitrix24'))
+		{
+			$arTestGroup[8][] = ['check_perf' => GetMessage("MAIN_SC_PERF_TEST")];
+		}
+		$arTestGroup[8][] = ['check_compression' => GetMessage("MAIN_SC_COMPRESSION_TEST")];
 
 		$arGroupName[16] = GetMessage('SC_GR_EXTENDED');
 		$arTestGroup[16] = [
@@ -612,35 +614,18 @@ class CSiteCheckerTest
 
 		if (IsModuleInstalled('intranet'))
 		{
-			$vm = getenv('BITRIX_VA_VER');
-			if (!$vm)
+			$vm = new BitrixVm();
+			$vmVer = $vm->getVersion();
+			if (!$vmVer)
 			{
 				$strError .= GetMessage('ERR_NO_VM') . "<br>";
 			}
 			else
 			{
-				$last_version = '7.3.0';
-				$tmp = $_SERVER['DOCUMENT_ROOT'] . '/bitrix/tmp/bitrix-env.version';
-				if (!file_exists($tmp) || time() - filemtime($tmp) > 86400)
+				$vmAvailableVer = $vm->getAvailableVersion();
+				if (version_compare($vmVer, $vmAvailableVer, '<'))
 				{
-					$http = new \Bitrix\Main\Web\HttpClient([
-						"socketTimeout" => 5,
-						"streamTimeout" => 5,
-					]);
-					$http->download('https://repos.1c-bitrix.ru/yum/bitrix-env.version', $tmp);
-				}
-
-				if (file_exists($tmp))
-				{
-					$last_version_remote = str_replace('-', '.', file_get_contents($tmp));
-					if (version_compare($last_version_remote, $last_version, '>'))
-					{
-						$last_version = $last_version_remote;
-					}
-				}
-				if (version_compare($vm, $last_version, '<'))
-				{
-					$strError .= GetMessage('ERR_OLD_VM', ['#CURRENT#' => $vm, '#LAST_VERSION#' => $last_version]) . "<br>";
+					$strError .= GetMessage('ERR_OLD_VM', ['#CURRENT#' => $vmVer, '#LAST_VERSION#' => $vmAvailableVer]) . "<br>";
 				}
 			}
 		}
@@ -1100,14 +1085,14 @@ class CSiteCheckerTest
 		}
 		else
 		{
-			$boundary = '--------' . md5(checker_get_unique_id());
+			$boundary = 'BXC' . uniqid('', true);
 
 			$POST = "--$boundary\r\n";
 			$POST .= 'Content-Disposition: form-data; name="test_file"; filename="site_checker.bin"' . "\r\n";
 			$POST .= 'Content-Type: image/gif' . "\r\n";
 			$POST .= "\r\n";
 			$POST .= $binaryData . "\r\n";
-			$POST .= "--$boundary\r\n";
+			$POST .= "--$boundary--\r\n";
 		}
 
 		$strRequest = "POST " . "/bitrix/admin/site_checker.php?test_type=upload_test&unique_id=" . checker_get_unique_id() . "&big=" . ($big ? 1 : 0) . "&raw=" . ($raw ? 1 : 0) . " HTTP/1.1\r\n";
@@ -1671,9 +1656,7 @@ class CSiteCheckerTest
 		}
 		else
 		{
-			$region = Application::getInstance()->getLicense()->getRegion();
-
-			if (in_array($region, ['ru', 'by', 'kz']))
+			if (Application::getInstance()->getLicense()->isCis())
 			{
 				$host = "turn.bitrix24.tech";
 			}
@@ -1773,7 +1756,7 @@ class CSiteCheckerTest
 			return $this->Result(false, GetMessage("MAIN_SC_NO_WEBDAV_MODULE"));
 		}
 
-		if ($this->arTestVars['check_socket_fail'])
+		if (!empty($this->arTestVars['check_socket_fail']))
 		{
 			return $this->Result(null, GetMessage('SC_SOCK_NA'));
 		}
@@ -2290,19 +2273,6 @@ class CSiteCheckerTest
 		return false;
 	}
 
-	function check_method_exists()
-	{
-		$strRequest = "GET " . "/bitrix/admin/site_checker.php?test_type=method_exists&unique_id=" . checker_get_unique_id() . " HTTP/1.1\r\n";
-		$strRequest .= "Host: " . $this->host . "\r\n";
-		$strRequest .= "\r\n";
-
-		if ($res = $this->ConnectToHost())
-		{
-			return IsHttpResponseSuccess($res, $strRequest);
-		}
-		return false;
-	}
-
 	function check_bx_crontab()
 	{
 		$connection = Application::getConnection();
@@ -2373,7 +2343,7 @@ class CSiteCheckerTest
 		$connection = Application::getConnection();
 		$strError = '';
 
-		if ($this->arTestVars['check_mbstring_fail'])
+		if (!empty($this->arTestVars['check_mbstring_fail']))
 		{
 			return $this->Result(null, GetMessage('SC_MBSTRING_NA'));
 		}
@@ -3745,13 +3715,26 @@ function GetHttpResponse($res, $strRequest, &$strHeaders)
 
 function checker_get_unique_id()
 {
-	$LICENSE_KEY = '';
-	@include($_SERVER['DOCUMENT_ROOT'] . '/bitrix/license_key.php');
-	if ($LICENSE_KEY == '')
+	$files = [
+		'/bitrix/license_key.php',
+		'/local/.settings.php',
+		'/bitrix/.settings.php',
+		'/local/.settings_extra.php',
+		'/bitrix/.settings_extra.php',
+	];
+
+	$content = '';
+
+	foreach ($files as $file)
 	{
-		$LICENSE_KEY = 'DEMO';
+		$file = $_SERVER['DOCUMENT_ROOT'] . $file;
+		if (file_exists($file))
+		{
+			$content .= file_get_contents($file) . filemtime($file);
+		}
 	}
-	return md5($_SERVER['DOCUMENT_ROOT'] . filemtime($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/admin/site_checker.php') . $LICENSE_KEY);
+
+	return hash('sha256', $content);
 }
 
 function getCharsetByCollation($collation)

@@ -2,8 +2,10 @@
 namespace Bitrix\Landing;
 
 use \Bitrix\Landing\Internals\RightsTable;
+use \Bitrix\Main\Config\Option;
 use \Bitrix\Main\Localization\Loc;
 use \Bitrix\Main\UserAccessTable;
+use Bitrix\Crm\Service\Container;
 
 Loc::loadMessages(__FILE__);
 
@@ -866,7 +868,14 @@ class Rights
 			}
 
 			// set new rights in option
-			Manager::setOption('access_codes_' . $code, $right ? serialize($right) : '');
+			if (empty($right) && $code === self::ADDITIONAL_RIGHTS['group_menu24'])
+			{
+				Option::delete('landing', ['name' => 'access_codes_' . $code]);
+			}
+			else
+			{
+				Manager::setOption('access_codes_' . $code, $right ? serialize($right) : '');
+			}
 
 			// clear menu cache
 			if (Manager::isB24())
@@ -991,8 +1000,8 @@ class Rights
 		// has context user access to crm forms
 		if (\Bitrix\Main\Loader::includeModule('crm'))
 		{
-			$access = new \CCrmPerms(self::getContextUserId());
-			if (!$access->havePerm('WEBFORM', BX_CRM_PERM_NONE, 'WRITE'))
+			$crmUserPermissions = Container::getInstance()->getUserPermissions(self::getContextUserId());
+			if ($crmUserPermissions->webForm()->canEdit())
 			{
 				// grant access to crm forms sites
 				$res = Site::getList([
@@ -1074,16 +1083,29 @@ class Rights
 			}
 
 			$accessCodes = [];
-			if (!isset($options[$code]))
+
+			static $optionsRaw = [];
+			if (!array_key_exists($code, $options))
 			{
-				$options[$code] = Manager::getOption('access_codes_' . $code, '');
-				$options[$code] = unserialize($options[$code], ['allowed_classes' => false]);
+				$optionsRaw[$code] = Manager::getOption('access_codes_' . $code);
+				if ($optionsRaw[$code] === null)
+				{
+					$options[$code] = null;
+				}
+				else if ($optionsRaw[$code] === '')
+				{
+					$options[$code] = [];
+				}
+				else
+				{
+					$options[$code] = unserialize($optionsRaw[$code], ['allowed_classes' => false]);
+				}
 			}
 			$option = $options[$code];
 
-			if (!is_array($option) && !$strict)
+			if (!is_array($option))
 			{
-				return true;
+				return $optionsRaw[$code] === null && !$strict;
 			}
 
 			if (empty($option))
