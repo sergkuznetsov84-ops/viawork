@@ -278,6 +278,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH."/src/js"?>/lib.min.js" id="nurus-lib-js"></script>
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH."/src/js"?>/core.min.js" id="nurus-core-js"></script>
+<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH."/src/js"?>/filter.js" id="nurus-filter-js"></script>
 <script type="text/javascript" src="<?=SITE_TEMPLATE_PATH."/src/js"?>/header-menu-fix.js"></script>
 
 <!--<script data-minify="1" type="text/javascript" src="<?=SITE_TEMPLATE_PATH."/src/js"?>/core.js" id="nurus-ajax-js"></script>-->
