@@ -5,6 +5,8 @@ $iblockId = 2;
 $ID_PRODUCTS = 5; 
 $ID_PARTNERS = 6; 
 $ID_SUBSECTIONS = [7, 8]; 
+// Разделы, которые мы выведем вручную в блоке "Все товары"
+$staticSectionIds = [254, 248, 253]; 
 
 if (!function_exists('buildCatalogMenuUrl')) {
     function buildCatalogMenuUrl($sectionCodePath = '', $elementCode = '') {
@@ -33,9 +35,11 @@ if (!function_exists('buildSectionCodePath')) {
 
 $sectionsById = array();
 $codePathCache = array();
+
+// ФИКС: Убрали ID 248, 253, 254 из исключений, чтобы Битрикс их загрузил
 $dbSections = CIBlockSection::GetList(
     array('SORT' => 'ASC'),
-    array('IBLOCK_ID' => $iblockId, 'ACTIVE' => 'Y', '!ID' => array(32, 248, 253, 254)),
+    array('IBLOCK_ID' => $iblockId, 'ACTIVE' => 'Y', '!ID' => array(32)),
     false,
     array('ID', 'NAME', 'CODE', 'IBLOCK_SECTION_ID', 'UF_ICON', 'UF_SHOW_IN_MENU', 'UF_LINK')
 );
@@ -49,7 +53,6 @@ while ($arSect = $dbSections->GetNext()) {
     $sectionsById[(int)$arSect['ID']] = $arSect;
 }
 
-// Элементы для раздела 5
 $elementsFor5 = [];
 $resElements = CIBlockElement::GetList(
     array('SORT' => 'ASC'),
@@ -67,7 +70,9 @@ while ($obEl = $resElements->GetNext()) {
 
 $arResult['CATALOG_DROPDOWN'] = [];
 foreach ($sectionsById as $id => $sect) {
-    if ((int)$sect['IBLOCK_SECTION_ID'] == 0) {
+    // ФИКС: Добавили проверку !in_array($id, $staticSectionIds)
+    // Чтобы разделы "Аксессуары" и др. не создавали свои колонки в начале меню
+    if ((int)$sect['IBLOCK_SECTION_ID'] == 0 && !in_array($id, $staticSectionIds)) {
         $subItems = [];
         if ($id == $ID_PRODUCTS) $subItems = $elementsFor5;
         
@@ -75,14 +80,12 @@ foreach ($sectionsById as $id => $sect) {
             foreach ($sectionsById as $subId => $subSect) {
                 if ((int)$subSect['IBLOCK_SECTION_ID'] == $id && $subSect['UF_SHOW_IN_MENU'] == 1) {
                     $sCode = buildSectionCodePath($subId, $sectionsById, $codePathCache);
-                    // Ссылка подраздела (для 6-го раздела берем UF_LINK)
                     $url = ($id == $ID_PARTNERS && !empty($subSect['UF_LINK'])) ? $subSect['UF_LINK'] : buildCatalogMenuUrl($sCode);
                     $subItems[] = ['NAME' => $subSect['NAME'], 'URL' => $url, 'TARGET' => ($id == $ID_PARTNERS) ? '_blank' : ''];
                 }
             }
         }
 
-        // Ссылка САМОГО раздела (для 6-го раздела берем UF_LINK)
         $rootUrl = ($id == $ID_PARTNERS && !empty($sect['UF_LINK'])) 
                    ? $sect['UF_LINK'] 
                    : buildCatalogMenuUrl(buildSectionCodePath($id, $sectionsById, $codePathCache));
@@ -98,9 +101,8 @@ foreach ($sectionsById as $id => $sect) {
     }
 }
 
-$staticSectionIds = [254, 248, 253]; // Аксессуары, Хранение, Серия для руководителей
+// Формируем массив разделов для блока "Все товары" в конце
 $arResult['STATIC_SECTIONS'] = [];
-
 foreach ($staticSectionIds as $sId) {
     if (isset($sectionsById[$sId])) {
         $sCodePath = buildSectionCodePath($sId, $sectionsById, $codePathCache);
