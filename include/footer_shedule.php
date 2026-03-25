@@ -4,13 +4,13 @@
 	</div>
 	<div class="links" >
 		<?php if(defined('LANGUAGE_ID') && LANGUAGE_ID === 'ru'): ?>
-			<a href="<?=SITE_DIR?>#">Доступно: Пн–Сб</a>
-			<a href="<?=SITE_DIR?>#">08.00 - 17.30 (GMT +03)</a>
-				<a href="<?=SITE_DIR?>#">Электронная почта</a>
+			<a>Доступно: Пн–Сб</a>
+			<a>08.00 - 17.30 (GMT +03)</a>
+				<a href="mailto:info@nurus.com.tr">Электронная почта</a>
 		<?php else: ?>
-			<a href="<?=SITE_DIR?>#">Available: Mon-Sat</a>
-			<a href="<?=SITE_DIR?>#">08.00 - 17.30 (GMT +03)</a>
-			<a href="<?=SITE_DIR?>#">Email</a>
+			<a>Available: Mon-Sat</a>
+			<a>08.00 - 17.30 (GMT +03)</a>
+			<a href="mailto:info@nurus.com.tr">Email</a>
 		<?php endif; ?>
 	</div>
 </div>
