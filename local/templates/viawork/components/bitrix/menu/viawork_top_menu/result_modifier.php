@@ -97,4 +97,17 @@ foreach ($sectionsById as $id => $sect) {
         ];
     }
 }
+
+$staticSectionIds = [254, 248, 253]; // Аксессуары, Хранение, Серия для руководителей
+$arResult['STATIC_SECTIONS'] = [];
+
+foreach ($staticSectionIds as $sId) {
+    if (isset($sectionsById[$sId])) {
+        $sCodePath = buildSectionCodePath($sId, $sectionsById, $codePathCache);
+        $arResult['STATIC_SECTIONS'][] = [
+            'NAME' => $sectionsById[$sId]['NAME'],
+            'URL' => buildCatalogMenuUrl($sCodePath)
+        ];
+    }
+}
 ?>
