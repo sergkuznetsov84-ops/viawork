@@ -8,7 +8,7 @@ jQuery(document).ready(function($) {
     });
 
     // Выбор сортировки
-    $('.comp-24-filters-sort-options a').on('click', function(e) {
+    /*$('.comp-24-filters-sort-options a').on('click', function(e) {
         e.preventDefault();
 
         const newSort = $(this).attr('id').replace('sort-option_', '');
@@ -28,7 +28,7 @@ jQuery(document).ready(function($) {
 
         // Запускаем AJAX
         loadProductsWithSort();
-    });
+    });*/
 
     // ====================== AJAX ДЛЯ БИТРИКС ======================
     function loadProductsWithSort() {
