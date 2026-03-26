@@ -25052,7 +25052,8 @@ section.handoff-footer .handoff-footer-contain a:hover {
 @media only screen and (min-width:320px) and (max-width:991px) {
   main {
     /*padding-top: 102px*/
-    padding-top: 29px
+    padding-top: 29px;
+    padding-top: 68px;
   }
 
   /*main.main-home {
@@ -38005,3 +38006,4 @@ html[lang="ru"] body {
     padding: 32px 0 24px;
   }
 }
+
