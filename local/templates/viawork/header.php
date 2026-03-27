@@ -264,7 +264,7 @@ Asset::getInstance()->addString('<link href="https://fonts.googleapis.com/css2?f
 				</div>
 			</div>
 			<div class="header-main-end" >
-			<?$APPLICATION->IncludeComponent("bitrix:search.title","",Array(
+			<?/*$APPLICATION->IncludeComponent("bitrix:search.title","",Array(
 					"SHOW_INPUT" => "Y",
 					"INPUT_ID" => "title-search-input",
 					"CONTAINER_ID" => "title-search",
@@ -291,7 +291,7 @@ Asset::getInstance()->addString('<link href="https://fonts.googleapis.com/css2?f
 					"CATEGORY_0_iblock_books" => "all",
 					"CATEGORY_OTHERS_TITLE" => ""
 				)
-			);?>
+			);*/?>
   <?$APPLICATION->IncludeComponent(
 		"bitrix:main.include",
 		"",
