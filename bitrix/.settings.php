@@ -38,9 +38,9 @@ return array (
       'default' => 
       array (
         'host' => 'localhost',
-        'database' => 'iwdev18_via',
-        'login' => 'iwdev18_via',
-        'password' => 'O61%NycW*zSX',
+        'database' => 'iwdev19_via',
+        'login' => 'iwdev19_via',
+        'password' => 'g!D9TGQ6kRWJ',
         'options' => 2.0,
         'className' => '\\Bitrix\\Main\\DB\\MysqliConnection',
       ),
