@@ -38007,3 +38007,64 @@ html[lang="ru"] body {
   }
 }
 
+@media only screen and (max-width: 991px) {
+    .list-group-main, .list-group-inner {        
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch; 
+    }
+    .comp-13-content .comp-13-tab .list-group-main,
+    .comp-13-content .comp-13-tab .inner-tab .list-group-inner {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        
+        justify-content: center !important; 
+        justify-content: safe center !important; 
+        
+        padding: 10px 5px !important;        
+        max-width: 100% !important;
+        width: 100% !important;       
+       
+        scrollbar-width: none; 
+        -ms-overflow-style: none; 
+    }
+
+    .comp-13-content .comp-13-tab .list-group-main::-webkit-scrollbar,
+    .comp-13-content .comp-13-tab .inner-tab .list-group-inner::-webkit-scrollbar {
+        display: none;
+    }
+
+    .comp-13-content .comp-13-tab .list-group-main a,
+    .comp-13-content .comp-13-tab .inner-tab .list-group-inner a {
+        flex-shrink: 0 !important; 
+        white-space: nowrap !important;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+    }
+   
+    .comp-13-content .comp-13-tab .list-group-main {
+        gap: 16px !important;
+    }
+
+    .comp-13-content .comp-13-tab .inner-tab .list-group-inner {
+        gap: 30px !important;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .comp-13-content .comp-13-tab .inner-tab .list-group-inner a.active {
+        font-weight: 500;
+        position: relative;
+    }
+    
+    .comp-13-content .comp-13-tab .inner-tab .list-group-inner a.active::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: #25282A;
+    }
+}
