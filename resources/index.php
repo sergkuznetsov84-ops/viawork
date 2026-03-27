@@ -126,6 +126,7 @@ $APPLICATION->SetTitle("Документы");
                     </div>
 					<div class="comp-105-content-filters">
                     	<div class="comp-105-filters">
+							<div class="mobile-overlay" ></div>
 							<div class="row">
 								
 								<?

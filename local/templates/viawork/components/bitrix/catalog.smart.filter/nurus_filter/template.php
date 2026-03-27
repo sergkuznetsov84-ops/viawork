@@ -160,7 +160,9 @@ $templateData = array(
 									</i>
 								</a>
 							</div>
-							<span><?=htmlspecialcharsbx($arItem["NAME"])?></span>
+							<div class="list-head-title">
+								<span><?=htmlspecialcharsbx($arItem["NAME"])?></span>
+							</div>
 							<div class="close-btn">
 								<a href="javascript:;">
 									<i>
@@ -173,7 +175,8 @@ $templateData = array(
 							</div>
 						</div>
 						<div class="list-content">
-							<div class="list-content-item-sublist show">
+							<div class="list-content-item direct-terms">
+							<!--<div class="list-content-item-sublist show">-->
 								<div class="list-content-item-sublist-body">
 									<?foreach($arItem["VALUES"] as $val => $ar):?>
 										<div class="list-content-item-sublist-body-item">
