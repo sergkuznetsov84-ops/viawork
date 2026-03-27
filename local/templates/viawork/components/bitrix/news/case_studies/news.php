@@ -41,7 +41,7 @@ $this->setFrameMode(true);
 	</i>
 </div>
 
-<div class="filter-btns reached-left fadeInUp-scroll visible reached-right" data-delay="300" style="height:175px;" >
+<div class="filter-btns reached-left fadeInUp-scroll visible reached-right" data-delay="300" >
 	<div class="prev-btn" >
 		<a href="javascript:;">
 			<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
